@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
         TouchableWithoutFeedback, Keyboard} from 'react-native'
+import {FontAwesome} from '@/expo/vector-icons'
 import {styles} from '../styles_global/styles'
 export default function BMICalc(){
   return(
@@ -22,17 +23,24 @@ export default function BMICalc(){
           <View style={styles.formContain}>
             {/*This is input contain*/}
             <View style={styles.inputContain}>
-              <TextInput
-                placeholder = '0'
-              />
+              <View style={styles.titleInput}>
+                <Text style={styles.titleInputText}>Weight</Text>
+              </View>
+
+              <View style={styles.inputContent}>
+                <TextInput
+                  style={styles.input}
+                  placeholder = '0'
+                />
+              </View>
+
+              <View style={styles.unitContain}>
+                <Text style={styles.unitTitle}>Kg</Text>
+                <FontAwesome name="exchange" size={24} color="black" />
+              </View>
             </View>
             {/*end input contain*/}
 
-            {/*This is input contain*/}
-            <View style={styles.inputContain}>
-              <Text>Weight</Text>
-            </View>
-            {/*end input contain*/}
             <Text>This is including(gồm) 3 part : name, input and change unit</Text>
           </View>
           {/*end from contain*/}

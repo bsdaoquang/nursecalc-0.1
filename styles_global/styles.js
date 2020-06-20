@@ -35,10 +35,42 @@ export const styles = StyleSheet.create({
     marginTop: 30
   },
   inputContain:{
-    paddingVertical: 24,
+    paddingVertical: 15,
     borderBottomWidth: 1,
     borderStyle: 'solid',
     borderBottomColor: '#c1c1c1',
-    justifyContent:'center'
+    justifyContent:'center',
+    flexDirection: 'row',
+  },
+  titleInput:{
+    flex: 4,
+    justifyContent: 'center',
+    paddingVertical: 8
+  },
+  titleInputText:{
+    color: '#777',
+    fontSize: 16,
+    fontWeight: '300',
+    textAlign: 'left'
+  },
+  inputContent:{
+    flex: 4,
+  },
+  input:{
+    flex: 1,
+    flexDirection: 'row',
+    borderColor: '#777',
+    borderBottomWidth: 1,
+    textAlign: 'right',
+    paddingHorizontal: 8
+  },
+  unitContain:{
+    flex: 2,
+    paddingHorizontal: 8,
+    paddingVertical: 8
+  },
+  unitTitle:{
+    color: '#777',
+    fontFamily: 'sans-serif'
   }
 })
