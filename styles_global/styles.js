@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
 
   /*style form contain*/
   formContain:{
-    marginTop: 30
+    marginTop: 10
   },
   inputContain:{
     paddingVertical: 15,
