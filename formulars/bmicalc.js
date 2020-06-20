@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
         TouchableWithoutFeedback, Keyboard} from 'react-native'
 import {styles} from '../styles_global/styles'
+import { FontAwesome } from '@expo/vector-icons'
+
 export default function BMICalc(){
   return(
     <KeyboardAvoidingView style={styles.container}>
@@ -34,7 +36,10 @@ export default function BMICalc(){
               </View>
 
               <View style={styles.unitContain}>
-                <Text style={styles.unitTitle}>Kg</Text>
+                <View style={styles.unitContainFlexDir}>
+                  <Text style={styles.unitTitle}>Kg</Text>
+                  <FontAwesome name = 'exchange' size={20} color = 'coral'/>
+                </View>
               </View>
             </View>
             {/*end input contain*/}

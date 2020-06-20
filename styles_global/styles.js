@@ -69,8 +69,13 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 8
   },
+  unitContainFlexDir:{
+    flex:1,
+    flexDirection: 'row'
+  },
   unitTitle:{
     color: '#777',
-    fontFamily: 'sans-serif'
-  }
+    fontFamily: 'sans-serif',
+    marginRight: 18
+  },
 })
