@@ -10,63 +10,44 @@ export default function BMICalc(){
     const [height, setHeight] = useState(height)
     const [weight, setWeight] = useState(weight)
 
-    var ketqua = ''
-    var [unitWeight, setUnitWeight] =  useState('lbs')
-    var [unitHeight, setUnitHeight] = useState('In')
     var bmi = 0
-    var strWeight = ''
-    var strHeight = ''
-    var intWeight = 0
-    var intHeight = 0
-
-    //change unit
-    const changeUnitWeight = () => {
-      if (unitWeight == 'Kg') {
-        setUnitWeight('lbs')
-        strWeight = ((weight* 2.205).toFixed(2)).toString()
-        setWeight(strWeight)
-      }
-      if (unitWeight == 'lbs') {
-        setUnitWeight('Kg')
-        strWeight = ((weight/ 2.205).toFixed(2)).toString()
-        setWeight(strWeight)
-      }
-    }
-
-    const changeUnitHeight = () => {
-      if (unitHeight == 'Cm') {
-        setUnitHeight('In')
-        strHeight = ((height * 0.39370079).toFixed(2)).toString()
-        setHeight(strHeight)
-      }
-      if (unitHeight == 'In') {
-        setUnitHeight('Cm')
-        strHeight = ((height / 0.39370079).toFixed(2)).toString()
-        setHeight(strHeight)
-      }
-    }
-    //end change unit
-
-    //if unit = lbs or in -> change them to kg and cm
-    if (unitHeight == 'In') {
-      intHeight = (height / 0.39370079).toFixed(2)
-    }else{
-      intHeight = parseInt(height)
-    }
-
-    if (unitWeight == 'lbs') {
-      intWeight = (weight / 2.205).toFixed(2)
-    }else{
-      intWeight = parseInt(weight)
-    }
+    var unit = ''
+    var superUnit = ''
+    var rate = ''
 
     if (height != null && weight != null) {
       //change unit to kg, and m to Calculator
-      var heightMetter = intHeight/100
-      bmi = (intWeight/(heightMetter*heightMetter)).toFixed(1)
+      var heightMetter = height/100
+      bmi = (weight/(heightMetter*heightMetter)).toFixed(1)
+      unit = 'Kg/m'
+      superUnit = '2'
 
-    }else if (height == null || weight == nulls) {
-      bmi = 'Enter height and weight to Calculator'
+      //rate bmi for WHO
+      if (bmi < 18.5) {
+        rate = 'Thiếu cân'
+      }if (bmi > 18.5 && bmi < 24.9) {
+        rate = 'Trung bình'
+      }if (bmi > 25 && bmi < 29.9) {
+        rate = 'Thừa cân'
+      }if (bmi > 30 && bmi < 34.9) {
+        rate = 'Béo phì độ 1'
+      }if (bmi > 35 && bmi < 39.9) {
+        rate = 'Béo phì độ 2'
+      }if (bmi > 40) {
+        rate = 'Béo phì độ 3'
+      }
+
+      //BSA Calculator
+      //bsa = (height * weight)^1/2
+      // bsa = (Math.pow(((height * weight)/3600), 0.5)).toFixed(2)
+      // unitBSA = 'm'
+      // superUnitBSA = '2'
+      // rateBSA = 'Diện tích bề mặt'
+      //Để mai mốt tính, không quan trọng
+
+    }else if (height == null || weight == null) {
+      bmi = 'Result'
+      rate = 'Nhập cân nặng và chiều cao để tính'
     }
 
   return(
@@ -77,7 +58,7 @@ export default function BMICalc(){
           {/*This is header*/}
           <View style={styles.headerContain}>
             <Text style={styles.headerTitle}>BMI Calculator</Text>
-            <Text style={styles.headerSubTitle}>Body Mass Index (BMI)</Text>
+            <Text style={styles.headerSubTitle}>Chỉ số khối cơ thể (BMI)</Text>
           </View>
           {/*End header*/}
 
@@ -89,7 +70,7 @@ export default function BMICalc(){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>Weight</Text>
+                <Text style={styles.titleInputText}>Cân nặng</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -98,18 +79,12 @@ export default function BMICalc(){
                   placeholder = '0'
                   keyboardType = 'number-pad'
                   onChangeText = {weight => setWeight(weight)}
-                  value = {weight}
                   clearTextOnFocus
                 />
               </View>
 
-              <View style={styles.unitContain}>
-                <View style={styles.unitContainFlexDir}>
-                  <Text style={styles.unitTitle}>{unitWeight}</Text>
-                  <TouchableOpacity onPress = {changeUnitWeight}>
-                    <FontAwesome name = 'exchange' size={20} color = 'coral'/>
-                  </TouchableOpacity>
-                </View>
+              <View style={styles.unitContainInput}>
+                <Text style={styles.unitTitle}>Kg</Text>
               </View>
             </View>
             {/*end input contain*/}
@@ -122,7 +97,7 @@ export default function BMICalc(){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>Height</Text>
+                <Text style={styles.titleInputText}>Chiều cao</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -131,23 +106,43 @@ export default function BMICalc(){
                   placeholder = '0'
                   keyboardType = 'number-pad'
                   onChangeText = {height => setHeight(height)}
-                  value = {height}
+                  clearTextOnFocus
                 />
               </View>
 
-              <View style={styles.unitContain}>
-                <View style={styles.unitContainFlexDir}>
-                  <Text style={styles.unitTitle}>{unitHeight}</Text>
-                  <TouchableOpacity onPress = {changeUnitHeight}>
-                    <FontAwesome name = 'exchange' size={20} color = 'coral'/>
-                  </TouchableOpacity>
-                </View>
+              <View style={styles.unitContainInput}>
+                <Text style={styles.unitTitle}>Cm</Text>
               </View>
             </View>
-            <Text>{bmi}</Text>
             {/*end input contain*/}
           </View>
           {/*end from contain*/}
+
+          {/*This is result contain*/}
+          <View style={styles.resultContain}>
+            <View style={styles.resultContent}>
+              <Text style={styles.result}>{bmi}</Text>
+              <View style={styles.unitContain}>
+                <Text style={styles.unit}>{unit}</Text>
+                <Text style={styles.superUnit}>{superUnit}</Text>
+              </View>
+            </View>
+            <Text style={styles.rateContent}>BMI: {rate}</Text>
+
+            {/*This is BSA -> để dành làm sau đi
+            <View style={styles.resultContent}>
+              <Text style={styles.result}>{bsa}</Text>
+              <View style={styles.unitContain}>
+                <Text style={styles.unit}>{unitBSA}</Text>
+                <Text style={styles.superUnit}>{superUnitBSA}</Text>
+              </View>
+            </View>
+            <Text style={styles.rateContent}>{rateBSA}</Text>
+            */}
+
+          </View>
+          {/*End result contain*/}
+
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>

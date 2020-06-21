@@ -62,20 +62,74 @@ export const styles = StyleSheet.create({
     borderColor: '#777',
     borderBottomWidth: 1,
     textAlign: 'right',
-    paddingHorizontal: 8
+    paddingHorizontal: 8,
+    fontSize: 16,
+    fontWeight: 'bold',
+    fontFamily: 'sans-serif',
+    color: '#777'
   },
-  unitContain:{
+  unitContainInput:{
     flex: 2,
     paddingHorizontal: 8,
-    paddingVertical: 8
-  },
-  unitContainFlexDir:{
-    flex:1,
-    flexDirection: 'row'
+    paddingVertical: 8,
   },
   unitTitle:{
     color: '#777',
     fontFamily: 'sans-serif',
     marginRight: 18,
+    textAlign: 'center'
   },
+
+  /*This is styles for result contain*/
+  resultContain:{
+    backgroundColor: '#00bfa5',
+    marginVertical: 20,
+    padding: 8,
+    borderRadius: 2,
+    shadowColor: "#000",
+    shadowOffset: {
+    	width: 0,
+    	height: 3,
+    },
+    shadowOpacity: 0.29,
+    shadowRadius: 4.65,
+    elevation: 7,
+
+  },
+  resultContent:{
+    paddingVertical: 8,
+    flexDirection: 'row'
+  },
+  result:{
+    color: '#fafafa',
+    fontWeight: 'bold',
+    fontFamily: 'sans-serif',
+    fontSize: 34,
+  },
+  unitContain:{
+    flexDirection:'row',
+    paddingTop: 10,
+    marginLeft: 5,
+  },
+  unit:{
+    color: '#fafafa',
+    fontSize: 18,
+    fontWeight: 'bold',
+    fontFamily: 'sans-serif',
+    lineHeight: 30
+  },
+  superUnit:{
+    color: '#fafafa',
+    fontSize: 12,
+    fontWeight: 'bold',
+    fontFamily: 'sans-serif',
+    lineHeight: 19,
+  },
+  rateContent:{
+    paddingHorizontal: 8,
+    color: '#fafafa',
+    fontFamily: 'sans-serif',
+    fontSize: 18,
+    fontStyle: 'italic'
+  }
 })
