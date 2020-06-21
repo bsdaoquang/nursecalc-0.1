@@ -11,11 +11,63 @@ export default function BMICalc(){
     const [weight, setWeight] = useState(weight)
 
     var ketqua = ''
+    var [unitWeight, setUnitWeight] =  useState('lbs')
+    var [unitHeight, setUnitHeight] = useState('In')
+    var bmi = 0
+    var strWeight = ''
+    var strHeight = ''
+    var intWeight = 0
+    var intHeight = 0
 
-    if (height != null && weight != null) {
-      ketqua = height + weight
+    //change unit
+    const changeUnitWeight = () => {
+      if (unitWeight == 'Kg') {
+        setUnitWeight('lbs')
+        strWeight = ((weight* 2.205).toFixed(2)).toString()
+        setWeight(strWeight)
+      }
+      if (unitWeight == 'lbs') {
+        setUnitWeight('Kg')
+        strWeight = ((weight/ 2.205).toFixed(2)).toString()
+        setWeight(strWeight)
+      }
     }
 
+    const changeUnitHeight = () => {
+      if (unitHeight == 'Cm') {
+        setUnitHeight('In')
+        strHeight = ((height * 0.39370079).toFixed(2)).toString()
+        setHeight(strHeight)
+      }
+      if (unitHeight == 'In') {
+        setUnitHeight('Cm')
+        strHeight = ((height / 0.39370079).toFixed(2)).toString()
+        setHeight(strHeight)
+      }
+    }
+    //end change unit
+
+    //if unit = lbs or in -> change them to kg and cm
+    if (unitHeight == 'In') {
+      intHeight = (height / 0.39370079).toFixed(2)
+    }else{
+      intHeight = parseInt(height)
+    }
+
+    if (unitWeight == 'lbs') {
+      intWeight = (weight / 2.205).toFixed(2)
+    }else{
+      intWeight = parseInt(weight)
+    }
+
+    if (height != null && weight != null) {
+      //change unit to kg, and m to Calculator
+      var heightMetter = intHeight/100
+      bmi = (intWeight/(heightMetter*heightMetter)).toFixed(1)
+
+    }else if (height == null || weight == nulls) {
+      bmi = 'Enter height and weight to Calculator'
+    }
 
   return(
     <KeyboardAvoidingView style={styles.container}>
@@ -46,13 +98,17 @@ export default function BMICalc(){
                   placeholder = '0'
                   keyboardType = 'number-pad'
                   onChangeText = {weight => setWeight(weight)}
+                  value = {weight}
+                  clearTextOnFocus
                 />
               </View>
 
               <View style={styles.unitContain}>
                 <View style={styles.unitContainFlexDir}>
-                  <Text style={styles.unitTitle}>Kg</Text>
-                  <FontAwesome name = 'exchange' size={20} color = 'coral'/>
+                  <Text style={styles.unitTitle}>{unitWeight}</Text>
+                  <TouchableOpacity onPress = {changeUnitWeight}>
+                    <FontAwesome name = 'exchange' size={20} color = 'coral'/>
+                  </TouchableOpacity>
                 </View>
               </View>
             </View>
@@ -75,17 +131,20 @@ export default function BMICalc(){
                   placeholder = '0'
                   keyboardType = 'number-pad'
                   onChangeText = {height => setHeight(height)}
+                  value = {height}
                 />
               </View>
 
               <View style={styles.unitContain}>
                 <View style={styles.unitContainFlexDir}>
-                  <Text style={styles.unitTitle}>Cm</Text>
-                  <FontAwesome name = 'exchange' size={20} color = 'coral'/>
+                  <Text style={styles.unitTitle}>{unitHeight}</Text>
+                  <TouchableOpacity onPress = {changeUnitHeight}>
+                    <FontAwesome name = 'exchange' size={20} color = 'coral'/>
+                  </TouchableOpacity>
                 </View>
               </View>
             </View>
-            <Text>{ketqua}</Text>
+            <Text>{bmi}</Text>
             {/*end input contain*/}
           </View>
           {/*end from contain*/}
