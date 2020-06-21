@@ -76,6 +76,6 @@ export const styles = StyleSheet.create({
   unitTitle:{
     color: '#777',
     fontFamily: 'sans-serif',
-    marginRight: 18
+    marginRight: 18,
   },
 })
