@@ -9,11 +9,13 @@ export default function BMICalc(){
 
     const [height, setHeight] = useState(height)
     const [weight, setWeight] = useState(weight)
+    const [show, setShow] = useState(false)
 
     var bmi = 0
     var unit = ''
     var superUnit = ''
     var rate = ''
+    var bsa = 0
 
     if (height != null && weight != null) {
       //change unit to kg, and m to Calculator
@@ -39,11 +41,9 @@ export default function BMICalc(){
 
       //BSA Calculator
       //bsa = (height * weight)^1/2
-      // bsa = (Math.pow(((height * weight)/3600), 0.5)).toFixed(2)
-      // unitBSA = 'm'
-      // superUnitBSA = '2'
-      // rateBSA = 'Diện tích bề mặt'
-      //Để mai mốt tính, không quan trọng
+      bsa = (Math.pow(((height * weight)/3600), 0.5)).toFixed(2)
+
+      setShow(true)
 
     }else if (height == null || weight == null) {
       bmi = 'Result'
@@ -129,16 +129,24 @@ export default function BMICalc(){
             </View>
             <Text style={styles.rateContent}>BMI: {rate}</Text>
 
-            {/*This is BSA -> để dành làm sau đi
+
             <View style={styles.resultContent}>
               <Text style={styles.result}>{bsa}</Text>
               <View style={styles.unitContain}>
-                <Text style={styles.unit}>{unitBSA}</Text>
-                <Text style={styles.superUnit}>{superUnitBSA}</Text>
+                <Text style={styles.unit}>m</Text>
+                <Text style={styles.superUnit}>2</Text>
               </View>
             </View>
-            <Text style={styles.rateContent}>{rateBSA}</Text>
-            */}
+            <Text style={styles.rateContent}>Diện tích bề mặt</Text>
+
+
+            {
+              show ?
+              <View>
+                <Text>This is content</Text>
+              </View>
+              : null
+            }
 
           </View>
           {/*End result contain*/}
