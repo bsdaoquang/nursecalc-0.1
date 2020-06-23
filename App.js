@@ -5,6 +5,6 @@ import ShowHide from './formulars/testshowhide'
 
 export default function App() {
   return (
-    <ShowHide />
+    <BMICalc />
   );
 }
