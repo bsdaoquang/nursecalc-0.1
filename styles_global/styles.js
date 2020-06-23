@@ -47,6 +47,11 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 8
   },
+  titleInputDesc:{
+    fontSize: 13,
+    color: '#e0e0e0',
+    fontStyle: 'italic'
+  },
   titleInputText:{
     color: '#777',
     fontSize: 16,
@@ -57,7 +62,7 @@ export const styles = StyleSheet.create({
     flex: 4,
   },
   input:{
-    flex: 1,
+    marginHorizontal: 5,
     flexDirection: 'row',
     borderColor: '#777',
     borderBottomWidth: 1,
@@ -66,7 +71,7 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     fontFamily: 'sans-serif',
-    color: '#777'
+    color: '#777',
   },
   unitContainInput:{
     flex: 2,
@@ -83,7 +88,7 @@ export const styles = StyleSheet.create({
   /*This is styles for result contain*/
   resultContain:{
     backgroundColor: '#00bfa5',
-    marginVertical: 20,
+    marginVertical: 5,
     padding: 8,
     borderRadius: 2,
     shadowColor: "#000",
@@ -95,6 +100,26 @@ export const styles = StyleSheet.create({
     shadowRadius: 4.65,
     elevation: 7,
 
+  },
+  resultTitle:{
+    borderBottomWidth: 1,
+    borderBottomColor: '#fafafa',
+    flexDirection:'row',
+  },
+  resultTitleText:{
+    color: '#fafafa',
+    fontWeight: 'bold',
+    fontFamily: 'sans-serif',
+    fontSize: 24,
+  },
+  resultTitleDesc:{
+    color: '#fafafa',
+    fontFamily: 'sans-serif',
+    fontSize: 14,
+    fontStyle: 'italic',
+    margin: 8,
+    justifyContent: 'flex-end',
+    flex: 1,
   },
   resultContent:{
     paddingVertical: 8,
@@ -129,7 +154,11 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 8,
     color: '#fafafa',
     fontFamily: 'sans-serif',
-    fontSize: 18,
+    fontSize: 16,
     fontStyle: 'italic'
+  },
+  icons:{
+    marginLeft: 10,
+    paddingHorizontal: 8
   }
 })
