@@ -13,12 +13,27 @@ export default function BMICalc(){
     const [bmiTarget, setBmiTarget] = useState(bmiTarget)
     const [showWeight, setShowWeight] = useState(false)
 
+    var iconNameBsa = ''
+    var iconNameWeight = ''
+
     const showContent = () => {
       setShow(!show)
     }
 
     const showWeightContent = () => {
       setShowWeight(!showWeight)
+    }
+
+    if (show == true) {
+      iconNameBsa = 'angle-up'
+    }else{
+      iconNameBsa = 'angle-down'
+    }
+
+    if (showWeight == true) {
+      iconNameWeight = 'angle-up'
+    }else{
+      iconNameWeight = 'angle-down'
     }
 
     var bmi = 0
@@ -73,12 +88,28 @@ export default function BMICalc(){
           {/*This is header*/}
           <View style={styles.headerContain}>
             <Text style={styles.headerTitle}>BMI & BSA Calculator</Text>
-            <Text style={styles.headerSubTitle}>Chỉ số khối cơ thể (BMI) & Diện tích bề mặt</Text>
+            <Text style={styles.headerSubTitle}>Chỉ số khối cơ thể (BMI) & Diện tích bề mặt cơ thể (BSA)</Text>
           </View>
           {/*End header*/}
 
           {/*This is description*/}
-          {/*This is description*/}
+          <View style={styles.description}>
+            <View style={styles.descButton}>
+              <TouchableOpacity style={styles.buttonDesc}>
+                <Text style={styles.buttonText}> Lưu ý </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.buttonDesc}>
+                <Text style={styles.buttonText}>Sử dụng</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.descContent}>
+              <Text style={styles.titleInputText}>Chỉ số BMI có thể không chính xác với những người nhiều cơ bắp, thể trạng lớn. Hoặc những dân tộc có chiều cao và tầm vóc khác nhau. </Text>
+            </View>
+
+          </View>
+          {/*This is end description*/}
 
           {/*This is form container*/}
           <View style={styles.formContain}>
@@ -186,8 +217,8 @@ export default function BMICalc(){
             <TouchableOpacity onPress = {showContent}>
               <View style={styles.resultTitle}>
                 <Text style={styles.resultTitleText}>BSA</Text>
-                <Text style={styles.resultTitleDesc}>(Diện tích bề mặt)</Text>
-                <FontAwesome name="angle-down" size={24} color="white" style={styles.icons}/>
+                <Text style={styles.resultTitleDesc}>(Diện tích bề mặt cơ thể)</Text>
+                <FontAwesome name={iconNameBsa} size={24} color="white" style={styles.icons}/>
               </View>
             </TouchableOpacity>
 
@@ -213,7 +244,7 @@ export default function BMICalc(){
               <View style={styles.resultTitle}>
                 <Text style={styles.resultTitleText}>BMI {bmiTarget}</Text>
                 <Text style={styles.resultTitleDesc}>(Cân nặng cần đạt)</Text>
-                <FontAwesome name="angle-down" size={24} color="white" style={styles.icons}/>
+                <FontAwesome name={iconNameWeight} size={24} color="white" style={styles.icons}/>
               </View>
             </TouchableOpacity>
 
@@ -228,7 +259,6 @@ export default function BMICalc(){
                 </View>
               : null
             }
-
           </View>
           {/*End result contain*/}
 

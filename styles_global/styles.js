@@ -30,6 +30,33 @@ export const styles = StyleSheet.create({
     fontFamily: 'sans-serif'
   },
 
+  /*styles for description*/
+  description:{
+    marginVertical: 10,
+  },
+  descContent:{
+    backgroundColor: '#e0e0e0',
+    marginVertical: 8,
+    padding: 8
+  },
+  descButton:{
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: '#eeeeee'
+  },
+  buttonDesc:{
+    flex: 1,
+    justifyContent: 'center',
+    padding: 8,
+    borderColor: '#e0e0e0',
+    borderWidth: 1,
+    borderStyle: 'solid'
+  },
+  buttonText:{
+    flex: 1,
+    textAlign: 'center'
+  },
+
   /*style form contain*/
   formContain:{
     marginTop: 10
