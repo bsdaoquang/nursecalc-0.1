@@ -120,7 +120,6 @@ export default function TimeFusion(){
                   keyboardType = 'number-pad'
                   onChangeText = {volume => setVolume(volume)}
                   clearTextOnFocus
-                  value = '500'
                 />
 
                 {
