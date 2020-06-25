@@ -12,6 +12,8 @@ export default function BMICalc(){
     const [show, setShow]           = useState(false)
     const [bmiTarget, setBmiTarget] = useState(bmiTarget)
     const [showWeight, setShowWeight] = useState(false)
+    const [showNote, setShowNote] = useState(false)
+    const [showGuide, setShowGuide] = useState(false)
 
     var iconNameBsa = ''
     var iconNameWeight = ''
@@ -22,6 +24,16 @@ export default function BMICalc(){
 
     const showWeightContent = () => {
       setShowWeight(!showWeight)
+    }
+
+    const btnShowNote = () => {
+      setShowNote(!showNote)
+      setShowGuide(false)
+    }
+
+    const btnShowGuide = () => {
+      setShowGuide(!showGuide)
+      setShowNote(false)
     }
 
     if (show == true) {
@@ -95,18 +107,32 @@ export default function BMICalc(){
           {/*This is description*/}
           <View style={styles.description}>
             <View style={styles.descButton}>
-              <TouchableOpacity style={styles.buttonDesc}>
+              <TouchableOpacity style={styles.buttonDesc} onPress = {btnShowNote}>
                 <Text style={styles.buttonText}> Lưu ý </Text>
+                <FontAwesome name = 'angle-down' size ={24} color = '#ccc' style={styles.icons}/>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.buttonDesc}>
+              <TouchableOpacity style={styles.buttonDesc} onPress = {btnShowGuide}>
                 <Text style={styles.buttonText}>Sử dụng</Text>
+                <FontAwesome name = 'angle-down' size ={24} color = '#ccc' style={styles.icons}/>
               </TouchableOpacity>
             </View>
 
-            <View style={styles.descContent}>
-              <Text style={styles.titleInputText}>Chỉ số BMI có thể không chính xác với những người nhiều cơ bắp, thể trạng lớn. Hoặc những dân tộc có chiều cao và tầm vóc khác nhau. </Text>
-            </View>
+            {
+              showNote ?
+                <View style={styles.descContent}>
+                  <Text style={styles.titleInputText}>Chỉ số BMI có thể không chính xác với những người nhiều cơ bắp, thể trạng lớn. Hoặc những dân tộc có chiều cao và tầm vóc khác nhau. </Text>
+                </View>
+              : null
+            }
+
+            {
+              showGuide ?
+                <View style={styles.descContent}>
+                  <Text style={styles.titleInputText}>Sử dụng diện tích bề mặt cơ thể (BSA) để tính liều một số loại thuốc </Text>
+                </View>
+              : null
+            }
 
           </View>
           {/*This is end description*/}
@@ -261,6 +287,17 @@ export default function BMICalc(){
             }
           </View>
           {/*End result contain*/}
+
+          <View style={styles.formInfo}>
+            <Text style={styles.titleInfo}>Cân nhắc:</Text>
+            <Text style={styles.contentInfo}>Bệnh nhân thừa cân (BMI > 25) và bệnh nhân Béo phì (BMI > 30) nên được tư vấn về chế độ dinh dưỡng và tập thể dục</Text>
+          </View>
+
+          <View style={styles.formInfo}>
+            <Text style={styles.titleInfo}>Công thức</Text>
+            <Text style={styles.contentInfo}>Chỉ số khối cơ thể (BMI) kg/m2 = cân nặng, kg / (chiều cao, m x chiều cao, m)</Text>
+            <Text style={styles.contentInfo}> Diện tích bề mặt cơ thể (công thức Mosteller) (BSA), m2 = [(chiều cao, cm x cân nặng, kg)/3600]^1/2</Text>
+          </View>
 
         </View>
       </TouchableWithoutFeedback>

@@ -50,7 +50,8 @@ export const styles = StyleSheet.create({
     padding: 8,
     borderColor: '#e0e0e0',
     borderWidth: 1,
-    borderStyle: 'solid'
+    borderStyle: 'solid',
+    flexDirection: 'row'
   },
   buttonText:{
     flex: 1,
@@ -187,5 +188,23 @@ export const styles = StyleSheet.create({
   icons:{
     marginLeft: 10,
     paddingHorizontal: 8
+  },
+
+  /*this is style for info content*/
+  formInfo:{
+    backgroundColor: '#eeeeee',
+    marginVertical: 8,
+    padding: 8,
+    borderRadius: 4
+  },
+  titleInfo:{
+    color: '#777',
+    fontSize: 18,
+    fontWeight: 'bold',
+    fontFamily:'sans-serif'
+  },
+  contentInfo:{
+    fontFamily: 'sans-serif',
+    color: '#777'
   }
 })
