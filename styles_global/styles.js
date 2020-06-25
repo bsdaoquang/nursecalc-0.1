@@ -39,7 +39,6 @@ export const styles = StyleSheet.create({
     backgroundColor: '#e0e0e0',
     marginVertical: 8,
     padding: 8,
-    backgroundColor: '#fff'
   },
   descButton:{
     flex: 1,
