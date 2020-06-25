@@ -38,7 +38,8 @@ export const styles = StyleSheet.create({
   descContent:{
     backgroundColor: '#e0e0e0',
     marginVertical: 8,
-    padding: 8
+    padding: 8,
+    backgroundColor: '#fff'
   },
   descButton:{
     flex: 1,
@@ -54,6 +55,7 @@ export const styles = StyleSheet.create({
     borderStyle: 'solid',
     flexDirection: 'row',
     borderRadius: 4,
+    marginVertical: 5,
   },
   buttonText:{
     flex: 1,
