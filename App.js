@@ -1,11 +1,26 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import BMICalc from './formulars/bmicalc'
-import TimeBloodTransfusion from './formulars/time_blood_transfusion'
-import TimeFusion from './formulars/time_fusion'
+// In App.js in a new project
 
-export default function App() {
+import * as React from 'react';
+import { View, Text, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './screens/homeScreen'
+import DetailsScreen from './screens/details'
+import AboutScreen from './screens/about'
+
+
+const Stack = createStackNavigator();
+
+function App() {
   return (
-    <TimeFusion />
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="About" component={AboutScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
+
+export default App;
