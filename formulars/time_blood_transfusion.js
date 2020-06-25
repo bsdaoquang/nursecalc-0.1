@@ -134,7 +134,7 @@ export default function TimeBloodTransfusion(){
             {
               showNote ?
                 <View style={styles.descContent}>
-                  <Text style={styles.titleInputText}>Cần tuân thủ các nguyên tắc truyền máu và theo dõi sát bệnh nhân trong quá trình truyền máu</Text>
+                  <Text style={styles.contentInfo}>Cần tuân thủ các nguyên tắc truyền máu và theo dõi sát bệnh nhân trong quá trình truyền máu</Text>
                 </View>
               : null
             }
@@ -142,7 +142,7 @@ export default function TimeBloodTransfusion(){
             {
               showGuide ?
                 <View style={styles.descContent}>
-                  <Text style={styles.titleInputText}>Sử dụng để tính nhanh thời gian truyền máu, sử dụng dây truyền máu loại 20 giọt = 1ml</Text>
+                  <Text style={styles.contentInfo}>Sử dụng để tính nhanh thời gian truyền máu, sử dụng dây truyền máu loại 20 giọt = 1mL</Text>
                 </View>
               : null
             }
@@ -265,7 +265,7 @@ export default function TimeBloodTransfusion(){
 
           {/*This is form container*/}
           <TouchableOpacity style={styles.buttonDesc} onPress={volumTransedCalc}>
-            <Text style={styles.buttonText}>Tính lượng máu đã truyền</Text>
+            <Text style={styles.titleInputText}>Tính lượng máu đã truyền</Text>
             <FontAwesome name='angle-down' style={styles.icons} color='#777' size ={24}/>
           </TouchableOpacity>
 
