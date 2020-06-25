@@ -16,11 +16,12 @@ export const styles = StyleSheet.create({
     textAlign: 'center'
   },
   headerTitle:{
-    fontSize: 28,
+    fontSize: 24,
     color: '#777',
     fontFamily: 'sans-serif',
     textAlign: 'center',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textTransform: 'uppercase'
   },
   headerSubTitle:{
     textAlign: 'center',
@@ -51,7 +52,8 @@ export const styles = StyleSheet.create({
     borderColor: '#e0e0e0',
     borderWidth: 1,
     borderStyle: 'solid',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    borderRadius: 4
   },
   buttonText:{
     flex: 1,
@@ -100,6 +102,13 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'sans-serif',
     color: '#777',
+  },
+  alertText:{
+    color: '#ef9a9a',
+    fontSize: 12,
+    fontFamily: 'sans-serif',
+    padding: 5,
+    fontStyle: 'italic'
   },
   unitContainInput:{
     flex: 2,
@@ -158,6 +167,7 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'sans-serif',
     fontSize: 34,
+    paddingHorizontal: 8
   },
   unitContain:{
     flexDirection:'row',
@@ -179,10 +189,10 @@ export const styles = StyleSheet.create({
     lineHeight: 19,
   },
   rateContent:{
-    paddingHorizontal: 8,
+    padding: 8,
     color: '#fafafa',
     fontFamily: 'sans-serif',
-    fontSize: 16,
+    fontSize: 18,
     fontStyle: 'italic'
   },
   icons:{
