@@ -265,7 +265,7 @@ export default function TimeBloodTransfusion(){
 
           {/*This is form container*/}
           <TouchableOpacity style={styles.buttonDesc} onPress={volumTransedCalc}>
-            <Text style={styles.titleInputText}>Tính lượng máu đã truyền</Text>
+            <Text style={styles.buttonText}>Tính lượng máu đã truyền</Text>
             <FontAwesome name='angle-down' style={styles.icons} color='#777' size ={24}/>
           </TouchableOpacity>
 

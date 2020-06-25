@@ -53,7 +53,7 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderStyle: 'solid',
     flexDirection: 'row',
-    borderRadius: 4
+    borderRadius: 4,
   },
   buttonText:{
     flex: 1,
