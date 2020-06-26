@@ -1,20 +1,23 @@
 import React, {useState} from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, TouchableOpacity, Platform } from 'react-native';
+import { SafeAreaView, View, FlatList, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import Constants from 'expo-constants';
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import {AdMobBanner} from 'expo-ads-admob'
 
+
+import {t} from '../locales/index'
+
 const DATA = [
-  {id: '1',title: 'Tính chỉ số BMI & BSA',},
-  {id: '2',title: 'Tính thời gian truyền máu',},
-  {id: '3',title: 'Tính thời gian truyền dịch',}
+  {id: '1',title: 'bmi_calc'},
+  {id: '2',title: 'blood_transfusion'},
+  {id: '3',title: 'infusion_time'},
 ];
 
 function Item({ title }) {
   return (
     <View style={styles.buttonDesc}>
-      <Text style={styles.titleInput}>{title}</Text>
+      <Text style={styles.titleInputText}>t({title})</Text>
     </View>
   );
 }
@@ -35,7 +38,7 @@ export default function MyList({navigation}) {
     <SafeAreaView style={styles.container}>
       <View style={styles.inner}>
         <View style={styles.headerContain}>
-          <Text style={styles.headerSubTitle}>Máy tính điều dưỡng</Text>
+          <Text style={styles.headerSubTitle}>{t('nurse_calc')}</Text>
         </View>
 
         {/*this is formulars list*/}
@@ -46,7 +49,7 @@ export default function MyList({navigation}) {
                 onPress={() => navigation.navigate(item.title)}
                 style={styles.listContent}
                 >
-                <Text style={styles.listTitle}>{item.title}</Text>
+                <Text style={styles.listTitle}>{t(item.title)}</Text>
                 <FontAwesome name="angle-double-right" size={24} color="#00bfa5" styles={styles.iconRight}/>
               </TouchableOpacity>
             )}

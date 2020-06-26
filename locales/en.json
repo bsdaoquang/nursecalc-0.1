@@ -1,0 +1,8 @@
+{
+  "hello_world": "Hello World",
+  "bye_world" : "Bye World",
+  "nurse_calc": "Nurse Calculator",
+  "bmi_calc": "BMI & BSA Calculator",
+  "blood_transfusion": "Blood Transfusion Time",
+  "infusion_time": "Infusion Time"
+}

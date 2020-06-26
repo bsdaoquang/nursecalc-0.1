@@ -8,6 +8,9 @@ import HomeScreen from './screens/homeScreen'
 import BMICalc from './formulars/bmicalc'
 import TimeBloodTransfusion from './formulars/time_blood_transfusion'
 import TimeFusion from './formulars/time_fusion'
+import TestMulti from './screens/test_multi_languages'
+
+import {t} from './locales/index'
 
 
 
@@ -28,10 +31,16 @@ function App() {
             fontWeight: 'bold',
           },
         }}
-        /> 
-        <Stack.Screen name="Tính thời gian truyền dịch" component={TimeFusion} />
-        <Stack.Screen name="Tính thời gian truyền máu" component={TimeBloodTransfusion} />
-        <Stack.Screen name="Tính chỉ số BMI & BSA" component={BMICalc} />
+        />
+        <Stack.Screen name="infusion_time" component={TimeFusion}
+          options={{title: t('infusion_time')}}
+        />
+        <Stack.Screen name="blood_transfusion" component={TimeBloodTransfusion}
+          options={{title: t('blood_transfusion')}}
+        />
+        <Stack.Screen name="bmi_calc" component={BMICalc}
+          options={{title: t('bmi_calc')}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

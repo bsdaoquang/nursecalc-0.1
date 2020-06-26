@@ -233,7 +233,7 @@ export const styles = StyleSheet.create({
     textAlign: 'left',
     color: '#777',
     fontFamily: 'sans-serif',
-    fontSize: 18
+    fontSize: 16
   },
   iconRight:{
     flex: 1,
