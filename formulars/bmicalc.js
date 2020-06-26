@@ -4,6 +4,8 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 
+import {t} from '../locales/index'
+
 export default function BMICalc(){
 
 
@@ -83,8 +85,8 @@ export default function BMICalc(){
       bsa = (Math.pow(((height * weight)/3600), 0.5)).toFixed(2)
 
     }else if (height == null || weight == null) {
-      bmi = 'Result'
-      rate = 'Nhập cân nặng và chiều cao để tính'
+      bmi = t('result')
+      rate = t('enter_data')
     }
 
     if (bmiTarget != null) {
@@ -100,7 +102,7 @@ export default function BMICalc(){
           {/*This is header*/}
           <View style={styles.headerContain}>
             <Text style={styles.headerTitle}>BMI & BSA Calculator</Text>
-            <Text style={styles.headerSubTitle}>Chỉ số khối cơ thể (BMI) & Diện tích bề mặt cơ thể (BSA)</Text>
+            <Text style={styles.headerSubTitle}>{t('bmi_desc')}</Text>
           </View>
           {/*End header*/}
 
@@ -108,12 +110,12 @@ export default function BMICalc(){
           <View style={styles.description}>
             <View style={styles.descButton}>
               <TouchableOpacity style={styles.buttonDesc} onPress = {btnShowNote}>
-                <Text style={styles.buttonText}> Lưu ý </Text>
+                <Text style={styles.buttonText}>{t('pearls_pitfalls')}</Text>
                 <FontAwesome name = 'angle-down' size ={24} color = '#ccc' style={styles.icons}/>
               </TouchableOpacity>
 
               <TouchableOpacity style={styles.buttonDesc} onPress = {btnShowGuide}>
-                <Text style={styles.buttonText}>Sử dụng</Text>
+                <Text style={styles.buttonText}>{t('why_use')}</Text>
                 <FontAwesome name = 'angle-down' size ={24} color = '#ccc' style={styles.icons}/>
               </TouchableOpacity>
             </View>
@@ -121,7 +123,7 @@ export default function BMICalc(){
             {
               showNote ?
                 <View style={styles.descContent}>
-                  <Text style={styles.titleInputText}>Chỉ số BMI có thể không chính xác với những người nhiều cơ bắp, thể trạng lớn. Hoặc những dân tộc có chiều cao và tầm vóc khác nhau. </Text>
+                  <Text style={styles.titleInputText}>{t('pearls_desc')}</Text>
                 </View>
               : null
             }
@@ -129,7 +131,7 @@ export default function BMICalc(){
             {
               showGuide ?
                 <View style={styles.descContent}>
-                  <Text style={styles.titleInputText}>Sử dụng diện tích bề mặt cơ thể (BSA) để tính liều một số loại thuốc </Text>
+                  <Text style={styles.titleInputText}>{t('why_use_desc')}</Text>
                 </View>
               : null
             }
@@ -142,7 +144,7 @@ export default function BMICalc(){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>Cân nặng</Text>
+                <Text style={styles.titleInputText}>{t('weight')}</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -169,7 +171,7 @@ export default function BMICalc(){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>Chiều cao</Text>
+                <Text style={styles.titleInputText}>{t('height')}</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -195,8 +197,8 @@ export default function BMICalc(){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>BMI mong muốn</Text>
-                <Text style={styles.titleInputDesc}>Tính cân nặng để đạt BMI mục tiêu </Text>
+                <Text style={styles.titleInputText}>{t('bmi_target')}</Text>
+                <Text style={styles.titleInputDesc}>{t('bmi_target_desc')}</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -223,7 +225,7 @@ export default function BMICalc(){
 
             <View style={styles.resultTitle}>
               <Text style={styles.resultTitleText}>BMI</Text>
-              <Text style={styles.resultTitleDesc}>(Chỉ số khối cơ thể)</Text>
+              <Text style={styles.resultTitleDesc}>({t('body_max_index')})</Text>
             </View>
 
             <View style={styles.resultContent}>
@@ -243,7 +245,7 @@ export default function BMICalc(){
             <TouchableOpacity onPress = {showContent}>
               <View style={styles.resultTitle}>
                 <Text style={styles.resultTitleText}>BSA</Text>
-                <Text style={styles.resultTitleDesc}>(Diện tích bề mặt cơ thể)</Text>
+                <Text style={styles.resultTitleDesc}>({t('body_suface-area')})</Text>
                 <FontAwesome name={iconNameBsa} size={24} color="white" style={styles.icons}/>
               </View>
             </TouchableOpacity>
@@ -269,7 +271,7 @@ export default function BMICalc(){
             <TouchableOpacity onPress = {showWeightContent}>
               <View style={styles.resultTitle}>
                 <Text style={styles.resultTitleText}>BMI {bmiTarget}</Text>
-                <Text style={styles.resultTitleDesc}>(Cân nặng cần đạt)</Text>
+                <Text style={styles.resultTitleDesc}>({t('target_weight')})</Text>
                 <FontAwesome name={iconNameWeight} size={24} color="white" style={styles.icons}/>
               </View>
             </TouchableOpacity>
@@ -289,14 +291,14 @@ export default function BMICalc(){
           {/*End result contain*/}
 
           <View style={styles.formInfo}>
-            <Text style={styles.titleInfo}>Cân nhắc:</Text>
-            <Text style={styles.contentInfo}>Bệnh nhân thừa cân (BMI > 25) và bệnh nhân Béo phì (BMI > 30) nên được tư vấn về chế độ dinh dưỡng và tập thể dục</Text>
+            <Text style={styles.titleInfo}>{t('advice')}</Text>
+            <Text style={styles.contentInfo}>{t('advice_desc')}</Text>
           </View>
 
           <View style={styles.formInfo}>
-            <Text style={styles.titleInfo}>Công thức</Text>
-            <Text style={styles.contentInfo}>Chỉ số khối cơ thể (BMI) kg/m2 = cân nặng, kg / (chiều cao, m x chiều cao, m)</Text>
-            <Text style={styles.contentInfo}> Diện tích bề mặt cơ thể (công thức Mosteller) (BSA), m2 = [(chiều cao, cm x cân nặng, kg)/3600]^1/2</Text>
+            <Text style={styles.titleInfo}>{t('Formula')}</Text>
+            <Text style={styles.contentInfo}>{t('Formula_desc_1')}</Text>
+            <Text style={styles.contentInfo}>{t('Formula_desc_2')}</Text>
           </View>
 
         </View>
