@@ -5,8 +5,10 @@ import { View, Text, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './screens/homeScreen'
-import DetailsScreen from './screens/details'
-import AboutScreen from './screens/about'
+import BMICalc from './formulars/bmicalc'
+import TimeBloodTransfusion from './formulars/time_blood_transfusion'
+import TimeFusion from './formulars/time_fusion'
+
 
 
 const Stack = createStackNavigator();
@@ -15,9 +17,21 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
-        <Stack.Screen name="About" component={AboutScreen} />
+        <Stack.Screen name="Home" component={HomeScreen}
+          options={{
+          title: 'Nurse Calculator',
+          headerStyle: {
+            backgroundColor: '#00bfa5',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+        /> 
+        <Stack.Screen name="Tính thời gian truyền dịch" component={TimeFusion} />
+        <Stack.Screen name="Tính thời gian truyền máu" component={TimeBloodTransfusion} />
+        <Stack.Screen name="Tính chỉ số BMI & BSA" component={BMICalc} />
       </Stack.Navigator>
     </NavigationContainer>
   );

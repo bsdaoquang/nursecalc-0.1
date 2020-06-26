@@ -8,12 +8,13 @@ export const styles = StyleSheet.create({
   },
   inner:{
     flex: 1,
-    paddingTop: 50,
+    paddingTop: 20,
     paddingHorizontal: 20
   },
   /*style for header*/
   headerContain:{
-    textAlign: 'center'
+    textAlign: 'center',
+    padding: 8
   },
   headerTitle:{
     fontSize: 24,
@@ -217,5 +218,26 @@ export const styles = StyleSheet.create({
   contentInfo:{
     fontFamily: 'sans-serif',
     color: '#777'
+  },
+
+  /*This is styles for list*/
+  listContent:{
+    backgroundColor: '#fafafa',
+    marginTop: 2,
+    padding: 10,
+    borderRadius: 4,
+    flexDirection: 'row',
+
+  },
+  listTitle:{
+    flex: 1,
+    textAlign: 'left',
+    color: '#777',
+    fontFamily: 'sans-serif',
+    fontSize: 18
+  },
+  iconRight:{
+    flex: 1,
+    textAlign: 'center'
   }
 })
