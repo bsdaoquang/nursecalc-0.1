@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
   },
   headerTitle:{
     fontSize: 24,
-    color: '#777',
+    color: '#00bfa5',
     fontFamily: 'sans-serif',
     textAlign: 'center',
     fontWeight: 'bold',
@@ -44,7 +44,6 @@ export const styles = StyleSheet.create({
   descButton:{
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: '#eeeeee'
   },
   buttonDesc:{
     flex: 1,
@@ -239,5 +238,9 @@ export const styles = StyleSheet.create({
   iconRight:{
     flex: 1,
     textAlign: 'center'
+  },
+  bottomBanner:{
+    bottom: 0,
+    position: 'absolute'
   }
 })
