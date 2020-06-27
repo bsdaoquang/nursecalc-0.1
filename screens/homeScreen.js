@@ -3,7 +3,7 @@ import { SafeAreaView, View, FlatList, StyleSheet, Text, TouchableOpacity} from 
 import Constants from 'expo-constants';
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
-import {AdMobBanner} from 'expo-ads-admob'
+import AdMob from '../screens/admob_Screen'
 
 
 import {t} from '../locales/index'
@@ -12,6 +12,7 @@ const DATA = [
   {id: '1',title: 'bmi_calc'},
   {id: '2',title: 'blood_transfusion'},
   {id: '3',title: 'infusion_time'},
+  {id: '4',title: 'infusion_pump'},
 ];
 
 function Item({ title }) {
@@ -60,16 +61,8 @@ export default function MyList({navigation}) {
       </View>
 
       {/*Admob form*/}
-      <View>
-        <AdMobBanner
-          style={styles.bottomBanner}
-          bannerSize = "fullBanner"
-          adUnitID = "ca-app-pub-9163945640044646/8720309227"
-          serverPersonallizedAds = {false}
-          testDeviedID = 'EMULATOR'
-          onDidFailToReceiveAdWithError={bannerError}
-        />
-        <Text>This is admob banner</Text>
+      <View style={styles.bottomBanner}>
+        <AdMob />
       </View>
       {/*end admob*/}
 

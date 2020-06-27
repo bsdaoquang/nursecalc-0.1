@@ -56,14 +56,15 @@ export const styles = StyleSheet.create({
     borderRadius: 4,
     marginVertical: 5,
   },
+
   buttonText:{
     flex: 1,
-    textAlign: 'center'
+    textAlign: 'center',
   },
 
   /*style form contain*/
   formContain:{
-    marginTop: 10
+    marginTop: 5
   },
   inputContain:{
     paddingVertical: 15,
@@ -98,7 +99,7 @@ export const styles = StyleSheet.create({
     borderColor: '#777',
     borderBottomWidth: 1,
     textAlign: 'right',
-    paddingHorizontal: 8,
+    paddingHorizontal: 10,
     fontSize: 16,
     fontWeight: 'bold',
     fontFamily: 'sans-serif',
@@ -113,20 +114,19 @@ export const styles = StyleSheet.create({
   },
   unitContainInput:{
     flex: 2,
-    paddingHorizontal: 8,
+    //paddingHorizontal: 8,
     paddingVertical: 8,
   },
   unitTitle:{
     color: '#777',
     fontFamily: 'sans-serif',
-    marginRight: 18,
     textAlign: 'center'
   },
 
   /*This is styles for result contain*/
   resultContain:{
     backgroundColor: '#00bfa5',
-    marginVertical: 5,
+    marginTop: 10,
     padding: 8,
     borderRadius: 2,
     shadowColor: "#000",
@@ -203,7 +203,7 @@ export const styles = StyleSheet.create({
 
   /*this is style for info content*/
   formInfo:{
-    backgroundColor: '#eeeeee',
+    backgroundColor: '#e0e0e0',
     marginVertical: 8,
     padding: 8,
     borderRadius: 4
@@ -242,5 +242,5 @@ export const styles = StyleSheet.create({
   bottomBanner:{
     bottom: 0,
     position: 'absolute'
-  }
+  },
 })

@@ -8,7 +8,7 @@ import HomeScreen from './screens/homeScreen'
 import BMICalc from './formulars/bmicalc'
 import TimeBloodTransfusion from './formulars/time_blood_transfusion'
 import TimeFusion from './formulars/time_fusion'
-import TestMulti from './screens/test_multi_languages'
+import InfusionPump from './formulars/infusion_pump'
 
 import {t} from './locales/index'
 
@@ -40,6 +40,9 @@ function App() {
         />
         <Stack.Screen name="bmi_calc" component={BMICalc}
           options={{title: t('bmi_calc')}}
+        />
+        <Stack.Screen name="infusion_pump" component={InfusionPump}
+          options={{title: t('infusion_pump')}}
         />
       </Stack.Navigator>
     </NavigationContainer>
