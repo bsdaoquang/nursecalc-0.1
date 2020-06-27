@@ -10,6 +10,7 @@ import TimeBloodTransfusion from './formulars/time_blood_transfusion'
 import TimeFusion from './formulars/time_fusion'
 import InfusionPump from './formulars/infusion_pump'
 import DoseCalc from './formulars/dose_calc'
+import CountDrops from './formulars/count_drops'
 
 import {t} from './locales/index'
 
@@ -47,6 +48,9 @@ function App() {
         />
         <Stack.Screen name="dose_calc" component={DoseCalc}
           options={{title: t('dose_calc')}}
+        />
+        <Stack.Screen name="count_drops" component={CountDrops}
+          options={{title: t('count_drops')}}
         />
       </Stack.Navigator>
     </NavigationContainer>

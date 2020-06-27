@@ -53,5 +53,7 @@
   "dilution": "Dilution",
 
   "dose_calc": "Dose Calculator",
-  "dose_calc_desc": "Infusion dose calculator"
+  "dose_calc_desc": "Infusion dose calculator",
+
+  "count_drops": "Count Drops Calculator"
 }

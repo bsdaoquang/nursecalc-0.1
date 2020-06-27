@@ -242,6 +242,7 @@ export const styles = StyleSheet.create({
   bottomBanner:{
     bottom: 0,
     position: 'absolute',
+    backgroundColor: '#ccc'
   },
   btnLink:{
     marginVertical: 15,

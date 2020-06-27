@@ -14,6 +14,7 @@ const DATA = [
   {id: '3',title: 'infusion_time'},
   {id: '4',title: 'infusion_pump'},
   {id: '5',title: 'dose_calc'},
+  {id: '6', title: 'count_drops'}
 ];
 
 function Item({ title }) {
