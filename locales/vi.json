@@ -38,5 +38,12 @@
   "time": "Thời gian",
   "end": "kết thúc",
   "volume_translated": "Dịch đã truyền",
-  "volume_rest": "Dịch còn lại"
+  "volume_rest": "Dịch còn lại",
+
+  "min": "phút",
+
+  "time_boold_trans": "Tính thời gian truyền máu",
+  "time_boold": "Thời gian truyền máu",
+  "preals_desc_blood": "Cần tuân thủ các nguyên tắc truyền máu và theo dõi sát bệnh nhân trong quá trình truyền máu",
+  "why_use_desc_blood": "Sử dụng để tính nhanh thời gian truyền máu, sử dụng dây truyền máu loại 20 giọt = 1mL"
 }

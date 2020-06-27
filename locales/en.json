@@ -40,5 +40,12 @@
   "time": "Time",
   "end": "End",
   "volume_translated": "Volume translated",
-  "volume_rest": "Volume rest"
+  "volume_rest": "Volume rest",
+
+  "min": "minute",
+
+  "time_boold_trans": "Time blood transfusion calculator",
+  "time_boold": "Time blood transfusion",
+  "preals_desc_blood": "",
+  "why_use_desc_blood": "",
 }

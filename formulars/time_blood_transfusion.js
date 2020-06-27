@@ -4,6 +4,8 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 
+import {t} from '../locales/index'
+
 
 export default function TimeBloodTransfusion(){
 
@@ -37,10 +39,10 @@ export default function TimeBloodTransfusion(){
 
   //condition review:
   if (hour < 0 || hour > 23) {
-    Alert.alert('Giờ bạn nhập không đúng, vui lòng xem lại')
+    Alert.alert(t('error_empty'))
   }
   if (minute < 0 || minute > 59) {
-    Alert.alert('Phút bạn nhập không đúng, vui lòng xem lại')
+    Alert.alert(t('error_empty'))
   }
   if (volume > 0 && rate > 0) {
     //tính thời gian
@@ -67,10 +69,10 @@ export default function TimeBloodTransfusion(){
   if (showCalcTrans == true) {
 
     if (endHour > 23 || endHour < 0) {
-      Alert.alert('Giờ ngưng không đúng, vui lòng xem lại')
+      Alert.alert(t('error_empty'))
     }
     if (endMinute > 59 || endMinute < 0) {
-      Alert.alert('Phút ngưng không đúng, vui lòng xem lại')
+      Alert.alert(t('error_empty'))
     }
     if (endHour != null && endMinute != null) {
       //Calculator
@@ -112,7 +114,7 @@ export default function TimeBloodTransfusion(){
           {/*This is header*/}
           <View style={styles.headerContain}>
             <Text style={styles.headerTitle}>Blood Tranfusion</Text>
-            <Text style={styles.headerSubTitle}>Tính thời gian truyền máu</Text>
+            <Text style={styles.headerSubTitle}>{t('time_boold_trans')}</Text>
           </View>
           {/*End header*/}
 
@@ -120,12 +122,12 @@ export default function TimeBloodTransfusion(){
           <View style={styles.description}>
             <View style={styles.descButton}>
               <TouchableOpacity style={styles.buttonDesc} onPress = {btnShowNote}>
-                <Text style={styles.buttonText}> Lưu ý </Text>
+                <Text style={styles.buttonText}> {t('pearls_pitfalls')} </Text>
                 <FontAwesome name = 'angle-down' size ={24} color = '#ccc' style={styles.icons}/>
               </TouchableOpacity>
 
               <TouchableOpacity style={styles.buttonDesc} onPress = {btnShowGuide}>
-                <Text style={styles.buttonText}>Sử dụng</Text>
+                <Text style={styles.buttonText}>{t('why_use')}</Text>
                 <FontAwesome name = 'angle-down' size ={24} color = '#ccc' style={styles.icons}/>
               </TouchableOpacity>
             </View>
@@ -134,7 +136,7 @@ export default function TimeBloodTransfusion(){
             {
               showNote ?
                 <View style={styles.descContent}>
-                  <Text style={styles.contentInfo}>Cần tuân thủ các nguyên tắc truyền máu và theo dõi sát bệnh nhân trong quá trình truyền máu</Text>
+                  <Text style={styles.contentInfo}>{t('pearls_desc_blood')}</Text>
                 </View>
               : null
             }
@@ -142,7 +144,7 @@ export default function TimeBloodTransfusion(){
             {
               showGuide ?
                 <View style={styles.descContent}>
-                  <Text style={styles.contentInfo}>Sử dụng để tính nhanh thời gian truyền máu, sử dụng dây truyền máu loại 20 giọt = 1mL</Text>
+                  <Text style={styles.contentInfo}>{t('why_use_desc_blood')}</Text>
                 </View>
               : null
             }
@@ -153,7 +155,7 @@ export default function TimeBloodTransfusion(){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>Lượng máu</Text>
+                <Text style={styles.titleInputText}>{t('volume')}</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -167,7 +169,7 @@ export default function TimeBloodTransfusion(){
 
                 {
                   volume <= 0 || volume > 500?
-                    <Text style={styles.alertText}>Lỗi </Text>
+                    <Text style={styles.alertText}>{t('error_empty')}</Text>
                   : null
                 }
               </View>
@@ -185,7 +187,7 @@ export default function TimeBloodTransfusion(){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>Tốc độ</Text>
+                <Text style={styles.titleInputText}>{t('drip_rates')}</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -198,13 +200,13 @@ export default function TimeBloodTransfusion(){
                 />
                 {
                   rate <= 0 ?
-                    <Text style={styles.alertText}>Không để trống</Text>
+                    <Text style={styles.alertText}>{t('not_empty')}</Text>
                   : null
                 }
               </View>
 
               <View style={styles.unitContainInput}>
-                <Text style={styles.unitTitle}>g/p</Text>
+                <Text style={styles.unitTitle}>{t('gtts_min')}</Text>
               </View>
             </View>
             {/*end input contain*/}
@@ -216,8 +218,8 @@ export default function TimeBloodTransfusion(){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>Giờ truyền</Text>
-                <Text style={styles.titleInputDesc}>Giờ bắt đầu truyền</Text>
+                <Text style={styles.titleInputText}>{t('infusion_start')}</Text>
+                <Text style={styles.titleInputDesc}>{t('infusion_start_desc')}</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -230,7 +232,7 @@ export default function TimeBloodTransfusion(){
                 />
                 {
                   hour < 0 ?
-                    <Text style={styles.alertText}>Lỗi</Text>
+                    <Text style={styles.alertText}>{t('not_empty')}</Text>
                   : null
                 }
               </View>
@@ -246,7 +248,7 @@ export default function TimeBloodTransfusion(){
                 />
                 {
                   minute < 0 ?
-                    <Text style={styles.alertText}>Lỗi</Text>
+                    <Text style={styles.alertText}>{t('error_empty')}</Text>
                   : null
                 }
               </View>
@@ -265,12 +267,12 @@ export default function TimeBloodTransfusion(){
 
           {/*This is form container*/}
           <TouchableOpacity style={styles.buttonDesc} onPress={volumTransedCalc}>
-            <Text style={styles.titleInputText}>Tính lượng máu đã truyền</Text>
+            <Text style={styles.titleInputText}>{t('total_volume')}</Text>
             <FontAwesome name='angle-down' style={styles.icons} color='#777' size ={24}/>
           </TouchableOpacity>
 
           <View style={styles.formInfo}>
-            <Text style={styles.contentInfo}>Tính lượng máu đã truyền khi cần ngưng hoặc chuyển đi khoa khác</Text>
+            <Text style={styles.contentInfo}>{t('total_volume_calc')}</Text>
           </View>
           {
             showCalcTrans ?
@@ -278,8 +280,8 @@ export default function TimeBloodTransfusion(){
                 {/*This is input contain*/}
                 <View style={styles.inputContain}>
                   <View style={styles.titleInput}>
-                    <Text style={styles.titleInputText}>Giờ ngưng</Text>
-                    <Text style={styles.titleInputDesc}>Tính lượng máu đã truyền</Text>
+                    <Text style={styles.titleInputText}>{t('infusion_stop')}</Text>
+                    <Text style={styles.titleInputDesc}>{t('total_volume')}</Text>
                   </View>
 
                   <View style={styles.inputContent}>
@@ -292,7 +294,7 @@ export default function TimeBloodTransfusion(){
                     />
                     {
                       endHour < 0 ?
-                        <Text style={styles.alertText}>Lỗi</Text>
+                        <Text style={styles.alertText}>{t('error_empty')}</Text>
                       : null
                     }
                   </View>
@@ -308,7 +310,7 @@ export default function TimeBloodTransfusion(){
                     />
                     {
                       endMinute < 0 ?
-                        <Text style={styles.alertText}>Lỗi</Text>
+                        <Text style={styles.alertText}>{t('error_empty')}</Text>
                       : null
                     }
                   </View>
@@ -326,11 +328,11 @@ export default function TimeBloodTransfusion(){
             :
               <View style={styles.resultContain}>
                 <View style={styles.resultTitle}>
-                  <Text style={styles.resultTitleText}>Thời gian truyền máu</Text>
+                  <Text style={styles.resultTitleText}>{t('time_boold')}</Text>
                 </View>
 
-                <Text style={styles.rateContent}>Phản ứng sinh vật: {timePUSV} phút</Text>
-                <Text style={styles.rateContent}>Truyền xong lúc : </Text>
+                <Text style={styles.rateContent}>Phản ứng sinh vật: {timePUSV} {t('min')}</Text>
+                <Text style={styles.rateContent}>{t('time')} {t('end')} : </Text>
                 <View style={styles.resultContent}>
                   <Text style={styles.result}>{timeEndHour} : {timeEndMinute}</Text>
                 </View>
@@ -343,7 +345,7 @@ export default function TimeBloodTransfusion(){
             showCalcTrans?
               <View style={styles.resultContain}>
                 <View style={styles.resultTitle}>
-                  <Text style={styles.resultTitleText}>Lượng máu đã truyền</Text>
+                  <Text style={styles.resultTitleText}>{t('total_volume')}</Text>
                 </View>
 
                 <View style={styles.resultContent}>
@@ -351,7 +353,7 @@ export default function TimeBloodTransfusion(){
                   <Text style={styles.unit}>mL</Text>
                 </View>
 
-                <Text style = {styles.unit}>Lượng máu còn lại </Text>
+                <Text style = {styles.unit}>{t('volume_rest')}</Text>
                 <View style={styles.resultContent}>
                   <Text style={styles.result}>{infusedVolume}</Text>
                   <Text style={styles.unit}>mL</Text>
