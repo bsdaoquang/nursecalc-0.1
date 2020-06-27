@@ -243,4 +243,16 @@ export const styles = StyleSheet.create({
     bottom: 0,
     position: 'absolute'
   },
+  btnLink:{
+    marginVertical: 15,
+    justifyContent: 'center',
+    padding: 8
+  },
+  link:{
+    fontSize: 16,
+    fontFamily: 'sans-serif',
+    color: '#777',
+    fontStyle: 'italic',
+    textAlign: 'right'
+  }
 })

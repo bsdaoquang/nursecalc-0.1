@@ -48,5 +48,10 @@
   "time_boold": "Time blood transfusion",
   "preals_desc_blood": "",
   "why_use_desc_blood": "",
-  "infusion_pump": "Infusion Pump"
+  "infusion_pump": "Infusion Pump",
+  "infusion_pump_desc": "Infusion Calculator",
+  "dilution": "Dilution",
+
+  "dose_calc": "Dose Calculator",
+  "dose_calc_desc": "Infusion dose calculator"
 }

@@ -13,6 +13,7 @@ const DATA = [
   {id: '2',title: 'blood_transfusion'},
   {id: '3',title: 'infusion_time'},
   {id: '4',title: 'infusion_pump'},
+  {id: '5',title: 'dose_calc'},
 ];
 
 function Item({ title }) {
@@ -38,9 +39,6 @@ export default function MyList({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.inner}>
-        <View style={styles.headerContain}>
-          <Text style={styles.headerSubTitle}>{t('nurse_calc')}</Text>
-        </View>
 
         {/*this is formulars list*/}
           <FlatList

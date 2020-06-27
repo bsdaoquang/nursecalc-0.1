@@ -9,6 +9,7 @@ import BMICalc from './formulars/bmicalc'
 import TimeBloodTransfusion from './formulars/time_blood_transfusion'
 import TimeFusion from './formulars/time_fusion'
 import InfusionPump from './formulars/infusion_pump'
+import DoseCalc from './formulars/dose_calc'
 
 import {t} from './locales/index'
 
@@ -22,7 +23,7 @@ function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen}
           options={{
-          title: 'Nurse Calculator',
+          title: 'Medical Calculator',
           headerStyle: {
             backgroundColor: '#00bfa5',
           },
@@ -43,6 +44,9 @@ function App() {
         />
         <Stack.Screen name="infusion_pump" component={InfusionPump}
           options={{title: t('infusion_pump')}}
+        />
+        <Stack.Screen name="dose_calc" component={DoseCalc}
+          options={{title: t('dose_calc')}}
         />
       </Stack.Navigator>
     </NavigationContainer>
