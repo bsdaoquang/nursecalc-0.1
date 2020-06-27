@@ -3,6 +3,7 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
         TouchableWithoutFeedback, TouchableOpacity, Keyboard, ScrollView} from 'react-native'
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
+import AdMod from '../screens/admob_Screen'
 
 import {t} from '../locales/index'
 
@@ -304,6 +305,7 @@ export default function BMICalc(){
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
+
     </ScrollView>
   )
 }

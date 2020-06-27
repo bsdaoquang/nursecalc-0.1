@@ -12,9 +12,6 @@ export default function AdMob(){
         adUnitID = "ca-app-pub-9163945640044646/8720309227"
         serverPersonallizedAds = {false}
       />
-      <View>
-        <Text>This is admob banner</Text>
-      </View>
     </View>
   )
 }

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import { SafeAreaView, View, FlatList, StyleSheet, Text, TouchableOpacity, Alert} from 'react-native';
 import Constants from 'expo-constants';
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
@@ -24,17 +24,8 @@ function Item({ title }) {
   );
 }
 
-const bannerError = () => {
-  console.log('An error')
-}
 
 export default function MyList({navigation}) {
-
-  //Android banner: ca-app-pub-9163945640044646/8720309227
-  //Android interstitial: ca-app-pub-9163945640044646/9583918468
-
-  //iOS banner: ca-app-pub-9163945640044646/4655025414
-  //iOS interstitial: ca-app-pub-9163945640044646/8436404045
 
   return (
     <SafeAreaView style={styles.container}>
@@ -46,8 +37,7 @@ export default function MyList({navigation}) {
             renderItem={({ item }) => (
               <TouchableOpacity
                 onPress={() => navigation.navigate(item.title)}
-                style={styles.listContent}
-                >
+                style={styles.listContent}>
                 <Text style={styles.listTitle}>{t(item.title)}</Text>
                 <FontAwesome name="angle-double-right" size={24} color="#00bfa5" styles={styles.iconRight}/>
               </TouchableOpacity>
