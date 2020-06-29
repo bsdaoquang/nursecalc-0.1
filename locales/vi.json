@@ -54,5 +54,28 @@
   "dose_calc": "Tính liều truyền bơm tiêm điện",
   "dose_calc_desc": "Tính liều truyền bơm tiêm điện",
 
-  "count_drops": "Máy đếm giọt dịch truyền"
+  "count_drops": "Máy đếm giọt",
+  "count_drops_desc": "Máy tính tốc độ truyền dịch",
+  "drop" : "giọt",
+
+  "desired_dose": "Liều dùng mong muốn",
+  "desired_dose_desc": "Tính lượng thuốc cần rút để đạt liều mong muốn",
+  "odered_dose": "Liều mong muốn",
+  "Available_dose": "Liều có sẵn",
+  "Available_volume": "Lượng thuốc",
+  "draw_up": "Rút ra:",
+
+  "info": "Thông tin",
+  "desired_info": "Rút thuốc = (liều mong muốn/liều có sẵn) X lượng thuốc.",
+  "desired_info_2": "Ví dụ: Pha 1000mg Ceftazidim trong 5ml nước cất, cần tiêm cho bệnh nhân 350mg, vậy cần rút ra bao nhiêu ml",
+  "desired_info_3": "lượng thuốc cần rút ra = (350/1000) x 5 = 1.8mL",
+
+  "iv_drip_rate": "Tốc độ truyền",
+  "drip_rates": "Tính tốc độ truyền dịch",
+  "drip_rates_desc": "Công thức tính tốc độ truyền dịch",
+  "drop_factor": "Hệ số giọt",
+  "drop_factor_desc": "Thông thường, hệ số giọt thường được ghi trên dây truyền dịch hoặc bao bì",
+  "gtts_ml": "giọt/mL",
+  "fill_out_required": "Vui lòng điền đầy đủ thông tin",
+  "drip_rates_info_desc": "Một số thuốc sử dụng qua đường truyền tĩnh mạch cần tính chính xác tốc độ truyền, hoặc trong nhi khoa",
 }

@@ -11,6 +11,9 @@ import TimeFusion from './formulars/time_fusion'
 import InfusionPump from './formulars/infusion_pump'
 import DoseCalc from './formulars/dose_calc'
 import CountDrops from './formulars/count_drops'
+import DesiredDose from './formulars/desired_dose'
+import DripReateCalc from './formulars/drip_rate_calc'
+
 
 import {t} from './locales/index'
 
@@ -51,6 +54,12 @@ function App() {
         />
         <Stack.Screen name="count_drops" component={CountDrops}
           options={{title: t('count_drops')}}
+        />
+        <Stack.Screen name="desired_dose" component={DesiredDose}
+          options={{title: t('desired_dose')}}
+        />
+        <Stack.Screen name="drip_rates" component={DripReateCalc}
+          options={{title: t('drip_rates')}}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -30,7 +30,7 @@
   "error_empty": "Error",
   "drip_rates": "Drip rates",
   "not_empty": "Not Empty",
-  "gtts_min": "g/m",
+  "gtts_min": "gtts/min",
   "infusion_start": "Start",
   "infusion_start_desc": "Infusion Start",
   "total_volume": "Total Volume",
@@ -42,7 +42,7 @@
   "volume_translated": "Volume translated",
   "volume_rest": "Volume rest",
 
-  "min": "minute",
+  "min": "min",
 
   "time_boold_trans": "Time blood transfusion calculator",
   "time_boold": "Time blood transfusion",
@@ -55,5 +55,28 @@
   "dose_calc": "Dose Calculator",
   "dose_calc_desc": "Infusion dose calculator",
 
-  "count_drops": "Count Drops Calculator"
+  "count_drops": "Count Drops",
+  "count_drops_desc": "Count drops calculator",
+  "drop" : "Drop",
+
+  "desired_dose": "Available to desired dose",
+  "desired_dose_desc": "How many milliliters in a syringe to desired dose",
+  "odered_dose": "Odered dose",
+  "Available_dose": "Available dose",
+  "Available_volume": "Available Volume",
+  "draw_up": "Draw upon:",
+
+  "info": "Infomation",
+  "desired_info": "draw upon = (odered dose/available) X available volume.",
+  "desired_info_2": "Example: Doctor orders 35mg Inj. Levetiracetam for a paediatric patient in with seizures. The available vial contain 100mg in 5ml. How many milliliters draw up in a syringe to the derired dose",
+  "desired_info_3": "dose to draw = (35 / 100) x 5 = 1.75ml",
+
+  "iv_drip_rate": "IV Drip Rate",
+  "drip_rates": "Drip rate calculator",
+  "drip_rates_desc": "IV Drip rate calculator formula",
+  "drop_factor": "Drop factor",
+  "drop_factor_desc": "Typically IV infusion tubing will include this infomation in its label or packaging",
+  "gtts_ml": "gtts/mL",
+  "fill_out_required": "Please fill out required fields.",
+  "drip_rates_info_desc": "Some medications must be given at a certain rate due to toxicity or side effects from infusing too quickly; other medications are vasoactive and require a constant infusion and titration in order to work correctly.",
 }

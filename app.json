@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "nursecalc",
-    "slug": "nursecalc",
+    "name": "Medical Calculator",
+    "slug": "Medical Calculator",
     "platforms": [
       "ios",
       "android",
@@ -29,7 +29,7 @@
     },
     "android":{
       "config":{
-        "googleMobileAdsAppId": "ca-app-pub-9163945640044646~5164207593"
+        "googleMobileAdsAppId": "ca-app-pub-6209888091137615~1219440763"
       }
     }
   }

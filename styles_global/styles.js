@@ -214,9 +214,12 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily:'sans-serif'
   },
-  contentInfo:{
+  infoText:{
     fontFamily: 'sans-serif',
-    color: '#777'
+    color: '#777',
+    padding: 5,
+    fontSize: 14,
+    fontStyle: 'italic'
   },
 
   /*This is styles for list*/
@@ -255,5 +258,31 @@ export const styles = StyleSheet.create({
     color: '#777',
     fontStyle: 'italic',
     textAlign: 'right'
+  },
+
+  /*this is styles for info contain*/
+  infoContain:{
+    marginTop: 15,
+    backgroundColor: '#e0e0e0',
+    borderRadius: 4
+  },
+  titleInfoContain:{
+    flexDirection: 'row',
+    padding: 5
+  },
+  titleInfo:{
+    paddingVertical: 5,
+    flex: 1,
+    fontFamily: 'sans-serif',
+    fontWeight: 'bold',
+    color: '#777',
+    fontSize: 18
+  },
+  infoTextLink:{
+    color: '#2ecc71',
+    fontSize: 14,
+    fontStyle: 'italic',
+    fontFamily: 'sans-serif',
+    padding: 5
   }
 })

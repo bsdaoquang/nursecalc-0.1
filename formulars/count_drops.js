@@ -6,6 +6,8 @@ import AdMob from '../screens/admob_Screen'
 
 import { FontAwesome } from '@expo/vector-icons'
 
+import {t} from '../locales/index'
+
 export default function CountDrops(){
 
 	const [rate, setRate] = useState(0)
@@ -40,29 +42,6 @@ export default function CountDrops(){
 		setRate(0)
 		setLastTime(0)
 	}
-	// var number = 0
-	// 	var lastTime, newTime
-	// 	var time;
-
-	// 	function demThoiGian(){
-	// 		number += 1
-	// 		document.getElementById("number").innerHTML = number
-
-	// 		var date = new Date()
-	// 		newTime = date.getTime()
-	// 		if(lastTime){
-	// 			time =  newTime - lastTime
-
-	// 			document.getElementById("ketqua").innerHTML = "Số giọt đang truyền"
-	// 			document.getElementById("point").innerHTML = (60000/time).toFixed()
-	// 			document.getElementById("donvi").innerHTML =  " giọt/phút"
-	// 		}else {
-	// 			document.getElementById("ketqua").innerHTML = "Bấm thêm lần nữa để tính"
-	// 		}
-
-	// 		lastTime = newTime
-	// 	}
-
 
 	return (
 		<View style={styles.container}>
@@ -70,17 +49,17 @@ export default function CountDrops(){
 
 				{/*this is header*/}
 	          <View style={styles.headerContain}>
-	            <Text style={styles.headerTitle}>Máy đếm giọt</Text>
-	            <Text style={styles.headerSubTitle}>Tính tốc độ truyền dịch</Text>
+	            <Text style={styles.headerTitle}>{t('count_drops')}</Text>
+	            <Text style={styles.headerSubTitle}>{t('count_drops_desc')}</Text>
 	          </View>
 	          {/*End header*/}
 
 	      	{/*This is result form*/}
 			<View style={styles.resultContain}>
-				<Text style={styles.resultTitleText}>Tốc độ</Text>
+				<Text style={styles.resultTitleText}>{t('iv_drip_rate')}</Text>
 				<View style={local_styles.resultConatiner}>
 					<Text style={local_styles.resultText}>{rate}</Text>
-					<Text style={local_styles.unit}>giọt/phút</Text>
+					<Text style={local_styles.unit}>{t('gtts_min')}</Text>
 				</View>
 			</View>
 	  		{/*end result form*/}
@@ -93,7 +72,7 @@ export default function CountDrops(){
 	  					onPress = {countDrop}
 	  					style={local_styles.btnCount}
 	  				>
-	  					<Text style={local_styles.btnCountText}>+1 giọt </Text>
+	  					<Text style={local_styles.btnCountText}>+1 {t('drop')} </Text>
 	  				</TouchableOpacity>
 	  				<TouchableOpacity
 	  					onPress = {repeat}
@@ -106,7 +85,7 @@ export default function CountDrops(){
 	  		{/*end result count*/}
 
 	  		<View style={styles.formInfo}>
-            <Text style={styles.titleInfo}>Hướng dẫn:</Text>
+            <Text style={styles.titleInfo}>{t('info')}</Text>
             <Text style={styles.contentInfo}>Mỗi giọt nhấn +1, số giọt/phút bằng 60 giây chia thời gian giọt thứ 1 đến giọt thứ 2</Text>
           </View>
 

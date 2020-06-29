@@ -9,7 +9,7 @@ export default function AdMob(){
       <AdMobBanner
         style={styles.bottomBanner}
         bannerSize = "fullBanner"
-        adUnitID = "ca-app-pub-9163945640044646/8720309227"
+        adUnitID = "ca-app-pub-6209888091137615/1563055691"
         serverPersonallizedAds = {false}
       />
     </View>
