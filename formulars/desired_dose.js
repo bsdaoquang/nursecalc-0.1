@@ -29,7 +29,6 @@ export default function DesiredDose({}){
     <View style={styles.container}>
     <ScrollView>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-
         <View style={styles.inner}>
           {/*This is header*/}
           <View style={styles.headerContain}>
@@ -151,6 +150,12 @@ export default function DesiredDose({}){
         </View>
       </TouchableWithoutFeedback>
       </ScrollView>
+
+      <View>
+        <AdMob />
+      </View>
+
     </View>
+
   )
 }

@@ -42,9 +42,7 @@ export default function InfusionPump({navigation}){
 
   return(
     <View style={styles.container}>
-      <View>
-        <AdMob />
-      </View>
+      <ScrollView>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.inner}>
           {/*This is header*/}
@@ -228,11 +226,16 @@ export default function InfusionPump({navigation}){
 
           <TouchableOpacity onPress = {() => navigation.navigate('dose_calc')}
           style={styles.btnLink}>
-            <Text style={styles.link}>Tính liều thuốc đang truyền</Text>
+            <Text style={styles.link}>Tính liều thuốc đang truyền?</Text>
           </TouchableOpacity>
-
         </View>
       </TouchableWithoutFeedback>
+      </ScrollView>
+
+      <View>
+        <AdMob />
+      </View>
+
     </View>
   )
 }

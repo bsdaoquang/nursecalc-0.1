@@ -191,6 +191,11 @@ export default function DripReateCalc({navigation}){
         </View>
       </TouchableWithoutFeedback>
       </ScrollView>
+
+      <View>
+        <AdMob />
+      </View>
+
     </View>
   )
 }

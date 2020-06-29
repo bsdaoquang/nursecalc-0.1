@@ -3,6 +3,7 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
         TouchableWithoutFeedback, TouchableOpacity, Keyboard, ScrollView, Alert} from 'react-native'
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
+import AdMob from '../screens/admob_Screen'
 
 import {t} from '../locales/index'
 
@@ -106,8 +107,8 @@ export default function TimeBloodTransfusion(){
   }
 
   return(
+    <View style={styles.container}>
     <ScrollView>
-    <KeyboardAvoidingView style={styles.container}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.inner}>
 
@@ -187,7 +188,7 @@ export default function TimeBloodTransfusion(){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>{t('drip_rates')}</Text>
+                <Text style={styles.titleInputText}>{t('iv_drip_rate')}</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -260,9 +261,7 @@ export default function TimeBloodTransfusion(){
 
           <View style={styles.formInfo}>
             <Text style={styles.titleInfo}>Phản ứng sinh vật:</Text>
-            <Text style={styles.contentInfo}>Cho chảy theo y lệnh 20ml, sau đó chảy chậm từ 8 – 10 g/p trong 5 phút.
-            Nếu không có phản ứng gì, cho chảy theo y lệnh 20ml, sau đó cho chảy 8 – 10 g/p trong 5 phút.
-            Ở đây sử dụng tốc độ 10 g/p</Text>
+            <Text style={styles.contentInfo}>Cho chảy theo y lệnh 20ml, sau đó chảy chậm từ 8 – 10 g/p trong 5 phút. Nếu không có phản ứng gì, cho chảy theo y lệnh 20ml, sau đó cho chảy 8 – 10 g/p trong 5 phút. Ở đây sử dụng tốc độ 10 g/p</Text>
           </View>
 
           {/*This is form container*/}
@@ -366,7 +365,12 @@ export default function TimeBloodTransfusion(){
 
         </View>
       </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
     </ScrollView>
+
+      <View>
+        <AdMob />
+      </View>
+
+    </View>
   )
 }

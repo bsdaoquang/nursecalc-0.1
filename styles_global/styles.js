@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
   },
   inner:{
     flex: 1,
+    marginBottom: 70,
     paddingTop: 20,
     paddingHorizontal: 10
   },
@@ -244,8 +245,7 @@ export const styles = StyleSheet.create({
   },
   bottomBanner:{
     bottom: 0,
-    position: 'absolute',
-    backgroundColor: '#ccc'
+    position: "absolute"
   },
   btnLink:{
     marginVertical: 15,

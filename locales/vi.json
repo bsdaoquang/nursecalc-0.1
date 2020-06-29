@@ -24,7 +24,7 @@
   "Formula_desc_2": " Diện tích bề mặt cơ thể (công thức Mosteller) (BSA), m2 = [(chiều cao, cm x cân nặng, kg)/3600]^1/2",
 
   "infusion": "Truyền dịch",
-  "volume": "Lượng dịch",
+  "volume": "Thể tích",
   "error_empty": "Lỗi",
   "drip_rates": "Tốc độ truyền",
   "not_empty": "Không để trống",
@@ -47,7 +47,7 @@
   "preals_desc_blood": "Cần tuân thủ các nguyên tắc truyền máu và theo dõi sát bệnh nhân trong quá trình truyền máu",
   "why_use_desc_blood": "Sử dụng để tính nhanh thời gian truyền máu, sử dụng dây truyền máu loại 20 giọt = 1mL",
 
-  "infusion_pump": "Tính tốc độ truyền bơm tiêm điện",
+  "infusion_pump": "Bơm tiêm điện",
   "infusion_pump_desc": "Tính tốc độ truyền bơm tiêm điện",
   "dilution": "Pha loãng",
 

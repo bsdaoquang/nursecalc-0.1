@@ -27,15 +27,13 @@ export default function DoseCalc({navigation}){
       //Thỏa các điều kiện, bắt đầu tính toán
 				//1. nồng độ thuốc = luongthuoc * 1000 / luongdich -> mcg/ml
 			var nongDoThuoc = (thuoc*1000)/(dich*1)
-			var lieuThuoc = (tocDo * nongDoThuoc)/(weight*60)
+			var lieuThuoc = ((tocDo * nongDoThuoc)/(weight*60)).toFixed(1)
     }
   }
 
   return(
     <View style={styles.container}>
-      <View>
-        <AdMob />
-      </View>
+      <ScrollView>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.inner}>
           {/*This is header*/}
@@ -185,6 +183,12 @@ export default function DoseCalc({navigation}){
 
         </View>
       </TouchableWithoutFeedback>
+      </ScrollView>
+
+      <View>
+        <AdMob />
+      </View>
+      
     </View>
   )
 }

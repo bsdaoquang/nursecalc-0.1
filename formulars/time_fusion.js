@@ -3,6 +3,7 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
         TouchableWithoutFeedback, TouchableOpacity, Keyboard, ScrollView, Alert} from 'react-native'
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
+import AdMob from '../screens/admob_Screen'
 
 import {t} from '../locales/index'
 
@@ -92,8 +93,8 @@ export default function TimeFusion(){
   }
 
   return(
+    <View style={styles.container}>
     <ScrollView>
-    <KeyboardAvoidingView style={styles.container}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.inner}>
 
@@ -314,7 +315,11 @@ export default function TimeFusion(){
 
         </View>
       </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
     </ScrollView>
+
+    <View>
+      <AdMob />
+    </View>
+    </View>
   )
 }
