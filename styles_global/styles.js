@@ -224,24 +224,28 @@ export const styles = StyleSheet.create({
   },
 
   /*This is styles for list*/
-  listContent:{
+  listContainer:{
     backgroundColor: '#fafafa',
-    marginTop: 2,
-    padding: 10,
+    padding: 5,
     borderRadius: 4,
-    flexDirection: 'row',
-
+    marginTop: 2,
+    flexDirection: 'row'
+  },
+  listContent:{
+    flex: 1,
+    paddingHorizontal: 5
   },
   listTitle:{
-    flex: 1,
     textAlign: 'left',
     color: '#777',
+    fontWeight: 'bold',
     fontFamily: 'sans-serif',
     fontSize: 16
   },
   iconRight:{
-    flex: 1,
-    textAlign: 'center'
+    textAlign: 'center',
+    marginTop: 10,
+    paddingHorizontal: 8
   },
   bottomBanner:{
     bottom: 0,

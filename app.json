@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "Medical Calculator",
-    "slug": "Medical Calculator",
+    "name": "Trợ Lý Điều Dưỡng",
+    "slug": "tro-ly-dieu-duong",
+    "description": "Tính nhanh các công thức thường dùng trong lâm sàng",
     "platforms": [
       "ios",
       "android",
@@ -13,7 +14,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#03989e"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -25,12 +26,16 @@
       "supportsTablet": true,
       "config":{
         "googleMobileAdsAppId": "ca-app-pub-9163945640044646~7281188754"
-      }
+      },
+      "bundleIdentifier": "com.bsdaoquang.trolydieuduong",
+      "buildNumber": "1.0.0"
     },
     "android":{
       "config":{
-        "googleMobileAdsAppId": "ca-app-pub-6209888091137615~1219440763"
-      }
+        "googleMobileAdsAppId": "ca-app-pub-6209888091137615~1219440763",
+      },
+      "package": "com.bsdaoquang.trolydieuduong",
+      "versionCode": 1
     }
   }
 }

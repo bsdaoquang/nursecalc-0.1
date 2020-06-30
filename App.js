@@ -38,28 +38,100 @@ function App() {
         }}
         />
         <Stack.Screen name="infusion_time" component={TimeFusion}
-          options={{title: t('infusion_time')}}
+          options={{
+            title: t('infusion_time'),
+            headerStyle:{
+              backgroundColor: '#00bfa5'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
         />
         <Stack.Screen name="blood_transfusion" component={TimeBloodTransfusion}
-          options={{title: t('blood_transfusion')}}
+          options={{title: t('blood_transfusion'),
+            title: t('blood_transfusion'),
+            headerStyle:{
+              backgroundColor: '#00bfa5'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
         />
         <Stack.Screen name="bmi_calc" component={BMICalc}
-          options={{title: t('bmi_calc')}}
+          options={{title: t('bmi_calc'),
+            title: t('bmi_calc'),
+            headerStyle:{
+              backgroundColor: '#00bfa5'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
         />
         <Stack.Screen name="infusion_pump" component={InfusionPump}
-          options={{title: t('infusion_pump')}}
+          options={{title: t('infusion_pump'),
+            title: t('infusion_pump'),
+            headerStyle:{
+              backgroundColor: '#00bfa5'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
         />
         <Stack.Screen name="dose_calc" component={DoseCalc}
-          options={{title: t('dose_calc')}}
+          options={{title: t('dose_calc'),
+            title: t('dose_calc'),
+            headerStyle:{
+              backgroundColor: '#00bfa5'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
         />
         <Stack.Screen name="count_drops" component={CountDrops}
-          options={{title: t('count_drops')}}
+          options={{title: t('count_drops'),
+            title: t('count_drops'),
+            headerStyle:{
+              backgroundColor: '#00bfa5'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
         />
         <Stack.Screen name="desired_dose" component={DesiredDose}
-          options={{title: t('desired_dose')}}
+          options={{title: t('desired_dose'),
+            title: t('desired_dose'),
+            headerStyle:{
+              backgroundColor: '#00bfa5'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
         />
         <Stack.Screen name="drip_rates" component={DripReateCalc}
-          options={{title: t('drip_rates')}}
+          options={{title: t('drip_rates'),
+            title: t('drip_rates'),
+            headerStyle:{
+              backgroundColor: '#00bfa5'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
