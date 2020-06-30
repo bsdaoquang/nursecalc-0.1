@@ -29,7 +29,6 @@ function Item({ title }) {
 
 
 export default function MyList({navigation}) {
-
   return (
     <View style={styles.container}>
     <ScrollView>

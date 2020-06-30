@@ -1,7 +1,7 @@
 // In App.js in a new project
 
 import * as React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, Share } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './screens/homeScreen'
@@ -14,10 +14,32 @@ import CountDrops from './formulars/count_drops'
 import DesiredDose from './formulars/desired_dose'
 import DripReateCalc from './formulars/drip_rate_calc'
 
+import { FontAwesome } from '@expo/vector-icons'
+
 
 import {t} from './locales/index'
 
-
+const onShare = async () => {
+    try {
+      const result = await Share.share({
+        title: 'Trợ lý điều dưỡng',
+        message:
+          'Trợ Lý Điều Dưỡng, Công cụ hỗ trợ điều dưỡng trong công việc hiệu quả, tiện lợi. Tải miễn phí tại CH Play',
+        url: ''
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
 const Stack = createStackNavigator();
 
@@ -35,6 +57,9 @@ function App() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+          headerRight:() => (
+            <FontAwesome name="share-square-o" size={28} color='white' style={{marginRight: 24}} onPress={onShare} />
+          ),
         }}
         />
         <Stack.Screen name="infusion_time" component={TimeFusion}

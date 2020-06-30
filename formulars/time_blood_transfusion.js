@@ -266,12 +266,12 @@ export default function TimeBloodTransfusion(){
 
           {/*This is form container*/}
           <TouchableOpacity style={styles.buttonDesc} onPress={volumTransedCalc}>
-            <Text style={styles.titleInputText}>{t('total_volume')}</Text>
+            <Text style={styles.titleInputText}>Lượng máu đã truyền</Text>
             <FontAwesome name='angle-down' style={styles.icons} color='#777' size ={24}/>
           </TouchableOpacity>
 
           <View style={styles.formInfo}>
-            <Text style={styles.contentInfo}>{t('total_volume_calc')}</Text>
+            <Text style={styles.contentInfo}>Tính lượng máu đã truyền khi chuyển bệnh hoặc ngưng truyền</Text>
           </View>
           {
             showCalcTrans ?
@@ -344,7 +344,7 @@ export default function TimeBloodTransfusion(){
             showCalcTrans?
               <View style={styles.resultContain}>
                 <View style={styles.resultTitle}>
-                  <Text style={styles.resultTitleText}>{t('total_volume')}</Text>
+                  <Text style={styles.resultTitleText}>Lượng máu đã truyền</Text>
                 </View>
 
                 <View style={styles.resultContent}>
