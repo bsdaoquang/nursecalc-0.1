@@ -86,7 +86,7 @@ export default function CountDrops(){
 
 	  		<View style={styles.formInfo}>
             <Text style={styles.titleInfo}>{t('info')}</Text>
-            <Text style={styles.contentInfo}>Mỗi giọt nhấn +1, số giọt/phút bằng 60 giây chia thời gian giọt thứ 1 đến giọt thứ 2</Text>
+            <Text style={styles.contentInfo}>{t('count_drops_info')}</Text>
           </View>
 
 			</View>

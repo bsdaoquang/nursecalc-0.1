@@ -9,15 +9,16 @@ import AdMob from '../screens/admob_Screen'
 import {t} from '../locales/index'
 
 const DATA = [
-  {id: '1',title: 'bmi_calc', desc: 'Body mass index and body subface'},
-  {id: '2',title: 'blood_transfusion', desc: 'Thời gian truyền máu, lượng máu đã truyền'},
-  {id: '3',title: 'infusion_time', desc: 'Thời gian truyền dịch, lượng dịch đã truyền'},
-  {id: '4',title: 'infusion_pump', desc: 'Tính tốc độ truyền bơm tiêm điện'},
-  {id: '5',title: 'dose_calc', desc: 'Tính liều dùng thuốc qua bơm tiêm điện'},
-  {id: '6', title: 'count_drops', desc:'Đếm số giọt tính tốc độ dịch truyền'},
-  {id: '7', title: 'desired_dose', desc: 'Chia nhỏ liều thuốc pha tiêm'},
-  {id: '8', title: 'drip_rates', desc: 'Tính tốc độ cần thiết truyền hết dịch'},
+  {id: '1',title: 'bmi_calc', desc: t('bmi_desc')},
+  {id: '2',title: 'blood_transfusion', desc: t('time_blood_trans')},
+  {id: '3',title: 'infusion_time', desc: t('infusion_time')},
+  {id: '4',title: 'infusion_pump', desc: t('infusion_pump_desc')},
+  {id: '5',title: 'dose_calc', desc: t('dose_calc_desc')},
+  {id: '6', title: 'count_drops', desc:t('count_drops_desc')},
+  {id: '7', title: 'desired_dose', desc: t('desired_dose_desc')},
+  {id: '8', title: 'drip_rates', desc: t('drip_rates')},
 ];
+
 
 function Item({ title }) {
   return (
@@ -31,7 +32,6 @@ function Item({ title }) {
 export default function MyList({navigation}) {
   return (
     <View style={styles.container}>
-    <ScrollView>
       <View style={styles.inner}>
 
         {/*this is formulars list*/}
@@ -52,10 +52,10 @@ export default function MyList({navigation}) {
               </TouchableOpacity>
             )}
             keyExtractor={item => item.id}
+            
           />
         {/*end list*/}
       </View>
-    </ScrollView>
 
       {/*Admob form*/}
       <View style={styles.bottomBanner}>

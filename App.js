@@ -49,7 +49,7 @@ function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen}
           options={{
-          title: 'Medical Calculator',
+          title: 'Trợ Lý Điều Dưỡng',
           headerStyle: {
             backgroundColor: '#00bfa5',
           },

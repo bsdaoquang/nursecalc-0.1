@@ -127,7 +127,7 @@ export default function DoseCalc({navigation}){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>Tốc độ</Text>
+                <Text style={styles.titleInputText}>{t('rate')}</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -160,14 +160,14 @@ export default function DoseCalc({navigation}){
               <View style={styles.resultContain}>
 
                 <View style={styles.resultTitle}>
-                  <Text style={styles.resultTitleText}>Liều đang truyền</Text>
+                  <Text style={styles.resultTitleText}>{t('dose')}</Text>
                   <Text style={styles.resultTitleDesc}></Text>
                 </View>
 
                 <View style={styles.resultContent}>
                   <Text style={styles.result}>{lieuThuoc}</Text>
                   <View style={styles.unitContain}>
-                    <Text style={styles.unit}>mcg/kg/phút</Text>
+                    <Text style={styles.unit}>{t('mcg_kg_min')}</Text>
                     <Text style={styles.superUnit}></Text>
                   </View>
                 </View>
@@ -178,7 +178,7 @@ export default function DoseCalc({navigation}){
 
           <TouchableOpacity onPress = {() => navigation.navigate('infusion_pump')}
           style={styles.btnLink}>
-            <Text style={styles.link}>Tính tốc độ truyền bơm tiêm điện?</Text>
+            <Text style={styles.link}>{t('infusion_pump')}?</Text>
           </TouchableOpacity>
 
         </View>
