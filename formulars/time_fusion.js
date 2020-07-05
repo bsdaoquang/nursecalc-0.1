@@ -11,13 +11,13 @@ import {t} from '../locales/index'
 
 export default function TimeFusion(){
 
-  const admobIntersitical = async () => {
-      await AdMobInterstitial.setAdUnitID('ca-app-pub-6209888091137615/1207407441'); //'ca-app-pub-6209888091137615/1207407441'); 
-      await AdMobInterstitial.requestAdAsync({ servePersonalizedAds: false});
-      await AdMobInterstitial.showAdAsync();
-    }
+  // const admobIntersitical = async () => {
+  //     await AdMobInterstitial.setAdUnitID('ca-app-pub-6209888091137615/1207407441'); //'ca-app-pub-6209888091137615/1207407441'); 
+  //     await AdMobInterstitial.requestAdAsync({ servePersonalizedAds: false});
+  //     await AdMobInterstitial.showAdAsync();
+  //   }
 
-  admobIntersitical()
+  // admobIntersitical()
 
   //Khai báo các giá trị
   const [volume, setVolume] = useState(volume)
