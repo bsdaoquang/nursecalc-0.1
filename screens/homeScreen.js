@@ -16,7 +16,7 @@ const DATA = [
   {id: '5',title: 'dose_calc', desc: t('dose_calc_desc')},
   {id: '6', title: 'count_drops', desc:t('count_drops_desc')},
   {id: '7', title: 'desired_dose', desc: t('desired_dose_desc')},
-  {id: '8', title: 'drip_rates', desc: t('drip_rates')},
+  {id: '8', title: 'drip_rates', desc: t('drip_rates_desc')},
 ];
 
 

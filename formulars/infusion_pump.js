@@ -43,7 +43,7 @@ export default function InfusionPump({navigation}){
 				var tocDomLphut = ((lieuDung*weight)/nongDoThuoc).toFixed(2)
 
 				//tốc độ truyền bơm tiêm điện ml/giờ
-				tocDoTruyen = tocDomLphut*60
+				tocDoTruyen = (tocDomLphut*60).toFixed(1)
 
 				//tốc độ truyền giọ/phút = tocdomlphut*20
 				var giotPhut = (tocDomLphut * 20).toFixed(0)

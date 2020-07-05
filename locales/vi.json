@@ -1,5 +1,5 @@
 {
-  "nurseAssistan": "Trợ lý Điều Dưỡng",
+  "nurseAssistant": "Trợ lý Điều Dưỡng",
   "nurseDesc":"Công cụ tiện ích giúp Điều dưỡng tính toán nhanh các công thức trong công việc",
   "nurse_calc": "Máy tính Điều dưỡng",
   "bmi_calc": "Tính chỉ số BMI & BSA",
@@ -44,8 +44,8 @@
 
   "min": "phút",
 
-  "time_boold_trans": "Tính thời gian truyền máu",
-  "time_boold": "Thời gian truyền máu",
+  "time_blood_trans": "Tính thời gian truyền máu",
+  "time_blood": "Thời gian truyền máu",
   "preals_desc_blood": "Cần tuân thủ các nguyên tắc truyền máu và theo dõi sát bệnh nhân trong quá trình truyền máu",
   "why_use_desc_blood": "Sử dụng để tính nhanh thời gian truyền máu, sử dụng dây truyền máu loại 20 giọt = 1mL",
   "volume_tranfused": "Lượng máu đã truyền",
