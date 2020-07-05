@@ -5,9 +5,20 @@ import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
 
+import {AdMobInterstitial} from 'expo-ads-admob'
+
 import {t} from '../locales/index'
 
 export default function BMICalc(){
+
+    const admobIntersitical = async () => {
+      await AdMobInterstitial.setAdUnitID('ca-app-pub-3940256099942544/6300978111'); //'ca-app-pub-6209888091137615/1207407441'); 
+      await AdMobInterstitial.requestAdAsync({ servePersonalizedAds: true});
+      await AdMobInterstitial.showAsync();
+    }
+    //end admob ads
+
+    admobIntersitical()
 
 
     const [height, setHeight]       = useState(height)
