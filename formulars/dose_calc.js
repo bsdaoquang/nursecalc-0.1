@@ -8,8 +8,18 @@ import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
 
 import {t} from '../locales/index'
+import {AdMobInterstitial} from 'expo-ads-admob'
+
 
 export default function DoseCalc({navigation}){
+
+  const admobIntersitical = async () => {
+      await AdMobInterstitial.setAdUnitID('ca-app-pub-6209888091137615/1207407441'); //'ca-app-pub-6209888091137615/1207407441'); 
+      await AdMobInterstitial.requestAdAsync({ servePersonalizedAds: false});
+      await AdMobInterstitial.showAdAsync();
+    }
+
+  admobIntersitical()
 
   const [weight, setWeight] = useState(weight)
   const [thuoc, setThuoc] = useState(thuoc)
