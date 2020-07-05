@@ -1,4 +1,6 @@
 {
+  "nurseAssistant": "Nurse Assistant",
+  "nurseDesc": "An effective tool to help nurses quickly calculate commom formula at work",
   "hello_world": "Hello World",
   "bye_world" : "Bye World",
   "nurse_calc": "Nurse Calculator",

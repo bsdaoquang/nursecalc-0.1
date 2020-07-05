@@ -1,4 +1,6 @@
 {
+  "nurseAssistan": "Trợ lý Điều Dưỡng",
+  "nurseDesc":"Công cụ tiện ích giúp Điều dưỡng tính toán nhanh các công thức trong công việc",
   "nurse_calc": "Máy tính Điều dưỡng",
   "bmi_calc": "Tính chỉ số BMI & BSA",
   "blood_transfusion": "Tính thời gian truyền máu",
