@@ -12,7 +12,6 @@ import {admobIntersititial} from '../screens/admob_Screen'
 
 export default function InfusionPump({navigation}){
 
-  admobIntersititial()
   const [weight, setWeight] = useState(weight)
   const [thuoc, setThuoc] = useState(thuoc)
   const [dich, setDich] = useState(dich)

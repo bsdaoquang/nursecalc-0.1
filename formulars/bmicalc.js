@@ -15,8 +15,6 @@ export default function BMICalc(){
     //   await AdMobInterstitial.showAdAsync();
     //   }
 
-    admobIntersititial()
-
     const [height, setHeight]       = useState(height)
     const [weight, setWeight]       = useState(weight)
     const [show, setShow]           = useState(false)

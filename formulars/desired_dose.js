@@ -13,7 +13,6 @@ import {t} from '../locales/index'
 
 export default function DesiredDose({}){
 
-  admobIntersititial()
   const [odered, setOdered] = useState(odered)
   const [availableDose, setAvailableDose] = useState(availableDose)
   const [availableVolume, setAvailableVolume] = useState(availableVolume)
