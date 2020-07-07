@@ -4,18 +4,11 @@ import {styles} from '../styles_global/styles'
 import AdMob from '../screens/admob_Screen'
 import { FontAwesome } from '@expo/vector-icons'
 import {t} from '../locales/index'
-import {AdMobInterstitial} from 'expo-ads-admob'
+import {admobIntersititial} from '../screens/admob_Screen'
 
 export default function CountDrops(){
 
-	// const admobIntersitical = async () => {
- //      await AdMobInterstitial.setAdUnitID('ca-app-pub-6209888091137615/1207407441'); //'ca-app-pub-6209888091137615/1207407441'); 
- //      await AdMobInterstitial.requestAdAsync({ servePersonalizedAds: false});
- //      await AdMobInterstitial.showAdAsync();
- //    }
-
- //    admobIntersitical()
-
+	admobIntersititial()
 
 	const [rate, setRate] = useState(0)
 	const [count, setCount] = useState(0)

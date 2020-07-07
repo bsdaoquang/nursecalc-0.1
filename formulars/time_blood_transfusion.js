@@ -4,22 +4,13 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
+import {admobIntersititial} from '../screens/admob_Screen'
 
 import {t, language} from '../locales/index'
-import {AdMobInterstitial} from 'expo-ads-admob'
-
 
 export default function TimeBloodTransfusion(){
 
-  // const admobIntersitical = async () => {
-  //     await AdMobInterstitial.setAdUnitID('ca-app-pub-6209888091137615/1207407441'); //'ca-app-pub-6209888091137615/1207407441'); 
-  //     await AdMobInterstitial.requestAdAsync({ servePersonalizedAds: false});
-  //     await AdMobInterstitial.showAdAsync();
-  //   }
-
-  //   admobIntersitical()
-
-
+  admobIntersititial()
   //Khai báo các giá trị
   const [volume, setVolume] = useState(volume)
   const [rate, setRate]     = useState(rate)
@@ -57,8 +48,7 @@ export default function TimeBloodTransfusion(){
   }
   if (volume > 0 && rate > 0) {
     //tính thời gian
-    language == 'vi' ? timePUSV = (((400/parseInt(rate)) + 5)*2).toFixed(0)
-    : 0
+    timePUSV = (((400/parseInt(rate)) + 5)*2).toFixed(0)
 
     timeTrans = (((volume - (language == 'vi' ? 45 : 0))*20)/rate).toFixed(0)
 
@@ -270,15 +260,10 @@ export default function TimeBloodTransfusion(){
           </View>
           {/*end from contain*/}
 
-          {
-            language === 'vi'?
               <View style={styles.formInfo}>
                 <Text style={styles.titleInfo}>Phản ứng sinh vật:</Text>
                 <Text style={styles.contentInfo}>Cho chảy theo y lệnh 20ml, sau đó chảy chậm từ 8 – 10 g/p trong 5 phút. Nếu không có phản ứng gì, cho chảy theo y lệnh 20ml, sau đó cho chảy 8 – 10 g/p trong 5 phút. Ở đây sử dụng tốc độ 10 g/p</Text>
               </View>
-
-            : null
-          }
 
           {/*This is form container*/}
           <TouchableOpacity style={styles.buttonDesc} onPress={volumTransedCalc}>
@@ -286,15 +271,9 @@ export default function TimeBloodTransfusion(){
             <FontAwesome name='angle-down' style={styles.icons} color='#777' size ={24}/>
           </TouchableOpacity>
 
-          {
-            language == 'vi'?
               <View style={styles.formInfo}>
                 <Text style={styles.contentInfo}>Tính lượng máu đã truyền khi chuyển bệnh hoặc ngưng truyền</Text>
               </View>
-            :null
-          }
-
-          
           {
             showCalcTrans ?
               <View style={styles.formContain}>
@@ -357,7 +336,7 @@ export default function TimeBloodTransfusion(){
                     <Text style={styles.rateContent}>Phản ứng sinh vật: {timePUSV} {t('min')}</Text>
                   :null
                 }
-                
+
                 <Text style={styles.rateContent}>{t('time')} {t('end')} : </Text>
                 <View style={styles.resultContent}>
                   <Text style={styles.result}>{timeEndHour} : {timeEndMinute}</Text>
