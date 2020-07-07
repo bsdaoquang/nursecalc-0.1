@@ -6,10 +6,20 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
-
 import {t} from '../locales/index'
+import {AdMobInterstitial} from 'expo-ads-admob'
+
 
 export default function InfusionPump({navigation}){
+
+  // const admobIntersitical = async () => {
+  //     await AdMobInterstitial.setAdUnitID('ca-app-pub-6209888091137615/1207407441'); //'ca-app-pub-6209888091137615/1207407441'); 
+  //     await AdMobInterstitial.requestAdAsync({ servePersonalizedAds: false});
+  //     await AdMobInterstitial.showAdAsync();
+  //   }
+
+  // admobIntersitical()
+
 
   const [weight, setWeight] = useState(weight)
   const [thuoc, setThuoc] = useState(thuoc)
@@ -20,7 +30,7 @@ export default function InfusionPump({navigation}){
   var tocDoTruyen = 0
 
   if (weight != null && thuoc != null && dich != null && lieuDung != null) {
-    if (weight > 250) {
+    if (parseInt(weight) > 250) {
       Alert.alert('weight to high')
       setWeight('')
     }else{
@@ -33,7 +43,7 @@ export default function InfusionPump({navigation}){
 				var tocDomLphut = ((lieuDung*weight)/nongDoThuoc).toFixed(2)
 
 				//tốc độ truyền bơm tiêm điện ml/giờ
-				tocDoTruyen = tocDomLphut*60
+				tocDoTruyen = (tocDomLphut*60).toFixed(1)
 
 				//tốc độ truyền giọ/phút = tocdomlphut*20
 				var giotPhut = (tocDomLphut * 20).toFixed(0)
@@ -70,7 +80,7 @@ export default function InfusionPump({navigation}){
                   value={weight}
                 />
                 {
-                  weight < 0 ?
+                  weight < 0 || weight > 200?
                     <Text style={styles.alertText}>{t('error_empty')}</Text>
                   : null
                 }
@@ -133,9 +143,7 @@ export default function InfusionPump({navigation}){
           {
             dich > 50 ?
               <View style={styles.formInfo}>
-                <Text style={styles.contentInfo}>
-                  Lượng thuốc > 50mL hoặc không có bơm tiêm điện, phần mềm sẽ tính tốc độ dịch truyền tĩnh mạch
-                </Text>
+                <Text style={styles.contentInfo}>{t('volume_50')}</Text>
               </View>
             : null
           }
@@ -145,7 +153,7 @@ export default function InfusionPump({navigation}){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>Liều dùng</Text>
+                <Text style={styles.titleInputText}>{t('dose')}</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -178,14 +186,14 @@ export default function InfusionPump({navigation}){
               <View style={styles.resultContain}>
 
                 <View style={styles.resultTitle}>
-                  <Text style={styles.resultTitleText}>Bơm tiêm điện</Text>
+                  <Text style={styles.resultTitleText}>{t('infusion_pump')}</Text>
                   <Text style={styles.resultTitleDesc}></Text>
                 </View>
 
                 <View style={styles.resultContent}>
                   <Text style={styles.result}>{tocDoTruyen}</Text>
                   <View style={styles.unitContain}>
-                    <Text style={styles.unit}>mL/h</Text>
+                    <Text style={styles.unit}>{t('ml_h')}</Text>
                     <Text style={styles.superUnit}></Text>
                   </View>
                 </View>
@@ -199,14 +207,14 @@ export default function InfusionPump({navigation}){
             dich > 50 ?
               <View style={styles.resultContain}>
                 <View style={styles.resultTitle}>
-                  <Text style={styles.resultTitleText}>Truyền tĩnh mạch</Text>
+                  <Text style={styles.resultTitleText}>{t('iv_infusion')}</Text>
                   <Text style={styles.resultTitleDesc}></Text>
                 </View>
 
                 <View style={styles.resultContent}>
                   <Text style={styles.result}>{giotPhut}</Text>
                   <View style={styles.unitContain}>
-                    <Text style={styles.unit}>giọt/phút</Text>
+                    <Text style={styles.unit}>{t('gtts_min')}</Text>
                     <Text style={styles.superUnit}></Text>
                   </View>
                 </View>
@@ -219,14 +227,14 @@ export default function InfusionPump({navigation}){
             dich > 50 ?
               <TouchableOpacity onPress = {() => navigation.navigate('bmi_calc')}
               style={styles.descContent}>
-                <Text style={styles.unitTitle}>Sử dụng máy đếm giọt</Text>
+                <Text style={styles.unitTitle}>{t('count_drops')}</Text>
               </TouchableOpacity>
             :null
           }
 
           <TouchableOpacity onPress = {() => navigation.navigate('dose_calc')}
           style={styles.btnLink}>
-            <Text style={styles.link}>Tính liều thuốc đang truyền?</Text>
+            <Text style={styles.link}>{t('dose_calc_desc')}?</Text>
           </TouchableOpacity>
         </View>
       </TouchableWithoutFeedback>

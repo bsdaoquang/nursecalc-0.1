@@ -22,10 +22,10 @@ import {t} from './locales/index'
 const onShare = async () => {
     try {
       const result = await Share.share({
-        title: 'Trợ lý điều dưỡng',
+        title: t('nurseAssistant'),
         message:
-          'Trợ Lý Điều Dưỡng, Công cụ hỗ trợ điều dưỡng trong công việc hiệu quả, tiện lợi. Tải miễn phí tại CH Play',
-        url: ''
+          t('nurseDesc'),
+        url: 'https://play.google.com/store/apps/details?id=com.bsdaoquang.trolydieuduong'
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
@@ -49,7 +49,7 @@ function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen}
           options={{
-          title: 'Medical Calculator',
+          title: t('nurseAssistant'),
           headerStyle: {
             backgroundColor: '#00bfa5',
           },

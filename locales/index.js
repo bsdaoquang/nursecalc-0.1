@@ -1,4 +1,4 @@
-//import libaries
+  //import libaries
 import I18n from 'i18n-js'
 import * as Localization from 'expo-localization'
 import {Platform, NativeModules } from 'react-native'
@@ -13,6 +13,8 @@ const deviceLanguage =
 //Translation
 import vi from './vi.json'
 import en from './en.json'
+
+export const language = I18n.locale
 
 //bind to i18n
 I18n.defaultLocale = 'en';
@@ -29,6 +31,7 @@ const getLanguage = async() => {
     const choice = await Localization.locale
     I18n.locale = choice.substr(0, 2)
     I18n.initAsync()
+
   } catch (e) {
       console.log('Can not get localization')
   }

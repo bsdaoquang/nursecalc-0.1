@@ -1,14 +1,21 @@
 import React, {useState} from 'react'
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native'
-
 import {styles} from '../styles_global/styles'
 import AdMob from '../screens/admob_Screen'
-
 import { FontAwesome } from '@expo/vector-icons'
-
 import {t} from '../locales/index'
+import {AdMobInterstitial} from 'expo-ads-admob'
 
 export default function CountDrops(){
+
+	// const admobIntersitical = async () => {
+ //      await AdMobInterstitial.setAdUnitID('ca-app-pub-6209888091137615/1207407441'); //'ca-app-pub-6209888091137615/1207407441'); 
+ //      await AdMobInterstitial.requestAdAsync({ servePersonalizedAds: false});
+ //      await AdMobInterstitial.showAdAsync();
+ //    }
+
+ //    admobIntersitical()
+
 
 	const [rate, setRate] = useState(0)
 	const [count, setCount] = useState(0)
@@ -86,7 +93,7 @@ export default function CountDrops(){
 
 	  		<View style={styles.formInfo}>
             <Text style={styles.titleInfo}>{t('info')}</Text>
-            <Text style={styles.contentInfo}>Mỗi giọt nhấn +1, số giọt/phút bằng 60 giây chia thời gian giọt thứ 1 đến giọt thứ 2</Text>
+            <Text style={styles.contentInfo}>{t('count_drops_info')}</Text>
           </View>
 
 			</View>

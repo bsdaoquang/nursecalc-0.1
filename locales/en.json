@@ -1,4 +1,6 @@
 {
+  "nurseAssistant": "Nurse Assistant",
+  "nurseDesc": "An effective tool to help nurses quickly calculate commom formula at work",
   "hello_world": "Hello World",
   "bye_world" : "Bye World",
   "nurse_calc": "Nurse Calculator",
@@ -44,13 +46,15 @@
 
   "min": "min",
 
-  "time_boold_trans": "Time blood transfusion calculator",
-  "time_boold": "Time blood transfusion",
+  "time_blood_trans": "Time blood transfusion calculator",
+  "time_blood": "Time blood transfusion",
   "preals_desc_blood": "",
   "why_use_desc_blood": "",
   "infusion_pump": "Infusion Pump",
   "infusion_pump_desc": "Infusion Calculator",
   "dilution": "Dilution",
+  "volume_tranfused": "Volume tranfused",
+  "volume_tranfused_calc": "Volume Tranfused Calc",
 
   "dose_calc": "Dose Calculator",
   "dose_calc_desc": "Infusion dose calculator",
@@ -79,4 +83,12 @@
   "gtts_ml": "gtts/mL",
   "fill_out_required": "Please fill out required fields.",
   "drip_rates_info_desc": "Some medications must be given at a certain rate due to toxicity or side effects from infusing too quickly; other medications are vasoactive and require a constant infusion and titration in order to work correctly.",
+  
+  "volume_50": "Volume > 50mL, drips rate calculator",
+  "dose": "Dose",
+  "iv_infusion": "IV Infusion",
+  "ml_h": "mL/hr",
+  "rate": "rate",
+  "mcg_kg_min": "mcg/Kg/min",
+  "count_drops_info": "drop down, touch +1, drip rate = (time next - time current)/60"
 }

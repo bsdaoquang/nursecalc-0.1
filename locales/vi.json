@@ -1,4 +1,6 @@
 {
+  "nurseAssistant": "Trợ lý Điều Dưỡng",
+  "nurseDesc":"Công cụ tiện ích giúp Điều dưỡng tính toán nhanh các công thức trong công việc",
   "nurse_calc": "Máy tính Điều dưỡng",
   "bmi_calc": "Tính chỉ số BMI & BSA",
   "blood_transfusion": "Tính thời gian truyền máu",
@@ -42,10 +44,12 @@
 
   "min": "phút",
 
-  "time_boold_trans": "Tính thời gian truyền máu",
-  "time_boold": "Thời gian truyền máu",
+  "time_blood_trans": "Tính thời gian truyền máu",
+  "time_blood": "Thời gian truyền máu",
   "preals_desc_blood": "Cần tuân thủ các nguyên tắc truyền máu và theo dõi sát bệnh nhân trong quá trình truyền máu",
   "why_use_desc_blood": "Sử dụng để tính nhanh thời gian truyền máu, sử dụng dây truyền máu loại 20 giọt = 1mL",
+  "volume_tranfused": "Lượng máu đã truyền",
+  "volume_tranfused_calc": "Tính lượng máu đã truyền",
 
   "infusion_pump": "Bơm tiêm điện",
   "infusion_pump_desc": "Tính tốc độ truyền bơm tiêm điện",
@@ -77,5 +81,17 @@
   "drop_factor_desc": "Thông thường, hệ số giọt thường được ghi trên dây truyền dịch hoặc bao bì",
   "gtts_ml": "giọt/mL",
   "fill_out_required": "Vui lòng điền đầy đủ thông tin",
+<<<<<<< HEAD
   "drip_rates_info_desc": "Một số thuốc sử dụng qua đường truyền tĩnh mạch cần tính chính xác tốc độ truyền hoặc trong nhi khoa"
+=======
+  "drip_rates_info_desc": "Một số thuốc sử dụng qua đường truyền tĩnh mạch cần tính chính xác tốc độ truyền, hoặc trong nhi khoa",
+
+  "volume_50": "Thể tích > 50mL, Tính số giọt truyền tĩnh mạch",
+  "dose": "Liều dùng",
+  "iv_infusion": "Truyền tĩnh mạch",
+  "ml_h": "mL/h",
+  "rate": "Tốc độ",
+  "mcg_kg_min": "mcg/Kg/phút",
+  "count_drops_info": "1 giọt rơi xuống, bấm +1, tốc độ truyền = (thời gian giọt sau - thời gian giọt trước đó)/60"
+>>>>>>> 6355d412d04e1ca75b12b9b31375686775938e43
 }
