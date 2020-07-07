@@ -10,6 +10,8 @@ import {t, language} from '../locales/index'
 
 export default function TimeBloodTransfusion(){
 
+  admobIntersititial()
+
   //Khai báo các giá trị
   const [volume, setVolume] = useState(volume)
   const [rate, setRate]     = useState(rate)

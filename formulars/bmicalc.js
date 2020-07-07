@@ -1,11 +1,13 @@
 import React, {useState} from 'react'
 import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
-        TouchableWithoutFeedback, TouchableOpacity, Keyboard, ScrollView} from 'react-native'
+        TouchableWithoutFeedback, TouchableOpacity, Keyboard, ScrollView, YellowBox} from 'react-native'
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
 import {t} from '../locales/index'
 import {admobIntersititial} from '../screens/admob_Screen'
+
+console.disableYellowBox = true
 
 export default function BMICalc(){
 
@@ -14,6 +16,7 @@ export default function BMICalc(){
     //   await AdMobInterstitial.requestAdAsync({ servePersonalizedAds: false});
     //   await AdMobInterstitial.showAdAsync();
     //   }
+    admobIntersititial()
 
     const [height, setHeight]       = useState(height)
     const [weight, setWeight]       = useState(weight)

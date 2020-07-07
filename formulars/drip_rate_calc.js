@@ -12,6 +12,8 @@ import {admobIntersititial} from '../screens/admob_Screen'
 
 export default function DripReateCalc({navigation}){
 
+  admobIntersititial()
+
   const [volume, setVolume] = useState(volume)
   const [drop_factor, setDropFactor] = useState(drop_factor)
   const [min, setMin] = useState(min)
