@@ -11,13 +11,6 @@ console.disableYellowBox = true
 
 export default function BMICalc(){
 
-    // const admobIntersititial = async () => {
-    //   await AdMobInterstitial.setAdUnitID('ca-app-pub-6209888091137615/1207407441');
-    //   await AdMobInterstitial.requestAdAsync({ servePersonalizedAds: false});
-    //   await AdMobInterstitial.showAdAsync();
-    //   }
-    admobIntersititial()
-
     const [height, setHeight]       = useState(height)
     const [weight, setWeight]       = useState(weight)
     const [show, setShow]           = useState(false)

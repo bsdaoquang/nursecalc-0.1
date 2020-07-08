@@ -8,8 +8,6 @@ import {admobIntersititial} from '../screens/admob_Screen'
 
 export default function CountDrops(){
 
-	admobIntersititial()
-
 	const [rate, setRate] = useState(0)
 	const [count, setCount] = useState(0)
 
