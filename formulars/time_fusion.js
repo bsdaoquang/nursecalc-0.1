@@ -26,15 +26,32 @@ export default function TimeFusion(){
   var timeEndHour = 0
   var timeEndMinute = 0
 
-
-  //condition review:
   if (hour < 0 || hour > 23) {
-    Alert.alert('Giờ bạn nhập không đúng, vui lòng xem lại')
+    setHour('')
   }
   if (minute < 0 || minute > 59) {
-    Alert.alert('Phút bạn nhập không đúng, vui lòng xem lại')
+    setMinute('')
   }
-  if (volume > 0 && rate > 0) {
+  if (endHour > 23 || endHour < 0) {
+    setEndHour('')
+  }
+  if (endMinute > 59 || endMinute < 0) {
+    setEndMinute('')
+  }
+  if (volume > 500 || volume < 0) {
+    setVolume('')
+  }
+  if (rate > 300 || rate < 0) {
+    setRate('')
+  }
+  //condition review:
+  if (hour < 0 || hour > 23) {
+    setHour('')
+  }
+  if (minute < 0 || minute > 59) {
+    setMinute('')
+  }
+  if (volume != '' && rate != '') {
     //tính thời gian
     timeTrans = ((volume*20)/rate).toFixed(0)
 
@@ -52,17 +69,20 @@ export default function TimeFusion(){
 			timeEndHour += 1
 		}
 
+  }else{
+    timeHour = 0
+    timeMinute = 0
   }
 
   if (showCalcTrans == true) {
 
     if (endHour > 23 || endHour < 0) {
-      Alert.alert('Giờ ngưng không đúng, vui lòng xem lại')
+      setEndHour('')
     }
     if (endMinute > 59 || endMinute < 0) {
-      Alert.alert('Phút ngưng không đúng, vui lòng xem lại')
+      setEndMinute('')
     }
-    if (endHour != null && endMinute != null) {
+    if (endHour != '' && endMinute != '') {
       //Calculator
       var hourTrans = parseInt(endHour) - parseInt(hour)
       var minuteTrans = parseInt(endMinute) - parseInt(minute)
@@ -85,6 +105,9 @@ export default function TimeFusion(){
         volumeTransed = volume
         infusedVolume = 0
       }
+    }else {
+      timeEndHour = 0
+      timeEndMinute = 0
     }
 
   }
@@ -101,8 +124,7 @@ export default function TimeFusion(){
 
           {/*This is header*/}
           <View style={styles.headerContain}>
-            <Text style={styles.headerTitle}>{t('infusion')}</Text>
-            <Text style={styles.headerSubTitle}>{t('infusion_time')}</Text>
+            <Text style={styles.headerSubTitle}>Tính thời gian truyền dịch & lượng dịch đã truyền</Text>
           </View>
           {/*End header*/}
 
@@ -114,7 +136,7 @@ export default function TimeFusion(){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>{t('volume')}</Text>
+                <Text style={styles.titleInputText}>Lượng dịch</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -123,12 +145,12 @@ export default function TimeFusion(){
                   placeholder = '0 ml'
                   keyboardType = 'number-pad'
                   onChangeText = {volume => setVolume(volume)}
-                  clearTextOnFocus
+                  value = {volume}
                 />
 
                 {
-                  volume <= 0 || volume > 500?
-                    <Text style={styles.alertText}>{t('error_empty')} </Text>
+                  volume == '' ?
+                    <Text style={styles.errorText}>Lỗi</Text>
                   : null
                 }
               </View>
@@ -146,7 +168,7 @@ export default function TimeFusion(){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>{t('drip_rates')}</Text>
+                <Text style={styles.titleInputText}>Tốc độ truyền</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -155,17 +177,17 @@ export default function TimeFusion(){
                   placeholder = '30'
                   keyboardType = 'number-pad'
                   onChangeText = {rate => setRate(rate)}
-                  clearTextOnFocus
+                  value = {rate}
                 />
                 {
-                  rate <= 0 ?
-                    <Text style={styles.alertText}>{t('not_empty')}</Text>
+                  rate == '' ?
+                    <Text style={styles.errorText}>Lỗi</Text>
                   : null
                 }
               </View>
 
               <View style={styles.unitContainInput}>
-                <Text style={styles.unitTitle}>{t('gtts_min')}</Text>
+                <Text style={styles.unitTitle}>giọt/phút</Text>
               </View>
             </View>
             {/*end input contain*/}
@@ -177,8 +199,7 @@ export default function TimeFusion(){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>{t('infusion_start')}</Text>
-                <Text style={styles.titleInputDesc}>{t('infusion_start_desc')}</Text>
+                <Text style={styles.titleInputText}>Giờ truyền</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -187,11 +208,11 @@ export default function TimeFusion(){
                   placeholder = '0'
                   keyboardType = 'number-pad'
                   onChangeText = {hour => setHour(hour)}
-                  clearTextOnFocus
+                  value = {hour}
                 />
                 {
-                  hour < 0 ?
-                    <Text style={styles.alertText}>{t('error_empty')}</Text>
+                  hour == '' ?
+                    <Text style={styles.errorText}>Lỗi</Text>
                   : null
                 }
               </View>
@@ -203,11 +224,11 @@ export default function TimeFusion(){
                   placeholder = '0'
                   keyboardType = 'number-pad'
                   onChangeText = {minute => setMinute(minute)}
-                  clearTextOnFocus
+                  value = {minute}
                 />
                 {
-                  minute < 0 ?
-                    <Text style={styles.alertText}>{t('error_empty')}</Text>
+                  minute == '' ?
+                    <Text style={styles.errorText}>Lỗi</Text>
                   : null
                 }
               </View>
@@ -219,12 +240,12 @@ export default function TimeFusion(){
 
           {/*This is form container*/}
           <TouchableOpacity style={styles.buttonDesc} onPress={volumTransedCalc}>
-            <Text style={styles.titleInputText}>{t('total_volume_calc')}</Text>
+            <Text style={styles.titleInputText}>Tính lượng dịch đã truyền</Text>
             <FontAwesome name='angle-down' style={styles.icons} color='#777' size ={24}/>
           </TouchableOpacity>
 
           <View style={styles.formInfo}>
-            <Text style={styles.contentInfo}>{t('total_volume_calc')}</Text>
+            <Text style={styles.contentInfo}>Tính lượng dịch đã truyền khi ngưng truyền hoặc chuyển bệnh đến khoa khác</Text>
           </View>
           {
             showCalcTrans ?
@@ -232,8 +253,7 @@ export default function TimeFusion(){
                 {/*This is input contain*/}
                 <View style={styles.inputContain}>
                   <View style={styles.titleInput}>
-                    <Text style={styles.titleInputText}>{t('end')}</Text>
-                    <Text style={styles.titleInputDesc}>{t('total_volume_calc')}</Text>
+                    <Text style={styles.titleInputText}>Giờ ngưng</Text>
                   </View>
 
                   <View style={styles.inputContent}>
@@ -242,11 +262,11 @@ export default function TimeFusion(){
                       placeholder = '0'
                       keyboardType = 'number-pad'
                       onChangeText = {endHour => setEndHour(endHour)}
-                      clearTextOnFocus
+                      value = {endHour}
                     />
                     {
-                      endHour < 0 ?
-                        <Text style={styles.alertText}>{t('error_empty')}</Text>
+                      endHour == '' ?
+                        <Text style={styles.errorText}>Lỗi</Text>                      
                       : null
                     }
                   </View>
@@ -258,11 +278,11 @@ export default function TimeFusion(){
                       placeholder = '0'
                       keyboardType = 'number-pad'
                       onChangeText = {endMinute => setEndMinute(endMinute)}
-                      clearTextOnFocus
+                      value = {endMinute}
                     />
                     {
-                      endMinute < 0 ?
-                        <Text style={styles.alertText}>{t('error_empty')}</Text>
+                      endMinute == '' ?
+                        <Text style={styles.errorText}>Lỗi</Text>
                       : null
                     }
                   </View>
@@ -280,10 +300,10 @@ export default function TimeFusion(){
             :
               <View style={styles.resultContain}>
                 <View style={styles.resultTitle}>
-                  <Text style={styles.resultTitleText}>{t('infusion_time')}</Text>
+                  <Text style={styles.resultTitleText}>Thời gian: {timeHour} h {timeMinute}</Text>
                 </View>
-                <Text style={styles.rateContent}>{t('time')}: {timeHour} h {timeMinute}, {t('end')}: </Text>
                 <View style={styles.resultContent}>
+                  <Text style={styles.rateContent}>Hết lúc : </Text>
                   <Text style={styles.result}>{timeEndHour} : {timeEndMinute}</Text>
                 </View>
               </View>
@@ -294,17 +314,13 @@ export default function TimeFusion(){
           {
             showCalcTrans?
               <View style={styles.resultContain}>
-                <View style={styles.resultTitle}>
-                  <Text style={styles.resultTitleText}>{t('volume_translated')}</Text>
-                </View>
-
                 <View style={styles.resultContent}>
+                  <Text style={styles.rateContent}>Dịch đã truyền : </Text>
                   <Text style={styles.result}>{volumeTransed}</Text>
                   <Text style={styles.unit}>mL</Text>
                 </View>
-
-                <Text style = {styles.unit}>{t('volume_rest')}</Text>
                 <View style={styles.resultContent}>
+                <Text style={styles.rateContent}>Còn lại : </Text>
                   <Text style={styles.result}>{infusedVolume}</Text>
                   <Text style={styles.unit}>mL</Text>
                 </View>

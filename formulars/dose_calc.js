@@ -6,9 +6,6 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
-import {t} from '../locales/index'
-import {admobIntersititial} from '../screens/admob_Screen'
-
 
 export default function DoseCalc({navigation}){
 
@@ -20,17 +17,24 @@ export default function DoseCalc({navigation}){
 
   var tocDoTruyen = 0
 
-  if (weight != null && thuoc != null && dich != null && tocDo != null) {
-    if (weight > 250) {
-      Alert.alert('weight to high')
-      setWeight('')
-    }else{
-      //Thỏa các điều kiện, bắt đầu tính toán
-				//1. nồng độ thuốc = luongthuoc * 1000 / luongdich -> mcg/ml
+  if (weight > 150 || weight < 0){
+    setWeight('')
+  }
+  if (dich < 0){
+    setDich('')
+  }
+  if (thuoc < 0){
+    setThuoc('')
+  }
+  if (tocDo < 0){
+    settocDo('')
+  }
+
+  if (weight != '' && thuoc != '' && dich != '' && tocDo != '') {
 			var nongDoThuoc = (thuoc*1000)/(dich*1)
 			var lieuThuoc = ((tocDo * nongDoThuoc)/(weight*60)).toFixed(1)
     }
-  }
+  
 
   return(
     <View style={styles.container}>
@@ -39,8 +43,8 @@ export default function DoseCalc({navigation}){
         <View style={styles.inner}>
           {/*This is header*/}
           <View style={styles.headerContain}>
-            <Text style={styles.headerTitle}>{t('dose_calc')}</Text>
-            <Text style={styles.headerSubTitle}>{t('dose_calc_desc')}</Text>
+            <Text style={styles.headerTitle}>Tính liều thuốc</Text>
+            <Text style={styles.headerSubTitle}>Liều thuốc đang truyền bơm tiêm điện</Text>
           </View>
           {/*End header*/}
 
@@ -49,21 +53,20 @@ export default function DoseCalc({navigation}){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>{t('weight')}</Text>
+                <Text style={styles.titleInputText}>Cân nặng</Text>
               </View>
 
               <View style={styles.inputContent}>
                 <TextInput
                   style={styles.input}
-                  placeholder = 'e.g 50Kg'
+                  placeholder = '0'
                   keyboardType = 'number-pad'
                   onChangeText = {weight => setWeight(weight)}
-                  clearTextOnFocus
                   value={weight}
                 />
                 {
-                  weight < 0 ?
-                    <Text style={styles.alertText}>{t('error_empty')}</Text>
+                  weight == '' ?
+                    <Text style={styles.errorText}>Lỗi</Text>
                   : null
                 }
               </View>
@@ -80,21 +83,20 @@ export default function DoseCalc({navigation}){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>{t('dilution')}</Text>
+                <Text style={styles.titleInputText}>Pha loãng</Text>
               </View>
 
               <View style={styles.inputContent}>
                 <TextInput
                   style={styles.input}
-                  placeholder = 'e.g 200mg'
+                  placeholder = '0'
                   keyboardType = 'number-pad'
                   onChangeText = {thuoc => setThuoc(thuoc)}
-                  clearTextOnFocus
                   value = {thuoc}
                 />
                 {
-                  thuoc < 0 ?
-                    <Text style={styles.alertText}>{t('error_empty')}</Text>
+                  thuoc == '' ?
+                    <Text style={styles.errorText}>Lỗi</Text>
                   : null
                 }
               </View>
@@ -103,15 +105,14 @@ export default function DoseCalc({navigation}){
               <View style={styles.inputContent}>
                 <TextInput
                   style={styles.input}
-                  placeholder = 'e.g 50mL'
+                  placeholder = '0'
                   keyboardType = 'number-pad'
                   onChangeText = {dich => setDich(dich)}
-                  clearTextOnFocus
                   value = {dich}
                 />
                 {
-                  dich < 0 ?
-                    <Text style={styles.alertText}>{t('error_empty')}</Text>
+                  dich == '' ?
+                    <Text style={styles.errorText}>Lỗi</Text>
                   : null
                 }
               </View>
@@ -128,7 +129,7 @@ export default function DoseCalc({navigation}){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>{t('rate')}</Text>
+                <Text style={styles.titleInputText}>Tốc độ truyền</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -137,12 +138,11 @@ export default function DoseCalc({navigation}){
                   placeholder = 'e.g 15mL/hr'
                   keyboardType = 'number-pad'
                   onChangeText = {tocDo => settocDo(tocDo)}
-                  clearTextOnFocus
                   value = {tocDo}
                 />
                 {
-                  tocDo < 0 ?
-                    <Text style={styles.alertText}>{t('error_empty')}</Text>
+                  tocDo == '' ?
+                    <Text style={styles.errorText}>Lỗi</Text>
                   : null
                 }
               </View>
@@ -161,14 +161,14 @@ export default function DoseCalc({navigation}){
               <View style={styles.resultContain}>
 
                 <View style={styles.resultTitle}>
-                  <Text style={styles.resultTitleText}>{t('dose')}</Text>
+                  <Text style={styles.resultTitleText}>Liều đang truyền</Text>
                   <Text style={styles.resultTitleDesc}></Text>
                 </View>
 
                 <View style={styles.resultContent}>
                   <Text style={styles.result}>{lieuThuoc}</Text>
                   <View style={styles.unitContain}>
-                    <Text style={styles.unit}>{t('mcg_kg_min')}</Text>
+                    <Text style={styles.unit}>mcg/Kg/phút</Text>
                     <Text style={styles.superUnit}></Text>
                   </View>
                 </View>
@@ -177,9 +177,9 @@ export default function DoseCalc({navigation}){
             : null
           }
 
-          <TouchableOpacity onPress = {() => navigation.navigate('infusion_pump')}
+          <TouchableOpacity onPress = {() => navigation.navigate('Tính tốc độ truyền bơm tiêm điện')}
           style={styles.btnLink}>
-            <Text style={styles.link}>{t('infusion_pump')}?</Text>
+            <Text style={styles.link}>Tính tốc độ truyền bơm tiêm điện?</Text>
           </TouchableOpacity>
 
         </View>

@@ -6,8 +6,6 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
-import {t} from '../locales/index'
-import {admobIntersititial} from '../screens/admob_Screen'
 
 
 export default function DripReateCalc({navigation}){
@@ -22,12 +20,12 @@ export default function DripReateCalc({navigation}){
   if (volume != null && drop_factor != null && min != null) {
     totalDrip = volume * drop_factor
     rates = (totalDrip/min).toFixed(0)
-    unit = t('gtts_min')
+    unit = 'giọt/phút'
 
     infuPump = ((rates/drop_factor)*60).toFixed(1)
   }else {
     rates = ''
-    unit = t('fill_out_required')
+    unit = 'Nhập đầy đủ thông tin để tính'
   }
 
   const showInfo = () => {
@@ -42,8 +40,8 @@ export default function DripReateCalc({navigation}){
         <View style={styles.inner}>
           {/*This is header*/}
           <View style={styles.headerContain}>
-            <Text style={styles.headerTitle}>{t('drip_rates')}</Text>
-            <Text style={styles.headerSubTitle}>{t('drip_rates_desc')}</Text>
+            <Text style={styles.headerTitle}>Tính tốc độ truyền dịch</Text>
+            <Text style={styles.headerSubTitle}>Tốc độ truyền dịch để truyền hết 1 lượng dịch</Text>
           </View>
           {/*End header*/}
 
@@ -52,7 +50,7 @@ export default function DripReateCalc({navigation}){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>{t('volume')}</Text>
+                <Text style={styles.titleInputText}>Lượng dịch</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -77,7 +75,7 @@ export default function DripReateCalc({navigation}){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>{t('drop_factor')}</Text>
+                <Text style={styles.titleInputText}>Hệ số giọt</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -90,13 +88,13 @@ export default function DripReateCalc({navigation}){
                 />
               </View>
               <View style={styles.unitContainInput}>
-                <Text style={styles.unitTitle}>{t('gtts_ml')}</Text>
+                <Text style={styles.unitTitle}>giọt/mL</Text>
               </View>
             </View>
             {/*end input contain*/}
             </View>
             <View style={styles.infoContain}>
-              <Text style={styles.infoText}>{t('drop_factor_desc')}</Text>
+              <Text style={styles.infoText}>Thông tin này thường được ghi trên bao bì hoặc dây truyền dịch</Text>
             </View>
           {/*end from contain*/}
 
@@ -105,7 +103,7 @@ export default function DripReateCalc({navigation}){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>{t('time')}</Text>
+                <Text style={styles.titleInputText}>Thời gian truyền</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -118,7 +116,7 @@ export default function DripReateCalc({navigation}){
                 />
               </View>
               <View style={styles.unitContainInput}>
-                <Text style={styles.unitTitle}>{t('min')}</Text>
+                <Text style={styles.unitTitle}>phút</Text>
               </View>
             </View>
             {/*end input contain*/}
@@ -129,7 +127,7 @@ export default function DripReateCalc({navigation}){
           <View style={styles.resultContain}>
 
             <View style={styles.resultTitle}>
-              <Text style={styles.resultTitleText}>{t('iv_drip_rate')}</Text>
+              <Text style={styles.resultTitleText}>Tốc độ truyền</Text>
               <Text style={styles.resultTitleDesc}></Text>
             </View>
 
@@ -143,38 +141,13 @@ export default function DripReateCalc({navigation}){
           </View>
 
           {/*end result contain*/}
-          {/*This is resulr contain*/}
-          <View style={styles.resultContain}>
 
-            <View style={styles.resultTitle}>
-              <Text style={styles.resultTitleText}>{t('infusion_pump')}</Text>
-              <Text style={styles.resultTitleDesc}></Text>
-            </View>
-              {
-                rates > 0 ?
-                  <View style={styles.resultContent}>
-                    <Text style={styles.result}>{infuPump}</Text>
-                    <View style={styles.unitContain}>
-                      <Text style={styles.unit}>mL/hr</Text>
-                      <Text style={styles.superUnit}></Text>
-                    </View>
-                  </View>
-                : null
-              }
-
-          </View>
-
-          {/*end result contain*/}
-
-          {/*info contain*/}
-          <View style={styles.infoContain}>
-            <Text style={styles.infoTextLink} onPress={() => navigation.navigate('count_drops')}>{t('count_drops')}</Text>
-          </View>
+            <Text style={styles.infoTextLink} onPress={() => navigation.navigate('Máy đếm giọt dịch truyền')}>Sử dụng máy đếm giọt</Text>
 
           <View style={styles.infoContain}>
             <TouchableOpacity onPress={showInfo}>
               <View style={styles.titleInfoContain}>
-                <Text style={styles.titleInfo}>{t('info')}</Text>
+                <Text style={styles.titleInfo}>Thông tin</Text>
                 <FontAwesome name="angle-down" size={24} color='#777' style={{marginTop: 6}}/>
               </View>
             </TouchableOpacity>
@@ -183,7 +156,7 @@ export default function DripReateCalc({navigation}){
               //if show = true, show, null
               show ?
                 <View style={styles.infoContent}>
-                  <Text style={styles.infoText}>{t('drip_rates_info_desc')}</Text>
+                  <Text style={styles.infoText}>Một số thuốc sử dụng qua đường truyền tĩnh mạch cần tính chính xác liều lượng sử dụng hoặc chia nhỏ liều thuốc trong nhi khoa</Text>
                 </View>
               : null
             }

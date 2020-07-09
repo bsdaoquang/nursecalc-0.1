@@ -6,8 +6,6 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
-import {t} from '../locales/index'
-import {admobIntersititial} from '../screens/admob_Screen'
 
 
 export default function InfusionPump({navigation}){
@@ -19,6 +17,19 @@ export default function InfusionPump({navigation}){
   const [showResult, setShowResult] = useState(false)
 
   var tocDoTruyen = 0
+
+  if (weight > 150 || weight < 0) {
+    setWeight('')
+  }
+  if (dich < 0){
+    setDich('')
+  }
+  if (thuoc < 0){
+    setThuoc('')
+  }
+  if (lieuDung < 0){
+    setLieuDung('')
+  }
 
   if (weight != null && thuoc != null && dich != null && lieuDung != null) {
     if (parseInt(weight) > 250) {
@@ -48,8 +59,8 @@ export default function InfusionPump({navigation}){
         <View style={styles.inner}>
           {/*This is header*/}
           <View style={styles.headerContain}>
-            <Text style={styles.headerTitle}>{t('infusion_pump')}</Text>
-            <Text style={styles.headerSubTitle}>{t('infusion_pump_desc')}</Text>
+            <Text style={styles.headerTitle}>Tốc độ bơm tiêm điện</Text>
+            <Text style={styles.headerSubTitle}></Text>
           </View>
           {/*End header*/}
 
@@ -58,7 +69,7 @@ export default function InfusionPump({navigation}){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>{t('weight')}</Text>
+                <Text style={styles.titleInputText}>Cân nặng</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -71,8 +82,8 @@ export default function InfusionPump({navigation}){
                   value={weight}
                 />
                 {
-                  weight < 0 || weight > 200?
-                    <Text style={styles.alertText}>{t('error_empty')}</Text>
+                  weight == ''?
+                    <Text style={styles.errorText}>Lỗi</Text>
                   : null
                 }
               </View>
@@ -89,7 +100,7 @@ export default function InfusionPump({navigation}){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>{t('dilution')}</Text>
+                <Text style={styles.titleInputText}>Pha loãng</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -102,8 +113,8 @@ export default function InfusionPump({navigation}){
                   value = {thuoc}
                 />
                 {
-                  thuoc < 0 ?
-                    <Text style={styles.alertText}>{t('error_empty')}</Text>
+                  thuoc == '' ?
+                    <Text style={styles.errorText}>Lỗi</Text>
                   : null
                 }
               </View>
@@ -119,8 +130,8 @@ export default function InfusionPump({navigation}){
                   value = {dich}
                 />
                 {
-                  dich < 0 ?
-                    <Text style={styles.alertText}>{t('error_empty')}</Text>
+                  dich == ''?
+                    <Text style={styles.errorText}>Lỗi</Text>
                   : null
                 }
               </View>
@@ -134,7 +145,7 @@ export default function InfusionPump({navigation}){
           {
             dich > 50 ?
               <View style={styles.formInfo}>
-                <Text style={styles.contentInfo}>{t('volume_50')}</Text>
+                <Text style={styles.contentInfo}>{'Thể tích cần truyền > 50mL, Tính tốc độ truyền tĩnh mạch'}</Text>
               </View>
             : null
           }
@@ -144,7 +155,7 @@ export default function InfusionPump({navigation}){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>{t('dose')}</Text>
+                <Text style={styles.titleInputText}>Liều cần dùng</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -157,8 +168,8 @@ export default function InfusionPump({navigation}){
                   value = {lieuDung}
                 />
                 {
-                  lieuDung < 0 ?
-                    <Text style={styles.alertText}>{t('error_empty')}</Text>
+                  lieuDung == '' ?
+                    <Text style={styles.errorText}>Lỗi</Text>
                   : null
                 }
               </View>
@@ -177,7 +188,7 @@ export default function InfusionPump({navigation}){
               <View style={styles.resultContain}>
 
                 <View style={styles.resultTitle}>
-                  <Text style={styles.resultTitleText}>{t('infusion_pump')}</Text>
+                  <Text style={styles.resultTitleText}>Tốc độ bơm tiêm điện</Text>
                   <Text style={styles.resultTitleDesc}></Text>
                 </View>
 
@@ -198,14 +209,14 @@ export default function InfusionPump({navigation}){
             dich > 50 ?
               <View style={styles.resultContain}>
                 <View style={styles.resultTitle}>
-                  <Text style={styles.resultTitleText}>{t('iv_infusion')}</Text>
+                  <Text style={styles.resultTitleText}>Truyền tĩnh mạch</Text>
                   <Text style={styles.resultTitleDesc}></Text>
                 </View>
 
                 <View style={styles.resultContent}>
                   <Text style={styles.result}>{giotPhut}</Text>
                   <View style={styles.unitContain}>
-                    <Text style={styles.unit}>{t('gtts_min')}</Text>
+                    <Text style={styles.unit}>giọt/phút</Text>
                     <Text style={styles.superUnit}></Text>
                   </View>
                 </View>
@@ -216,16 +227,15 @@ export default function InfusionPump({navigation}){
 
           {
             dich > 50 ?
-              <TouchableOpacity onPress = {() => navigation.navigate('bmi_calc')}
-              style={styles.descContent}>
-                <Text style={styles.unitTitle}>{t('count_drops')}</Text>
+              <TouchableOpacity onPress = {() => navigation.navigate('Máy đếm giọt dịch truyền')}>
+                <Text style={styles.infoTextLink}>Sử dụng máy đếm giọt</Text>
               </TouchableOpacity>
             :null
           }
 
-          <TouchableOpacity onPress = {() => navigation.navigate('dose_calc')}
+          <TouchableOpacity onPress = {() => navigation.navigate('Tính liều thuốc bơm tiêm điện')}
           style={styles.btnLink}>
-            <Text style={styles.link}>{t('dose_calc_desc')}?</Text>
+            <Text style={styles.link}>Tính liều thuốc đang sử dụng?</Text>
           </TouchableOpacity>
         </View>
       </TouchableWithoutFeedback>

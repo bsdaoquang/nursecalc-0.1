@@ -3,8 +3,6 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native'
 import {styles} from '../styles_global/styles'
 import AdMob from '../screens/admob_Screen'
 import { FontAwesome } from '@expo/vector-icons'
-import {t} from '../locales/index'
-import {admobIntersititial} from '../screens/admob_Screen'
 
 export default function CountDrops(){
 
@@ -47,17 +45,17 @@ export default function CountDrops(){
 
 				{/*this is header*/}
 	          <View style={styles.headerContain}>
-	            <Text style={styles.headerTitle}>{t('count_drops')}</Text>
-	            <Text style={styles.headerSubTitle}>{t('count_drops_desc')}</Text>
+	            <Text style={styles.headerTitle}>Máy đếm giọt</Text>
+	            <Text style={styles.headerSubTitle}>Tính tốc độ dịch truyền đang chảy</Text>
 	          </View>
 	          {/*End header*/}
 
 	      	{/*This is result form*/}
 			<View style={styles.resultContain}>
-				<Text style={styles.resultTitleText}>{t('iv_drip_rate')}</Text>
+				<Text style={styles.resultTitleText}>Tốc độ dịch đang chảy</Text>
 				<View style={local_styles.resultConatiner}>
 					<Text style={local_styles.resultText}>{rate}</Text>
-					<Text style={local_styles.unit}>{t('gtts_min')}</Text>
+					<Text style={local_styles.unit}>giọt/phút</Text>
 				</View>
 			</View>
 	  		{/*end result form*/}
@@ -68,14 +66,12 @@ export default function CountDrops(){
 	  			<View style={local_styles.btnCountForm}>
 	  				<TouchableOpacity
 	  					onPress = {countDrop}
-	  					style={local_styles.btnCount}
-	  				>
-	  					<Text style={local_styles.btnCountText}>+1 {t('drop')} </Text>
+	  					style={local_styles.btnCount}>
+	  					<Text style={local_styles.btnCountText}>+1 giọt </Text>
 	  				</TouchableOpacity>
 	  				<TouchableOpacity
 	  					onPress = {repeat}
-	  					style={local_styles.btnReset}
-	  				>
+	  					style={local_styles.btnReset}>
 	  					<FontAwesome name="repeat" size={30} color="#777"/>
 	  				</TouchableOpacity>
 	  			</View>
@@ -83,8 +79,8 @@ export default function CountDrops(){
 	  		{/*end result count*/}
 
 	  		<View style={styles.formInfo}>
-            <Text style={styles.titleInfo}>{t('info')}</Text>
-            <Text style={styles.contentInfo}>{t('count_drops_info')}</Text>
+            <Text style={styles.titleInfo}>Thông tin</Text>
+            <Text style={styles.contentInfo}>1 giọt rơi xuống, bấm +1, tốc độ truyền = (thời gian giọt sau - thời gian giọt trước đó)/60</Text>
           </View>
 
 			</View>
@@ -136,10 +132,15 @@ const local_styles = StyleSheet.create({
 		padding: 8,
 		borderRadius: 5,
 		backgroundColor: '#00bfa5',
+		width: 150,
+		height: 100,
+		justifyContent: 'center',
 	},
 	btnCountText:{
 		textAlign: 'center',
-		color: '#fafafa'
+		color: '#fafafa',
+		fontWeight: 'bold',
+		fontSize: 24
 	},
 	btnReset:{
 		margin: 5

@@ -13,10 +13,8 @@ import DoseCalc from './formulars/dose_calc'
 import CountDrops from './formulars/count_drops'
 import DesiredDose from './formulars/desired_dose'
 import DripReateCalc from './formulars/drip_rate_calc'
-
+import IntersititialAdmob from './components/intersititialAdmob'
 import { FontAwesome } from '@expo/vector-icons'
-
-
 import {t} from './locales/index'
 
 const onShare = async () => {
@@ -62,9 +60,11 @@ function App() {
           ),
         }}
         />
-        <Stack.Screen name="infusion_time" component={TimeFusion}
+        <Stack.Screen name='interAdmob' component={IntersititialAdmob}/>
+
+        <Stack.Screen name='Tính thời gian truyền dịch' component={TimeFusion}
           options={{
-            title: t('infusion_time'),
+            title: 'Tính thời gian truyền dịch',
             headerStyle:{
               backgroundColor: '#00bfa5'
             },
@@ -74,9 +74,9 @@ function App() {
             },
           }}
         />
-        <Stack.Screen name="blood_transfusion" component={TimeBloodTransfusion}
-          options={{title: t('blood_transfusion'),
-            title: t('blood_transfusion'),
+        <Stack.Screen name='Tính thời gian truyền máu' component={TimeBloodTransfusion}
+          options={{
+            title: 'Tính thời gian truyền máu',
             headerStyle:{
               backgroundColor: '#00bfa5'
             },
@@ -86,9 +86,9 @@ function App() {
             },
           }}
         />
-        <Stack.Screen name="bmi_calc" component={BMICalc}
-          options={{title: t('bmi_calc'),
-            title: t('bmi_calc'),
+        <Stack.Screen name='Tính BMI & BSA' component={BMICalc}
+          options={
+            {title: 'Chỉ số BMI & BSA',
             headerStyle:{
               backgroundColor: '#00bfa5'
             },
@@ -98,9 +98,9 @@ function App() {
             },
           }}
         />
-        <Stack.Screen name="infusion_pump" component={InfusionPump}
-          options={{title: t('infusion_pump'),
-            title: t('infusion_pump'),
+        <Stack.Screen name='Tính tốc độ truyền bơm tiêm điện' component={InfusionPump}
+          options={{
+            title: 'Tính tốc độ truyền bơm tiêm điện',
             headerStyle:{
               backgroundColor: '#00bfa5'
             },
@@ -110,9 +110,9 @@ function App() {
             },
           }}
         />
-        <Stack.Screen name="dose_calc" component={DoseCalc}
-          options={{title: t('dose_calc'),
-            title: t('dose_calc'),
+        <Stack.Screen name='Tính liều thuốc bơm tiêm điện' component={DoseCalc}
+          options={{
+            title: 'Tính liều thuốc bơm tiêm điện',
             headerStyle:{
               backgroundColor: '#00bfa5'
             },
@@ -122,9 +122,9 @@ function App() {
             },
           }}
         />
-        <Stack.Screen name="count_drops" component={CountDrops}
-          options={{title: t('count_drops'),
-            title: t('count_drops'),
+        <Stack.Screen name='Máy đếm giọt dịch truyền' component={CountDrops}
+          options={{
+            title: 'Máy đếm giọt dịch truyền',
             headerStyle:{
               backgroundColor: '#00bfa5'
             },
@@ -134,9 +134,9 @@ function App() {
             },
           }}
         />
-        <Stack.Screen name="desired_dose" component={DesiredDose}
-          options={{title: t('desired_dose'),
-            title: t('desired_dose'),
+        <Stack.Screen name='Tính liều khả dụng' component={DesiredDose}
+          options={{
+            title: 'Tính liều khả dụng',
             headerStyle:{
               backgroundColor: '#00bfa5'
             },
@@ -146,9 +146,9 @@ function App() {
             },
           }}
         />
-        <Stack.Screen name="drip_rates" component={DripReateCalc}
-          options={{title: t('drip_rates'),
-            title: t('drip_rates'),
+        <Stack.Screen name='Tính tốc độ dịch truyền' component={DripReateCalc}
+          options={{
+            title: 'Tính tốc độ dịch truyền',
             headerStyle:{
               backgroundColor: '#00bfa5'
             },

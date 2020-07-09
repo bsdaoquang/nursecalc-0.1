@@ -6,12 +6,8 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
-import {admobIntersititial} from '../screens/admob_Screen'
 
-
-import {t} from '../locales/index'
-
-export default function DesiredDose({}){
+export default function DesiredDose(){
 
   const [odered, setOdered] = useState(odered)
   const [availableDose, setAvailableDose] = useState(availableDose)
@@ -20,7 +16,7 @@ export default function DesiredDose({}){
 
   var drawUpon = 0
 
-  if (odered != null && availableDose != null && availableVolume != null) {
+  if (odered != '' && availableDose != '' && availableVolume != '') {
     drawUpon = ((odered/availableDose)*availableVolume).toFixed(1)
   }
 
@@ -34,8 +30,8 @@ export default function DesiredDose({}){
         <View style={styles.inner}>
           {/*This is header*/}
           <View style={styles.headerContain}>
-            <Text style={styles.headerTitle}>{t('desired_dose')}</Text>
-            <Text style={styles.headerSubTitle}>{t('desired_dose_desc')}</Text>
+            <Text style={styles.headerTitle}>Liều dùng khả dụng</Text>
+            <Text style={styles.headerSubTitle}>Chia nhỏ liều thuốc trong Nhi khoa</Text>
           </View>
           {/*End header*/}
 
@@ -44,16 +40,15 @@ export default function DesiredDose({}){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>{t('odered_dose')}: </Text>
+                <Text style={styles.titleInputText}>Liều mong muốn: </Text>
               </View>
 
               <View style={styles.inputContent}>
                 <TextInput
                   style={styles.input}
-                  placeholder = 'e.g 350mg'
+                  placeholder = 'vd 350mg'
                   keyboardType = 'number-pad'
                   onChangeText = {odered => setOdered(odered)}
-                  clearTextOnFocus
                   value={odered}
                 />
               </View>
@@ -67,16 +62,15 @@ export default function DesiredDose({}){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>{t('Available_dose')}: </Text>
+                <Text style={styles.titleInputText}>Liều sẵn có: </Text>
               </View>
 
               <View style={styles.inputContent}>
                 <TextInput
                   style={styles.input}
-                  placeholder = 'e.g 1000mg'
+                  placeholder = 'vd 1000mg'
                   keyboardType = 'number-pad'
                   onChangeText = {availableDose => setAvailableDose(availableDose)}
-                  clearTextOnFocus
                   value={availableDose}
                 />
               </View>
@@ -90,16 +84,15 @@ export default function DesiredDose({}){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>{t('Available_volume')}: </Text>
+                <Text style={styles.titleInputText}>Pha trong: </Text>
               </View>
 
               <View style={styles.inputContent}>
                 <TextInput
                   style={styles.input}
-                  placeholder = 'e.g 5ml'
+                  placeholder = 'vd 5ml'
                   keyboardType = 'number-pad'
                   onChangeText = {availableVolume => setAvailableVolume(availableVolume)}
-                  clearTextOnFocus
                   value={availableVolume}
                 />
               </View>
@@ -112,8 +105,8 @@ export default function DesiredDose({}){
           <View style={styles.resultContain}>
 
             <View style={styles.resultTitle}>
-              <Text style={styles.resultTitleText}>{t('draw_up')}</Text>
-              <Text style={styles.resultTitleDesc}></Text>
+              <Text style={styles.resultTitleText}>Liều khả dụng</Text>
+              <Text style={styles.resultTitleDesc}>Lượng thuốc cần rút</Text>
             </View>
 
             {
@@ -131,24 +124,15 @@ export default function DesiredDose({}){
           </View>
 
           <View style={styles.infoContain}>
-            <TouchableOpacity onPress = {showInfo}>
-              <View style={styles.titleInfoContain}>
-                <Text style={styles.titleInfo}>{t('info')}</Text>
-                <FontAwesome name="angle-down" size={24} color='#777' style={{marginTop: 6}}/>
-              </View>
-            </TouchableOpacity>
+            <View style={styles.titleInfoContain}>
+              <Text style={styles.titleInfo}>Công thức</Text>
+            </View>
 
-            {
-              //if show = true, show, null
-              show ?
-                <View style={styles.infoContent}>
-                  <Text style={styles.infoText}>{t('desired_info')}</Text>
-                  <Text style={styles.infoText}>{t('desired_info_2')}</Text>
-                  <Text style={styles.infoText}>{t('desired_info_3')}</Text>
-                </View>
-              : null
-            }
+            <View style={styles.infoContent}>
+              <Text style={styles.infoText}>{'Thuốc cần rút = (Liều mong muốn/liều có sẵn) x lượng thuốc'}</Text>
+            </View>
           </View>
+
         </View>
       </TouchableWithoutFeedback>
       </ScrollView>

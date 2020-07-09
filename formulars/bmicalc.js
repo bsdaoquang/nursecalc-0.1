@@ -4,8 +4,6 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
-import {t} from '../locales/index'
-import {admobIntersititial} from '../screens/admob_Screen'
 
 console.disableYellowBox = true
 
@@ -16,11 +14,6 @@ export default function BMICalc(){
     const [show, setShow]           = useState(false)
     const [bmiTarget, setBmiTarget] = useState(bmiTarget)
     const [showWeight, setShowWeight] = useState(false)
-    const [showNote, setShowNote] = useState(false)
-    const [showGuide, setShowGuide] = useState(false)
-
-    var iconNameBsa = ''
-    var iconNameWeight = ''
 
     const showContent = () => {
       setShow(!show)
@@ -30,28 +23,6 @@ export default function BMICalc(){
       setShowWeight(!showWeight)
     }
 
-    const btnShowNote = () => {
-      setShowNote(!showNote)
-      setShowGuide(false)
-    }
-
-    const btnShowGuide = () => {
-      setShowGuide(!showGuide)
-      setShowNote(false)
-    }
-
-    if (show == true) {
-      iconNameBsa = 'angle-up'
-    }else{
-      iconNameBsa = 'angle-down'
-    }
-
-    if (showWeight == true) {
-      iconNameWeight = 'angle-up'
-    }else{
-      iconNameWeight = 'angle-down'
-    }
-
     var bmi = 0
     var unit = ''
     var superUnit = ''
@@ -59,7 +30,20 @@ export default function BMICalc(){
     var bsa = 0
     var weightTarget = 0
 
-    if (height != null && weight != null) {
+    if (weight > 150 || weight < 0) {
+      setWeight('')
+    }
+
+    if (height > 200 || height < 0) {
+      setHeight('')
+    }
+
+    if (bmiTarget > 35 || height < 0) {
+      setBmiTarget('')
+    }
+
+  
+    if (height != '' && weight != '') {
 
       //change unit to kg, and m to Calculator
       var heightMetter = height/100
@@ -86,12 +70,12 @@ export default function BMICalc(){
       //bsa = (height * weight)^1/2
       bsa = (Math.pow(((height * weight)/3600), 0.5)).toFixed(2)
 
-    }else if (height == null || weight == null) {
-      bmi = t('result')
-      rate = t('enter_data')
+    }else if (height == '' || weight == '') {
+      bmi = 'Kết quả'
+      rate = 'Nhập số liệu để tính'
     }
 
-    if (bmiTarget != null) {
+    if (bmiTarget != '') {
       weightTarget = (parseInt(bmiTarget) * Math.pow(heightMetter, 2)).toFixed(0)
     }
 
@@ -104,50 +88,17 @@ export default function BMICalc(){
 
           {/*This is header*/}
           <View style={styles.headerContain}>
-            <Text style={styles.headerTitle}>BMI & BSA Calculator</Text>
-            <Text style={styles.headerSubTitle}>{t('bmi_desc')}</Text>
+            <Text style={styles.headerTitle}>Tính BMI & BSA</Text>
+            <Text style={styles.headerSubTitle}>Chỉ số khối cơ thể (BMI) & Diện tích bề mặt (BSA)</Text>
           </View>
           {/*End header*/}
-
-          {/*This is description*/}
-          <View style={styles.description}>
-            <View style={styles.descButton}>
-              <TouchableOpacity style={styles.buttonDesc} onPress = {btnShowNote}>
-                <Text style={styles.buttonText}>{t('pearls_pitfalls')}</Text>
-                <FontAwesome name = 'angle-down' size ={24} color = '#ccc' style={styles.icons}/>
-              </TouchableOpacity>
-
-              <TouchableOpacity style={styles.buttonDesc} onPress = {btnShowGuide}>
-                <Text style={styles.buttonText}>{t('why_use')}</Text>
-                <FontAwesome name = 'angle-down' size ={24} color = '#ccc' style={styles.icons}/>
-              </TouchableOpacity>
-            </View>
-
-            {
-              showNote ?
-                <View style={styles.descContent}>
-                  <Text style={styles.titleInputText}>{t('pearls_desc')}</Text>
-                </View>
-              : null
-            }
-
-            {
-              showGuide ?
-                <View style={styles.descContent}>
-                  <Text style={styles.titleInputText}>{t('why_use_desc')}</Text>
-                </View>
-              : null
-            }
-
-          </View>
-          {/*This is end description*/}
 
           {/*This is form container*/}
           <View style={styles.formContain}>
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>{t('weight')}</Text>
+                <Text style={styles.titleInputText}>Cân nặng</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -156,8 +107,14 @@ export default function BMICalc(){
                   placeholder = '0'
                   keyboardType = 'number-pad'
                   onChangeText = {weight => setWeight(weight)}
-                  clearTextOnFocus
+                  value = {weight}
                 />
+                {
+                  weight == '' ?
+                    <Text style={styles.errorText}>Lỗi</Text>
+                  : null
+                }
+                
               </View>
 
               <View style={styles.unitContainInput}>
@@ -174,7 +131,7 @@ export default function BMICalc(){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>{t('height')}</Text>
+                <Text style={styles.titleInputText}>Chiều cao</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -183,8 +140,13 @@ export default function BMICalc(){
                   placeholder = '0'
                   keyboardType = 'number-pad'
                   onChangeText = {height => setHeight(height)}
-                  clearTextOnFocus
+                  value = {height}
                 />
+                {
+                  height == '' ?
+                    <Text style={styles.errorText}>Lỗi</Text>
+                  : null
+                }
               </View>
 
               <View style={styles.unitContainInput}>
@@ -200,8 +162,8 @@ export default function BMICalc(){
             {/*This is input contain*/}
             <View style={styles.inputContain}>
               <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>{t('bmi_target')}</Text>
-                <Text style={styles.titleInputDesc}>{t('bmi_target_desc')}</Text>
+                <Text style={styles.titleInputText}>BMI mong muốn</Text>
+                <Text style={styles.titleInputDesc}>Tính cân nặng để đạt BMI mục tiêu</Text>
               </View>
 
               <View style={styles.inputContent}>
@@ -210,14 +172,19 @@ export default function BMICalc(){
                   placeholder = '20 - 25'
                   keyboardType = 'number-pad'
                   onChangeText = {bmiTarget => setBmiTarget(bmiTarget)}
-                  clearTextOnFocus
+                  value = {bmiTarget}
                 />
+                {
+                  bmiTarget == '' ?
+                    <Text style={styles.errorText}>Lỗi</Text>
+                  : null
+                }
               </View>
-              {/*
+
               <View style={styles.unitContainInput}>
                 <Text style={styles.unitTitle}></Text>
               </View>
-              */}
+
             </View>
             {/*end input contain*/}
           </View>
@@ -228,7 +195,7 @@ export default function BMICalc(){
 
             <View style={styles.resultTitle}>
               <Text style={styles.resultTitleText}>BMI</Text>
-              <Text style={styles.resultTitleDesc}>({t('body_max_index')})</Text>
+              <Text style={styles.resultTitleDesc}>(Chỉ số khối cơ thể)</Text>
             </View>
 
             <View style={styles.resultContent}>
@@ -248,8 +215,8 @@ export default function BMICalc(){
             <TouchableOpacity onPress = {showContent}>
               <View style={styles.resultTitle}>
                 <Text style={styles.resultTitleText}>BSA</Text>
-                <Text style={styles.resultTitleDesc}>({t('body_suface-area')})</Text>
-                <FontAwesome name={iconNameBsa} size={24} color="white" style={styles.icons}/>
+                <Text style={styles.resultTitleDesc}>(Diện tích bề mặt cơ thể)</Text>
+                <FontAwesome name='angle-down' size={24} color="white" style={styles.icons}/>
               </View>
             </TouchableOpacity>
 
@@ -274,8 +241,8 @@ export default function BMICalc(){
             <TouchableOpacity onPress = {showWeightContent}>
               <View style={styles.resultTitle}>
                 <Text style={styles.resultTitleText}>BMI {bmiTarget}</Text>
-                <Text style={styles.resultTitleDesc}>({t('target_weight')})</Text>
-                <FontAwesome name={iconNameWeight} size={24} color="white" style={styles.icons}/>
+                <Text style={styles.resultTitleDesc}>(Chỉ số khối cơ thể)</Text>
+                <FontAwesome name='angle-down' size={24} color="white" style={styles.icons}/>
               </View>
             </TouchableOpacity>
 
@@ -292,26 +259,13 @@ export default function BMICalc(){
             }
           </View>
           {/*End result contain*/}
-
-          <View style={styles.formInfo}>
-            <Text style={styles.titleInfo}>{t('advice')}</Text>
-            <Text style={styles.contentInfo}>{t('advice_desc')}</Text>
-          </View>
-
-          <View style={styles.formInfo}>
-            <Text style={styles.titleInfo}>{t('Formula')}</Text>
-            <Text style={styles.contentInfo}>{t('Formula_desc_1')}</Text>
-            <Text style={styles.contentInfo}>{t('Formula_desc_2')}</Text>
-          </View>
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
-
     </ScrollView>
-
-    <View>
-      <AdMob />
-    </View>
+      <View style={styles.bottomBanner}>
+        <AdMob />
+      </View>
     </View>
   )
 }
