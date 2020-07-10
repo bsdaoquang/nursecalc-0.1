@@ -6,6 +6,8 @@ import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
 import {t} from '../locales/index'
 
+import {showAdInter} from '../components/intersititialAdmob'
+
 const DATA = [
   {id: '1',title: 'Tính BMI & BSA', desc: 'Tính chỉ số khối cơ thể (BMI) & diện tích bề mặt (BSA)'},
   {id: '2',title: 'Tính thời gian truyền máu', desc: 'Thời gian truyền hết 1 lượng máu'},
@@ -21,13 +23,21 @@ const DATA = [
 function Item({ title }) {
   return (
     <View style={styles.buttonDesc}>
-      <Text style={styles.titleInputText}>t({title})</Text>
+      <Text style={styles.titleInputText}>{title}</Text>
     </View>
   );
 }
 
 
 export default function MyList({navigation}) {
+
+  const nextScreen = () => {
+    
+    console.log(title)
+    // showAdInter()
+    // setTimeout(() => {navigation.navigate('Tính BMI & BSA')},3000)
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.inner}>
@@ -37,7 +47,7 @@ export default function MyList({navigation}) {
             data={DATA}
             renderItem={({ item }) => (
               <TouchableOpacity
-                onPress={() => {navigation.navigate('interAdmob', {itemId: item.title});}}
+                onPress={nextScreen}
                 style={styles.listContainer}>
 
                 <View style={styles.listContent}>

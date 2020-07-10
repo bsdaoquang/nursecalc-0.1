@@ -3,20 +3,19 @@ import {View, Text, Button} from 'react-native'
 import {styles} from '../styles_global/styles'
 import {AdMobInterstitial,} from 'expo-ads-admob';
 
-export default function IntersititialAdmob({route, navigation}){
-
-	// Display an interstitial
-	const showAdInter = async() => {
+// Display an interstitial
+	export const showAdInter = async() => {
 	await AdMobInterstitial.setAdUnitID('ca-app-pub-3940256099942544/1033173712');
 	await AdMobInterstitial.requestAdAsync({ servePersonalizedAds: true});
 	await AdMobInterstitial.showAdAsync();
 	}
 
+export default function IntersititialAdmob({route, navigation}){
+
 	showAdInter()
 
-	const {itemId} = route.params;
-	const title = itemId
-
+	const title = route.params;
+	
 	const moveScreen = () => {
 		setTimeout(() => {navigation.navigate(title)},3000)
 	}
