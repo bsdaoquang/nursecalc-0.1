@@ -227,7 +227,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fafafa',
     padding: 5,
     borderRadius: 4,
-    marginTop: 10,
+    marginTop: 1,
     flexDirection: 'row'
   },
   listContent:{

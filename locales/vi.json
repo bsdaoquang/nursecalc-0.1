@@ -89,5 +89,5 @@
   "ml_h": "mL/h",
   "rate": "Tốc độ",
   "mcg_kg_min": "mcg/Kg/phút",
-  "count_drops_info": "1 giọt rơi xuống, bấm +1, tốc độ truyền = (thời gian giọt sau - thời gian giọt trước đó)/60",
+  "count_drops_info": "1 giọt rơi xuống, bấm +1, tốc độ truyền = (thời gian giọt sau - thời gian giọt trước đó)",
 }

@@ -13,16 +13,16 @@ import DoseCalc from './formulars/dose_calc'
 import CountDrops from './formulars/count_drops'
 import DesiredDose from './formulars/desired_dose'
 import DripReateCalc from './formulars/drip_rate_calc'
+import DrawerNavigationScreen from './components/drawerNavigation'
 import IntersititialAdmob from './components/intersititialAdmob'
 import { FontAwesome } from '@expo/vector-icons'
-import {t} from './locales/index'
 
 const onShare = async () => {
     try {
       const result = await Share.share({
-        title: t('nurseAssistant'),
+        title: 'Trợ Lý Điều Dưỡng',
         message:
-          t('nurseDesc'),
+          'Công cụ tiện ích hữu hiệu nhất dành cho Điều Dưỡng',
         url: 'https://play.google.com/store/apps/details?id=com.bsdaoquang.trolydieuduong'
       });
       if (result.action === Share.sharedAction) {
@@ -47,7 +47,7 @@ function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen}
           options={{
-          title: t('nurseAssistant'),
+          title: 'Trợ Lý Điều Dưỡng',
           headerStyle: {
             backgroundColor: '#00bfa5',
           },
@@ -70,6 +70,7 @@ function App() {
         <Stack.Screen name='Máy đếm giọt dịch truyền' component={CountDrops}/>
         <Stack.Screen name='Tính liều khả dụng' component={DesiredDose}/>
         <Stack.Screen name='Tính tốc độ dịch truyền' component={DripReateCalc}/>
+        <Stack.Screen name='DrawerNavigationScreen' component={DrawerNavigationScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
