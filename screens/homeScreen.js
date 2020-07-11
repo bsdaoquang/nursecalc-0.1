@@ -31,13 +31,6 @@ function Item({ title }) {
 
 export default function MyList({navigation}) {
 
-  const nextScreen = () => {
-    
-    console.log(title)
-    // showAdInter()
-    // setTimeout(() => {navigation.navigate('Tính BMI & BSA')},3000)
-  }
-
   return (
     <View style={styles.container}>
       <View style={styles.inner}>
@@ -47,7 +40,7 @@ export default function MyList({navigation}) {
             data={DATA}
             renderItem={({ item }) => (
               <TouchableOpacity
-                onPress={nextScreen}
+                onPress={() => (showAdInter(), setTimeout(() => {navigation.navigate(item.title)},1000))}
                 style={styles.listContainer}>
 
                 <View style={styles.listContent}>

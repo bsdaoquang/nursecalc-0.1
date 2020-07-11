@@ -62,102 +62,14 @@ function App() {
         />
         <Stack.Screen name='interAdmob' component={IntersititialAdmob}/>
 
-        <Stack.Screen name='Tính thời gian truyền dịch' component={TimeFusion}
-          options={{
-            title: 'Tính thời gian truyền dịch',
-            headerStyle:{
-              backgroundColor: '#00bfa5'
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-          }}
-        />
-        <Stack.Screen name='Tính thời gian truyền máu' component={TimeBloodTransfusion}
-          options={{
-            title: 'Tính thời gian truyền máu',
-            headerStyle:{
-              backgroundColor: '#00bfa5'
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-          }}
-        />
-        <Stack.Screen name='Tính BMI & BSA' component={BMICalc}
-          options={
-            {title: 'Chỉ số BMI & BSA',
-            headerStyle:{
-              backgroundColor: '#00bfa5'
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-          }}
-        />
-        <Stack.Screen name='Tính tốc độ truyền bơm tiêm điện' component={InfusionPump}
-          options={{
-            title: 'Tính tốc độ truyền bơm tiêm điện',
-            headerStyle:{
-              backgroundColor: '#00bfa5'
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-          }}
-        />
-        <Stack.Screen name='Tính liều thuốc bơm tiêm điện' component={DoseCalc}
-          options={{
-            title: 'Tính liều thuốc bơm tiêm điện',
-            headerStyle:{
-              backgroundColor: '#00bfa5'
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-          }}
-        />
-        <Stack.Screen name='Máy đếm giọt dịch truyền' component={CountDrops}
-          options={{
-            title: 'Máy đếm giọt dịch truyền',
-            headerStyle:{
-              backgroundColor: '#00bfa5'
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-          }}
-        />
-        <Stack.Screen name='Tính liều khả dụng' component={DesiredDose}
-          options={{
-            title: 'Tính liều khả dụng',
-            headerStyle:{
-              backgroundColor: '#00bfa5'
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-          }}
-        />
-        <Stack.Screen name='Tính tốc độ dịch truyền' component={DripReateCalc}
-          options={{
-            title: 'Tính tốc độ dịch truyền',
-            headerStyle:{
-              backgroundColor: '#00bfa5'
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-          }}
-        />
+        <Stack.Screen name='Tính thời gian truyền dịch' component={TimeFusion}/>
+        <Stack.Screen name='Tính thời gian truyền máu' component={TimeBloodTransfusion}/>
+        <Stack.Screen name='Tính BMI & BSA' component={BMICalc}/>
+        <Stack.Screen name='Tính tốc độ truyền bơm tiêm điện' component={InfusionPump}/>
+        <Stack.Screen name='Tính liều thuốc bơm tiêm điện' component={DoseCalc}/>
+        <Stack.Screen name='Máy đếm giọt dịch truyền' component={CountDrops}/>
+        <Stack.Screen name='Tính liều khả dụng' component={DesiredDose}/>
+        <Stack.Screen name='Tính tốc độ dịch truyền' component={DripReateCalc}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

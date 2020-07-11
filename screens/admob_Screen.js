@@ -15,7 +15,6 @@ export default function AdMob(){
         //adUnitID = "ca-app-pub-6209888091137615/1563055691"
         adUnitID = "ca-app-pub-3940256099942544/6300978111"
         serverPersonallizedAds = {true}
-        testDeviceID = 'EMULATOR'
         onDidFailToReceiveAdwithError = {(e) => bannerError(e)}
       />
     </View>
