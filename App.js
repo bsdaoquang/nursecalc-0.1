@@ -5,6 +5,7 @@ import { View, Text, Button, Share } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer'
+import * as Linking from 'expo-linking'
 import HomeScreen from './screens/homeScreen'
 
 //Fomulars screen
@@ -25,6 +26,7 @@ import { FontAwesome, Ionicons } from '@expo/vector-icons'
 
 //Drawer navigation screens
 import About from './components/about'
+import Contact from './components/contact'
 
 const onShare = async () => {
     try {
@@ -86,11 +88,10 @@ export default function App(){
       <NavigationContainer>
         <Drawer.Navigator initialRouteName="Home">
           <Drawer.Screen name='Trang chủ' component={StackNavigation}/>
-          <Drawer.Screen name='Thông tin ứng dụng' component={About}/>
-          <Drawer.Screen name='Liên hệ' component={About}/>
-          <Drawer.Screen name='Góp ý' component={About}/>
-          <Drawer.Screen name='Thêm ứng dụng' component={About}/>
-          <Drawer.Screen name='Chia sẻ' component={About}/>
+          <Drawer.Screen name='Giới thiệu' component={About}/>
+          <Drawer.Screen name='Liên hệ' component={Contact}/>
+          <Drawer.Screen name='Thêm công thức' component={() => Linking.openURL('mailto:bsdaoquang@gmai.com?subject=Trợ lý Điều Dưỡng - Yêu cầu thêm công cụ tiện ích&body=Viết ở đây')}/>
+          <Drawer.Screen name='Chia sẻ' component={onShare}/>
         </Drawer.Navigator>
       </NavigationContainer>
     )
