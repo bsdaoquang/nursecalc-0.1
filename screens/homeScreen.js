@@ -17,6 +17,9 @@ function Item({ title }) {
 }
 
 export default function MyList({navigation}) {
+
+  const [selectedId, setSelectedId] = useState(true);
+
   return (
     <View style={styles.container}>
       <View style={styles.inner}>
@@ -24,6 +27,7 @@ export default function MyList({navigation}) {
         {/*this is formulars list*/}
           <FlatList
             data={FOMULAS}
+            extraData={FOMULAS}
             renderItem={({ item }) => (
               <View style={styles.listContainer}>
                 <TouchableOpacity
