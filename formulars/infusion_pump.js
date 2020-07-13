@@ -168,7 +168,7 @@ export default function InfusionPump({navigation}){
                   value = {lieuDung}
                 />
                 {
-                  lieuDung == '' ?
+                  lieuDung === '' || lieuDung < 0 ?
                     <Text style={styles.errorText}>Lỗi</Text>
                   : null
                 }
@@ -195,7 +195,7 @@ export default function InfusionPump({navigation}){
                 <View style={styles.resultContent}>
                   <Text style={styles.result}>{tocDoTruyen}</Text>
                   <View style={styles.unitContain}>
-                    <Text style={styles.unit}>{t('ml_h')}</Text>
+                    <Text style={styles.unit}>mL/h</Text>
                     <Text style={styles.superUnit}></Text>
                   </View>
                 </View>
