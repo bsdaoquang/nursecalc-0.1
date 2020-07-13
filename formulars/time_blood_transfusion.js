@@ -42,7 +42,7 @@ export default function TimeBloodTransfusion(){
   if (rate > 300 || rate < 0) {
     setRate('')
   }
-  
+
   if (volume != '' && rate != '') {
     //tính thời gian
     timePUSV = (((400/parseInt(rate)) + 5)*2).toFixed(0)
@@ -231,7 +231,7 @@ export default function TimeBloodTransfusion(){
 
               <View style={styles.formInfo}>
                 <Text style={styles.titleInfo}>Phản ứng sinh vật:</Text>
-                <Text style={styles.contentInfo}>Cho chảy theo y lệnh 20ml, sau đó chảy chậm từ 8 – 10 g/p trong 5 phút. Nếu không có phản ứng gì, cho chảy theo y lệnh 20ml, sau đó cho chảy 8 – 10 g/p trong 5 phút. Ở đây sử dụng tốc độ 10 g/p</Text>
+                <Text style={styles.infoText}>Cho chảy theo y lệnh 20ml, sau đó chảy chậm từ 8 – 10 g/p trong 5 phút. Nếu không có phản ứng gì, cho chảy theo y lệnh 20ml, sau đó cho chảy 8 – 10 g/p trong 5 phút. Ở đây sử dụng tốc độ 10 g/p</Text>
               </View>
 
           {/*This is form container*/}
@@ -241,7 +241,7 @@ export default function TimeBloodTransfusion(){
           </TouchableOpacity>
 
               <View style={styles.formInfo}>
-                <Text style={styles.contentInfo}>Tính lượng máu đã truyền khi chuyển bệnh hoặc ngưng truyền</Text>
+                <Text style={styles.infoText}>Tính lượng máu đã truyền khi chuyển bệnh hoặc ngưng truyền</Text>
               </View>
           {
             showCalcTrans ?

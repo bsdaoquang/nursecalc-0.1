@@ -12,8 +12,8 @@ export default function AdMob(){
     <View>
       <AdMobBanner
         bannerSize = "fullBanner"
-        adUnitID = "ca-app-pub-6209888091137615/1563055691"
-        //adUnitID = "ca-app-pub-3940256099942544/6300978111"
+        //adUnitID = "ca-app-pub-6209888091137615/1563055691"
+        adUnitID = "ca-app-pub-3940256099942544/6300978111"
         serverPersonallizedAds = {true}
         onDidFailToReceiveAdwithError = {(e) => bannerError(e)}
       />

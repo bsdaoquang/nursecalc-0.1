@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
   /*Body style*/
   container:{
     flex: 1,
+    backgroundColor: '#fff'
   },
   inner:{
     flex: 1,
@@ -27,7 +28,7 @@ export const styles = StyleSheet.create({
   headerSubTitle:{
     textAlign: 'center',
     fontSize: 20,
-    color: '#777',
+    color: '#424242',
     fontWeight: '300',
     fontFamily: 'sans-serif'
   },
@@ -37,7 +38,7 @@ export const styles = StyleSheet.create({
     marginVertical: 10,
   },
   descContent:{
-    backgroundColor: '#e0e0e0',
+    backgroundColor: '#fff',
     marginVertical: 8,
     padding: 8,
   },
@@ -85,7 +86,7 @@ export const styles = StyleSheet.create({
     fontStyle: 'italic'
   },
   titleInputText:{
-    color: '#777',
+    color: '#424242',
     fontSize: 16,
     fontWeight: '300',
     textAlign: 'left'
@@ -96,14 +97,14 @@ export const styles = StyleSheet.create({
   input:{
     marginHorizontal: 5,
     flexDirection: 'row',
-    borderColor: '#777',
+    borderColor: '#6d6d6d',
     borderBottomWidth: 1,
     textAlign: 'right',
     paddingHorizontal: 10,
     fontSize: 16,
     fontWeight: 'bold',
     fontFamily: 'sans-serif',
-    color: '#777',
+    color: '#6d6d6d',
   },
   alertText:{
     color: '#ef9a9a',
@@ -118,7 +119,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   unitTitle:{
-    color: '#777',
+    color: '#6d6d6d',
     fontFamily: 'sans-serif',
     textAlign: 'center'
   },
@@ -203,20 +204,20 @@ export const styles = StyleSheet.create({
 
   /*this is style for info content*/
   formInfo:{
-    backgroundColor: '#e0e0e0',
+    backgroundColor: '#eeeeee',
     marginVertical: 8,
     padding: 8,
     borderRadius: 4
   },
   titleInfo:{
-    color: '#777',
+    color: '#757575',
     fontSize: 18,
     fontWeight: 'bold',
     fontFamily:'sans-serif'
   },
   infoText:{
     fontFamily: 'sans-serif',
-    color: '#777',
+    color: '#6d6d6d',
     paddingVertical: 3,
     fontSize: 14,
     fontStyle: 'italic'
@@ -224,27 +225,23 @@ export const styles = StyleSheet.create({
 
   /*This is styles for list*/
   listContainer:{
-    backgroundColor: '#fafafa',
-    padding: 5,
-    borderRadius: 4,
-    marginTop: 1,
-    flexDirection: 'row'
+    backgroundColor: '#fff',
+    paddingVertical: 5,
+    borderStyle: 'solid',
+    borderColor: '#cfcfcf',
+    borderBottomWidth: 1,
+    flexDirection: 'row',
   },
   listContent:{
-    flex: 1,
+    flex: 8,
     paddingHorizontal: 5
   },
   listTitle:{
     textAlign: 'left',
-    color: '#777',
+    color: '#6d6d6d',
     fontWeight: 'bold',
     fontFamily: 'sans-serif',
-    fontSize: 16
-  },
-  iconRight:{
-    textAlign: 'center',
-    marginTop: 10,
-    paddingHorizontal: 8
+    fontSize: 17
   },
   bottomBanner:{
     bottom: 0,
@@ -258,7 +255,7 @@ export const styles = StyleSheet.create({
   link:{
     fontSize: 16,
     fontFamily: 'sans-serif',
-    color: '#777',
+    color: '#6d6d6d',
     fontStyle: 'italic',
     textAlign: 'right'
   },
@@ -278,7 +275,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     fontFamily: 'sans-serif',
     fontWeight: 'bold',
-    color: '#777',
+    color: '#6d6d6d',
     fontSize: 18
   },
   infoTextLink:{
