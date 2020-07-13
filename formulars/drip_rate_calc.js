@@ -155,7 +155,7 @@ export default function DripReateCalc({navigation}){
             {
               //if show = true, show, null
               show ?
-                <View style={styles.infoContent}>
+                <View style={styles.infoContain}>
                   <Text style={styles.infoText}>Một số thuốc sử dụng qua đường truyền tĩnh mạch cần tính chính xác liều lượng sử dụng hoặc chia nhỏ liều thuốc trong nhi khoa</Text>
                 </View>
               : null
