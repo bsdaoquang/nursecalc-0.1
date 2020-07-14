@@ -9,4 +9,6 @@ export const FOMULAS = [
   {id: '8', title: 'Tính tốc độ dịch truyền', desc: 'Tốc độ cần để truyền hết 1 lượng dịch', like: false, count: 0},
 ];
 
-export const LIKE = [];
+export const LIKE = [
+
+];

@@ -5,6 +5,7 @@ import { View, Text, Button, Share } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as Linking from 'expo-linking'
 import HomeScreen from './screens/homeScreen'
 
@@ -27,6 +28,7 @@ import { FontAwesome, Ionicons } from '@expo/vector-icons'
 //Drawer navigation screens
 import About from './components/about'
 import Contact from './components/contact'
+import LikeScreen from './components/likeScreen'
 
 const onShare = async () => {
     try {
@@ -52,6 +54,7 @@ const onShare = async () => {
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator()
 
 function StackNavigation({navigation}) {
   return (
@@ -79,15 +82,25 @@ function StackNavigation({navigation}) {
         <Stack.Screen name='Máy đếm giọt dịch truyền' component={CountDrops}/>
         <Stack.Screen name='Tính liều khả dụng' component={DesiredDose}/>
         <Stack.Screen name='Tính tốc độ dịch truyền' component={DripReateCalc}/>
+        <Stack.Screen name='Like' component={LikeScreen}/>
       </Stack.Navigator>
   );
+}
+
+function TabNavigation({navigation}){
+  return(
+    <Tab.Navigator>
+      <Tab.Screen name='Home' component={StackNavigation}/>
+      <Tab.Screen name="Like" component={LikeScreen}/>
+    </Tab.Navigator>
+  )
 }
 
 export default function App(){
   return(
       <NavigationContainer>
         <Drawer.Navigator initialRouteName="Home">
-          <Drawer.Screen name='Trang chủ' component={StackNavigation}/>
+          <Drawer.Screen name='Trang chủ' component={TabNavigation}/>
           <Drawer.Screen name='Giới thiệu' component={About}/>
           <Drawer.Screen name='Liên hệ' component={Contact}/>
           <Drawer.Screen name='Thêm công thức' component={() => Linking.openURL('mailto:bsdaoquang@gmai.com?subject=Trợ lý Điều Dưỡng - Yêu cầu thêm công cụ tiện ích&body=Viết yeey cầu của bạn ở đây')}/>
