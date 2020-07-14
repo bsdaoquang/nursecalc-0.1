@@ -42,7 +42,7 @@ export default function BMICalc(){
       setBmiTarget('')
     }
 
-  
+
     if (height != '' && weight != '') {
 
       //change unit to kg, and m to Calculator
@@ -114,7 +114,7 @@ export default function BMICalc(){
                     <Text style={styles.errorText}>Lỗi</Text>
                   : null
                 }
-                
+
               </View>
 
               <View style={styles.unitContainInput}>

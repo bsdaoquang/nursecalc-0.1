@@ -5,8 +5,7 @@ import {styles} from '../styles_global/styles'
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
 import {showAdInter} from '../components/intersititialAdmob'
-import {FOMULAS} from '../components/data'
-
+import {FOMULAS, LIKE} from '../components/data'
 
 function Item({ title }) {
   return (
@@ -20,6 +19,27 @@ export default function MyList({navigation}) {
 
   const [selectedId, setSelectedId] = useState(true);
 
+  function like(id){ //Like item with item.id
+    //Thêm và xóa item ra khỏi LIKE
+    setSelectedId(FOMULAS[id - 1].like)
+    FOMULAS[id - 1].like = !FOMULAS[id - 1].like //id - 1 to get index in FOMULAS
+
+    if (FOMULAS[id - 1].like == true) {
+      LIKE.push(FOMULAS[id - 1])
+    }else{
+      LIKE.splice(LIKE.indexOf(id))
+    }
+  }
+
+  //show ads on click item, and then move to screen formulars
+  // then +1 to fomular to count user used formulars
+
+  function moveScreen(title, id){
+    //move screen with title screen
+    showAdInter(), setTimeout(() => {navigation.navigate(title)},1000)
+    FOMULAS[id -1].count += 1
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.inner}>
@@ -27,11 +47,11 @@ export default function MyList({navigation}) {
         {/*this is formulars list*/}
           <FlatList
             data={FOMULAS}
-            extraData={FOMULAS}
+            extraData={selectedId}
             renderItem={({ item }) => (
               <View style={styles.listContainer}>
                 <TouchableOpacity
-                  onPress={() => (showAdInter(), setTimeout(() => {navigation.navigate(item.title)},1000))}
+                  onPress={() => moveScreen(item.title, item.id)}
                   style={{flexDirection:'row', flex: 9}}>
                   <View style={styles.listContent}>
                     <Text style={styles.listTitle}>{item.title}</Text>
@@ -39,8 +59,8 @@ export default function MyList({navigation}) {
                   </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={{flex:1}} onPress={() => FOMULAS[item.id -1].like = !item.like}>
-                  <Ionicons name={item.like === true?"md-star":"md-star-outline"} size={30} color="#00bfa5" style={{marginTop: 5}}/>
+                <TouchableOpacity style={{flex:1}} onPress = {() => like(item.id)}>
+                  <Ionicons name={item.like == true?"md-star":"md-star-outline"} size={30} color="#00bfa5" style={{marginTop: 5}}/>
                 </TouchableOpacity>
               </View>
             )}
