@@ -82,28 +82,49 @@ function StackNavigation({navigation}) {
         <Stack.Screen name='Máy đếm giọt dịch truyền' component={CountDrops}/>
         <Stack.Screen name='Tính liều khả dụng' component={DesiredDose}/>
         <Stack.Screen name='Tính tốc độ dịch truyền' component={DripReateCalc}/>
-        <Stack.Screen name='Like' component={LikeScreen}/>
       </Stack.Navigator>
   );
 }
 
-function TabNavigation({navigation}){
-  return(
-    <Tab.Navigator>
-      <Tab.Screen name='Home' component={StackNavigation}/>
-      <Tab.Screen name="Like" component={LikeScreen}/>
-    </Tab.Navigator>
-  )
-}
+//Tạm thời chưa sử dụng đến
+// function TabNavigation({navigation}){
+//   return(
+//     <Tab.Navigator
+//         screenOptions={({ route }) => ({
+//           tabBarIcon: ({ focused, color, size }) => {
+//             let iconName;
+//
+//             if (route.name === 'Thích') {
+//               iconName = focused
+//                 ? 'md-star'
+//                 : 'md-star-outline';
+//             } else if (route.name === 'Tất cả') {
+//               iconName = focused ? 'ios-list-box' : 'ios-list';
+//             }
+//
+//             //can return any component that you like here!
+//             return <Ionicons name={iconName} size={size} color={color} />;
+//           },
+//         })}
+//         tabBarOptions={{
+//           activeTintColor: '#00bfa5',
+//           inactiveTintColor: 'gray',
+//         }}
+//       >
+//       <Tab.Screen name='Thích' component={LikeScreen}/>
+//       <Tab.Screen name='Tất cả' component={StackNavigation}/>
+//     </Tab.Navigator>
+//   )
+// }
 
 export default function App(){
   return(
       <NavigationContainer>
         <Drawer.Navigator initialRouteName="Home">
-          <Drawer.Screen name='Trang chủ' component={TabNavigation}/>
+          <Drawer.Screen name='Trang chủ' component={StackNavigation}/>
           <Drawer.Screen name='Giới thiệu' component={About}/>
           <Drawer.Screen name='Liên hệ' component={Contact}/>
-          <Drawer.Screen name='Thêm công thức' component={() => Linking.openURL('mailto:bsdaoquang@gmai.com?subject=Trợ lý Điều Dưỡng - Yêu cầu thêm công cụ tiện ích&body=Viết yeey cầu của bạn ở đây')}/>
+          <Drawer.Screen name='Thêm công thức' component={() => Linking.openURL('mailto:bsdaoquang@gmai.com?subject=Trợ lý Điều Dưỡng - Yêu cầu thêm công cụ tiện ích&body=Viết công thức bạn muốn ở đây')}/>
           <Drawer.Screen name='Chia sẻ' component={onShare}/>
         </Drawer.Navigator>
       </NavigationContainer>

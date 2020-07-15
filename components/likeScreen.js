@@ -4,7 +4,7 @@ import Constants from 'expo-constants';
 import {styles} from '../styles_global/styles'
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
-import {LIKE} from './data'
+import {FOMULAS, LIKE} from './data'
 
 function Item({ title }) {
   return (
@@ -15,13 +15,25 @@ function Item({ title }) {
 }
 
 export default function LikeScreen({navigation}) {
+  const [selectId, setSelectId] = useState()
+
+  function unlike(id){
+    //set like(id) = false
+    FOMULAS[id - 1].like = false
+
+    //delete from LIKE(id)
+    LIKE.splice(LIKE.indexOf(id))
+
+    //set selecteid to reload data
+    setSelectId(id)
+  }
   return (
     <View style={styles.container}>
-      <View style={styles.inner}>
-
+      <View style={styles.inner, {marginTop:45, padding: 8}}>
         {/*this is formulars list*/}
           <FlatList
             data={LIKE}
+            extraData={selectId}
             renderItem={({ item }) => (
               <View style={styles.listContainer}>
                 <TouchableOpacity
@@ -32,7 +44,7 @@ export default function LikeScreen({navigation}) {
                   </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={{flex:1}}>
+                <TouchableOpacity style={{flex:1}} onPress={() => unlike(item.id)}>
                   <Ionicons name="md-star" size={30} color="#00bfa5" style={{marginTop: 5}}/>
                 </TouchableOpacity>
               </View>
@@ -41,12 +53,6 @@ export default function LikeScreen({navigation}) {
           />
         {/*end list*/}
       </View>
-
-      {/*Admob form*/}
-      <View style={styles.bottomBanner}>
-        <AdMob />
-      </View>
-      {/*end admob*/}
     </View>
   );
 }

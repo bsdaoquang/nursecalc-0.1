@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
   headerTitle:{
     fontSize: 24,
     color: '#00bfa5',
-    fontFamily: 'sans-serif',
+    
     textAlign: 'center',
     fontWeight: 'bold',
     textTransform: 'uppercase'
@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     color: '#424242',
     fontWeight: '300',
-    fontFamily: 'sans-serif'
+
   },
 
   /*styles for description*/
@@ -103,13 +103,13 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 10,
     fontSize: 16,
     fontWeight: 'bold',
-    fontFamily: 'sans-serif',
+
     color: '#6d6d6d',
   },
   alertText:{
     color: '#ef9a9a',
     fontSize: 12,
-    fontFamily: 'sans-serif',
+
     padding: 5,
     fontStyle: 'italic'
   },
@@ -120,7 +120,7 @@ export const styles = StyleSheet.create({
   },
   unitTitle:{
     color: '#6d6d6d',
-    fontFamily: 'sans-serif',
+
     textAlign: 'center'
   },
 
@@ -148,12 +148,12 @@ export const styles = StyleSheet.create({
   resultTitleText:{
     color: '#fafafa',
     fontWeight: 'bold',
-    fontFamily: 'sans-serif',
+
     fontSize: 24,
   },
   resultTitleDesc:{
     color: '#fafafa',
-    fontFamily: 'sans-serif',
+
     fontSize: 14,
     fontStyle: 'italic',
     margin: 8,
@@ -166,7 +166,7 @@ export const styles = StyleSheet.create({
   result:{
     color: '#fafafa',
     fontWeight: 'bold',
-    fontFamily: 'sans-serif',
+
     fontSize: 34,
     paddingHorizontal: 8,
   },
@@ -179,20 +179,20 @@ export const styles = StyleSheet.create({
     color: '#fafafa',
     fontSize: 18,
     fontWeight: 'bold',
-    fontFamily: 'sans-serif',
+
     lineHeight: 30
   },
   superUnit:{
     color: '#fafafa',
     fontSize: 12,
     fontWeight: 'bold',
-    fontFamily: 'sans-serif',
+
     lineHeight: 19,
   },
   rateContent:{
     padding: 8,
     color: '#fafafa',
-    fontFamily: 'sans-serif',
+
     fontSize: 18,
     fontStyle: 'italic',
     marginTop: 8
@@ -216,7 +216,7 @@ export const styles = StyleSheet.create({
     fontFamily:'sans-serif'
   },
   infoText:{
-    fontFamily: 'sans-serif',
+
     color: '#6d6d6d',
     paddingVertical: 3,
     fontSize: 14,
@@ -240,7 +240,7 @@ export const styles = StyleSheet.create({
     textAlign: 'left',
     color: '#6d6d6d',
     fontWeight: 'bold',
-    fontFamily: 'sans-serif',
+
     fontSize: 17
   },
   bottomBanner:{
@@ -254,7 +254,7 @@ export const styles = StyleSheet.create({
   },
   link:{
     fontSize: 16,
-    fontFamily: 'sans-serif',
+
     color: '#6d6d6d',
     fontStyle: 'italic',
     textAlign: 'right'
@@ -273,7 +273,7 @@ export const styles = StyleSheet.create({
   titleInfo:{
     paddingVertical: 5,
     flex: 1,
-    fontFamily: 'sans-serif',
+
     fontWeight: 'bold',
     color: '#6d6d6d',
     fontSize: 18
@@ -282,12 +282,12 @@ export const styles = StyleSheet.create({
     color: '#2ecc71',
     fontSize: 14,
     fontStyle: 'italic',
-    fontFamily: 'sans-serif',
+
     marginTop: 15
   },
   errorText:{
     color: '#ff7961',
-    fontFamily: 'sans-serif',
+
     fontSize: 14,
     paddingVertical: 5,
     textAlign: 'right',
