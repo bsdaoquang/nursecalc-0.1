@@ -16,6 +16,13 @@ function Item({ title }) {
   );
 }
 
+var Fomulars = [];
+const onValueChange = fireBase.database()
+      .ref().child('countClick')
+      .on('value', snapshot => {
+          Fomulars.push( snapshot.val());
+      });
+
 export default function MyList({navigation}) {
 
   const [selectedId, setSelectedId] = useState();
@@ -29,15 +36,18 @@ export default function MyList({navigation}) {
 
   //show ads on click item, and then move to screen formulars
   // then +1 to fomular to count user used formulars
+  //get count form firebase
   function moveScreen(title, id){
-    //move screen with title screen
-    showAdInter(), setTimeout(() => {navigation.navigate(title)},2000)
+    //get count
+    var countClick = Fomulars[0][title]['count']
 
-    //update realtime database to know formular được sử dụng nhiều nhất
-    var count = FOMULAS[id -1].count += 1
-    fireBase.database().ref().child('NurseAssistant').child(title).set({
-    count: count
-  });
+    //update and set count title to the firebase
+    fireBase.database().ref('countClick').child(title).set({
+      count: countClick + 1
+    })
+
+    //move screen with title screen  //showAdInter(), setTimeout(() => {}, 2000)
+    navigation.navigate(title)
   }
 
   return (
