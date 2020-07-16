@@ -27,7 +27,7 @@ const onValueChange = fireBase.database()
 export default function MyList({navigation}) {
 
   const [selectedId, setSelectedId] = useState();
-  const [showAlert, setShowAlert] = useState(true)
+  //const [showAlert, setShowAlert] = useState(true)
 
   //hiện thông báo yêu cầu người dùng đánh giá
 const showAlertReview = () => { //function này thực hiện luôn, không cần gọi
@@ -52,16 +52,16 @@ const showAlertReview = () => { //function này thực hiện luôn, không cầ
     );
   }
 
-  if (showAlert === true){
-    showAlertReview()
-  }
+  // if (showAlert === true){
+  //   showAlertReview()
+  // }
 
-  function like(id){ //Like item with item.id
-    //set like or unlike item
-    FOMULAS[id - 1].like = !FOMULAS[id - 1].like //id - 1 to get index in FOMULAS
-    //change to reload data
-    setSelectedId(FOMULAS[id - 1].like)
-  }
+  // function like(id){ //Like item with item.id
+  //   //set like or unlike item
+  //   FOMULAS[id - 1].like = !FOMULAS[id - 1].like //id - 1 to get index in FOMULAS
+  //   //change to reload data
+  //   setSelectedId(FOMULAS[id - 1].like)
+  // }
 
   //show ads on click item, and then move to screen formulars
   // then +1 to fomular to count user used formulars
@@ -98,9 +98,9 @@ const showAlertReview = () => { //function này thực hiện luôn, không cầ
                   </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={{flex:1}} onPress = {() => like(item.id)}>
-                  <Ionicons name={item.like === true?"md-star":"md-star-outline"} size={30} color="#00bfa5" style={{marginTop: 5}}/>
-                </TouchableOpacity>
+                // <TouchableOpacity style={{flex:1}} onPress = {() => like(item.id)}>
+                //   <Ionicons name={item.like === true?"md-star":"md-star-outline"} size={30} color="#00bfa5" style={{marginTop: 5}}/>
+                // </TouchableOpacity>
               </View>
             )}
             keyExtractor={item => item.id}
