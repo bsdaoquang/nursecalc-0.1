@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
   },
   inner:{
     flex: 1,
-    marginBottom: 70,
+    //marginBottom: 70,
     paddingHorizontal: 10
   },
   /*style for header*/

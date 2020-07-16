@@ -6,6 +6,7 @@ import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
 import {showAdInter} from '../components/intersititialAdmob'
 import {FOMULAS, LIKE} from '../components/data'
+import * as Linking from 'expo-linking'
 import {fireBase} from '../components/firebaseConfig'
 
 function Item({ title }) {
@@ -26,6 +27,34 @@ const onValueChange = fireBase.database()
 export default function MyList({navigation}) {
 
   const [selectedId, setSelectedId] = useState();
+  const [showAlert, setShowAlert] = useState(true)
+
+  //hiện thông báo yêu cầu người dùng đánh giá
+const showAlertReview = () => { //function này thực hiện luôn, không cần gọi
+  Alert.alert(
+      "Đánh giá",
+      "Nhằm nâng cao chất lượng phục vụ, mong bạn cho biết đánh giá và cảm nhận của mình, xin cám ơn",
+      [
+        {
+          text: "Đi đánh giá",
+          onPress: () => Linking.openURL('https://play.google.com/store/apps/details?id=com.bsdaoquang.trolydieuduong')
+        },
+        {
+          text: "Để sau",
+          onPress: () => console.log("Để sau"),
+          style: "cancel"
+        },
+        { 
+          text: "Không nhắc lại", 
+          onPress: () => setShowAlert(false) }
+      ],
+      { cancelable: false }
+    );
+  }
+
+  if (showAlert === true){
+    showAlertReview()
+  }
 
   function like(id){ //Like item with item.id
     //set like or unlike item
@@ -46,8 +75,8 @@ export default function MyList({navigation}) {
       count: countClick + 1
     })
 
-    //move screen with title screen  //showAdInter(), setTimeout(() => {}, 2000)
-    navigation.navigate(title)
+    //move screen with title screen  //
+    showAdInter(), setTimeout(() => {navigation.navigate(title)}, 2000)
   }
 
   return (
@@ -70,13 +99,21 @@ export default function MyList({navigation}) {
                 </TouchableOpacity>
 
                 <TouchableOpacity style={{flex:1}} onPress = {() => like(item.id)}>
-                  <Ionicons name={item.like == true?"md-star":"md-star-outline"} size={30} color="#00bfa5" style={{marginTop: 5}}/>
+                  <Ionicons name={item.like === true?"md-star":"md-star-outline"} size={30} color="#00bfa5" style={{marginTop: 5}}/>
                 </TouchableOpacity>
               </View>
             )}
             keyExtractor={item => item.id}
           />
         {/*end list*/}
+
+        <View style={{marginTop: 15, flexDirection:'row'}}>
+          <Text style={styles.infoText}>Không thấy cái bạn cần?</Text>
+
+          <TouchableOpacity onPress={() => Linking.openURL('mailto:bsdaoquangadmod@gmai.com?subject=Trợ lý Điều Dưỡng - Yêu cầu thêm công cụ tiện ích&body=Viết công thức bạn muốn ở đây')}>
+            <Text style={styles.infoText}> Bấm vào đây</Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
       <View>
