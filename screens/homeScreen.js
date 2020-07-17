@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, TouchableOpacity, Alert, ScrollView} from 'react-native';
+import { SafeAreaView, View, FlatList, StyleSheet, Text, TouchableOpacity, Alert, ScrollView, AsyncStorage} from 'react-native';
 import Constants from 'expo-constants';
 import {styles} from '../styles_global/styles'
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
@@ -27,41 +27,47 @@ const onValueChange = fireBase.database()
 export default function MyList({navigation}) {
 
   const [selectedId, setSelectedId] = useState();
-  //const [showAlert, setShowAlert] = useState(true)
+  //thử nghiệm lưu giá trị
+  const [show, setShow] = useState('yes')
 
-  //hiện thông báo yêu cầu người dùng đánh giá
-const showAlertReview = () => { //function này thực hiện luôn, không cần gọi
+  const alertShow = async () => {
+    await AsyncStorage.setItem('TASK', show);
+    const value = await AsyncStorage.getItem('TASK');
+  };
+  alertShow()
+  //Hết thử nghiệm
+
+  //Thông báo yêu cầu đánh giá ứng dụng
+  const alertReviewApp = () =>
   Alert.alert(
-      "Đánh giá",
-      "Nhằm nâng cao chất lượng phục vụ, mong bạn cho biết đánh giá và cảm nhận của mình, xin cám ơn",
-      [
-        {
-          text: "Đi đánh giá",
-          onPress: () => Linking.openURL('https://play.google.com/store/apps/details?id=com.bsdaoquang.trolydieuduong')
-        },
-        {
-          text: "Để sau",
-          onPress: () => console.log("Để sau"),
-          style: "cancel"
-        },
-        { 
-          text: "Không nhắc lại", 
-          onPress: () => setShowAlert(false) }
-      ],
-      { cancelable: false }
-    );
+    "Đánh giá",
+    "Nhằm nâng cao chất lượng phục vụ, Bạn vui lòng đánh giá ứng dụng nhé!",
+    [
+      {
+        text: "Không hiện lại",
+        onPress: () => setShow('no')//chuyển biến showAlert thành 'no'
+      },
+      {
+        text: "Để sau",
+        onPress: () => console.log("Để sau"),
+        style: "cancel"
+      },
+      { text: "Đánh giá", onPress: () => Linking.openURL('https://play.google.com/store/apps/details?id=com.bsdaoquang.trolydieuduong')}
+    ],
+    { cancelable: false }
+  );
+  //hết thông báo
+
+  if (show == 'yes') {
+    alertReviewApp()
   }
 
-  // if (showAlert === true){
-  //   showAlertReview()
-  // }
-
-  // function like(id){ //Like item with item.id
-  //   //set like or unlike item
-  //   FOMULAS[id - 1].like = !FOMULAS[id - 1].like //id - 1 to get index in FOMULAS
-  //   //change to reload data
-  //   setSelectedId(FOMULAS[id - 1].like)
-  // }
+  function like(id){ //Like item with item.id
+    //set like or unlike item
+    FOMULAS[id - 1].like = !FOMULAS[id - 1].like //id - 1 to get index in FOMULAS
+    //change to reload data
+    setSelectedId(FOMULAS[id - 1].like)
+  }
 
   //show ads on click item, and then move to screen formulars
   // then +1 to fomular to count user used formulars
@@ -76,9 +82,9 @@ const showAlertReview = () => { //function này thực hiện luôn, không cầ
     })
 
     //move screen with title screen  //
-    showAdInter(), setTimeout(() => {navigation.navigate(title)}, 2000)
+    //showAdInter()
+    navigation.navigate(title)
   }
-
   return (
     <View style={styles.container}>
       <View style={styles.inner}>
@@ -98,9 +104,9 @@ const showAlertReview = () => { //function này thực hiện luôn, không cầ
                   </View>
                 </TouchableOpacity>
 
-                // <TouchableOpacity style={{flex:1}} onPress = {() => like(item.id)}>
-                //   <Ionicons name={item.like === true?"md-star":"md-star-outline"} size={30} color="#00bfa5" style={{marginTop: 5}}/>
-                // </TouchableOpacity>
+                <TouchableOpacity style={{flex:1}} onPress = {() => like(item.id)}>
+                  <Ionicons name={item.like === true?"md-star":"md-star-outline"} size={30} color="#00bfa5" style={{marginTop: 5}}/>
+                </TouchableOpacity>
               </View>
             )}
             keyExtractor={item => item.id}
@@ -110,7 +116,7 @@ const showAlertReview = () => { //function này thực hiện luôn, không cầ
         <View style={{marginTop: 15, flexDirection:'row'}}>
           <Text style={styles.infoText}>Không thấy cái bạn cần?</Text>
 
-          <TouchableOpacity onPress={() => Linking.openURL('mailto:bsdaoquangadmod@gmai.com?subject=Trợ lý Điều Dưỡng - Yêu cầu thêm công cụ tiện ích&body=Viết công thức bạn muốn ở đây')}>
+          <TouchableOpacity onPress={() => Linking.openURL('mailto:bsdaoquang@gmai.com?subject=Trợ lý Điều Dưỡng - Yêu cầu thêm công cụ tiện ích&body=Viết công thức bạn muốn ở đây')}>
             <Text style={styles.infoText}> Bấm vào đây</Text>
           </TouchableOpacity>
         </View>

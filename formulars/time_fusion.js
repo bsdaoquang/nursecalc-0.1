@@ -4,12 +4,8 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
-import {admobIntersititial} from '../screens/admob_Screen'
-import {t} from '../locales/index'
-
 
 export default function TimeFusion(){
-
 
   //Khai báo các giá trị
   const [volume, setVolume] = useState(volume)
@@ -266,7 +262,7 @@ export default function TimeFusion(){
                     />
                     {
                       endHour == '' ?
-                        <Text style={styles.errorText}>Lỗi</Text>                      
+                        <Text style={styles.errorText}>Lỗi</Text>
                       : null
                     }
                   </View>

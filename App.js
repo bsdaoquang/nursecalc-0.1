@@ -52,6 +52,10 @@ const onShare = async () => {
     }
   };
 
+const addFormula = () => {
+  Linking.openURL('mailto:bsdaoquang@gmai.com?subject=Trợ lý Điều Dưỡng - Yêu cầu thêm công cụ tiện ích&body=Viết công thức bạn muốn ở đây')
+}
+
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator()
@@ -124,7 +128,7 @@ export default function App(){
           <Drawer.Screen name='Trang chủ' component={StackNavigation}/>
           <Drawer.Screen name='Giới thiệu' component={About}/>
           <Drawer.Screen name='Liên hệ' component={Contact}/>
-          <Drawer.Screen name='Thêm công thức' component={() => Linking.openURL('mailto:bsdaoquang@gmai.com?subject=Trợ lý Điều Dưỡng - Yêu cầu thêm công cụ tiện ích&body=Viết công thức bạn muốn ở đây')}/>
+          <Drawer.Screen name='Thêm công thức' component={addFormula}/>
           <Drawer.Screen name='Chia sẻ' component={onShare}/>
         </Drawer.Navigator>
       </NavigationContainer>
