@@ -28,13 +28,9 @@ export default function MyList({navigation}) {
 
   const [selectedId, setSelectedId] = useState();
   //thử nghiệm lưu giá trị
-  const [show, setShow] = useState('yes')
-
   const alertShow = async () => {
-    await AsyncStorage.setItem('TASK', show);
-    const value = await AsyncStorage.getItem('TASK');
+    await AsyncStorage.setItem('TASK', 'yes');
   };
-  alertShow()
   //Hết thử nghiệm
 
   //Thông báo yêu cầu đánh giá ứng dụng
@@ -45,7 +41,7 @@ export default function MyList({navigation}) {
     [
       {
         text: "Không hiện lại",
-        onPress: () => setShow('no')//chuyển biến showAlert thành 'no'
+        onPress: () => alertShow()//chuyển biến showAlert thành 'no'
       },
       {
         text: "Để sau",
@@ -58,9 +54,15 @@ export default function MyList({navigation}) {
   );
   //hết thông báo
 
-  if (show == 'yes') {
-    alertReviewApp()
-  }
+//kiểm tra biến show
+  const alerCheked = async () => {
+    const value = await AsyncStorage.getItem('TASK');
+    if (value == 'yes') {
+      alertReviewApp()
+    }
+  };
+
+  alerCheked()
 
   function like(id){ //Like item with item.id
     //set like or unlike item
