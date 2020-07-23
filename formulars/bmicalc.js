@@ -1,11 +1,9 @@
 import React, {useState} from 'react'
 import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
-        TouchableWithoutFeedback, TouchableOpacity, Keyboard, ScrollView, YellowBox} from 'react-native'
+        TouchableWithoutFeedback, TouchableOpacity, Keyboard, ScrollView} from 'react-native'
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
-
-console.disableYellowBox = true
 
 export default function BMICalc(){
 

@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
   },
   inner:{
     flex: 1,
-    //marginBottom: 70,
+    marginBottom: 70,
     paddingHorizontal: 10
   },
   /*style for header*/
@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
   headerTitle:{
     fontSize: 24,
     color: '#00bfa5',
-    
+
     textAlign: 'center',
     fontWeight: 'bold',
     textTransform: 'uppercase'
@@ -74,6 +74,7 @@ export const styles = StyleSheet.create({
     borderBottomColor: '#c1c1c1',
     justifyContent:'center',
     flexDirection: 'row',
+    flex: 1
   },
   titleInput:{
     flex: 4,
@@ -96,14 +97,14 @@ export const styles = StyleSheet.create({
   },
   input:{
     marginHorizontal: 5,
-    flexDirection: 'row',
+    //flexDirection: 'row',
     borderColor: '#6d6d6d',
     borderBottomWidth: 1,
     textAlign: 'right',
     paddingHorizontal: 10,
     fontSize: 16,
     fontWeight: 'bold',
-
+    flex: 1,
     color: '#6d6d6d',
   },
   alertText:{
@@ -144,12 +145,14 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#fafafa',
     flexDirection:'row',
+    justifyContent: 'flex-end'
   },
   resultTitleText:{
     color: '#fafafa',
     fontWeight: 'bold',
 
     fontSize: 24,
+    marginTop: 10
   },
   resultTitleDesc:{
     color: '#fafafa',
@@ -179,8 +182,8 @@ export const styles = StyleSheet.create({
     color: '#fafafa',
     fontSize: 18,
     fontWeight: 'bold',
-
-    lineHeight: 30
+    marginTop: 16,
+    //lineHeight: 30
   },
   superUnit:{
     color: '#fafafa',

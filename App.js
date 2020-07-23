@@ -18,6 +18,7 @@ import DoseCalc from './formulars/dose_calc'
 import CountDrops from './formulars/count_drops'
 import DesiredDose from './formulars/desired_dose'
 import DripReateCalc from './formulars/drip_rate_calc'
+import OxyVolCalc from './formulars/oxy_vol_cal';
 
 //Admob ads
 import IntersititialAdmob from './components/intersititialAdmob'
@@ -52,6 +53,10 @@ const onShare = async () => {
     }
   };
 
+const addFormula = () => {
+  Linking.openURL('mailto:bsdaoquang@gmai.com?subject=Trợ lý Điều Dưỡng - Yêu cầu thêm công cụ tiện ích&body=Viết công thức bạn muốn ở đây')
+}
+
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator()
@@ -74,6 +79,7 @@ function StackNavigation({navigation}) {
           )
         }}
         />
+        <Stack.Screen name='Tính thể tích oxy' component={OxyVolCalc}/>
         <Stack.Screen name='Tính thời gian truyền dịch' component={TimeFusion}/>
         <Stack.Screen name='Tính thời gian truyền máu' component={TimeBloodTransfusion}/>
         <Stack.Screen name='Tính BMI & BSA' component={BMICalc}/>
@@ -124,7 +130,7 @@ export default function App(){
           <Drawer.Screen name='Trang chủ' component={StackNavigation}/>
           <Drawer.Screen name='Giới thiệu' component={About}/>
           <Drawer.Screen name='Liên hệ' component={Contact}/>
-          <Drawer.Screen name='Thêm công thức' component={() => Linking.openURL('mailto:bsdaoquang@gmai.com?subject=Trợ lý Điều Dưỡng - Yêu cầu thêm công cụ tiện ích&body=Viết công thức bạn muốn ở đây')}/>
+          <Drawer.Screen name='Thêm công thức' component={addFormula}/>
           <Drawer.Screen name='Chia sẻ' component={onShare}/>
         </Drawer.Navigator>
       </NavigationContainer>
