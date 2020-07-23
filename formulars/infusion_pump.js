@@ -168,7 +168,7 @@ export default function InfusionPump({navigation}){
                   value = {lieuDung}
                 />
                 {
-                  lieuDung === '' || lieuDung < 0 ?
+                  lieuDung == '' || lieuDung < 0 ?
                     <Text style={styles.errorText}>Lỗi</Text>
                   : null
                 }

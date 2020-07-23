@@ -27,41 +27,13 @@ const onValueChange = fireBase.database()
 export default function MyList({navigation}) {
 
   const [selectedId, setSelectedId] = useState();
-  //const [showAlert, setShowAlert] = useState(true)
 
-  //hiện thông báo yêu cầu người dùng đánh giá
-const showAlertReview = () => { //function này thực hiện luôn, không cần gọi
-  Alert.alert(
-      "Đánh giá",
-      "Nhằm nâng cao chất lượng phục vụ, mong bạn cho biết đánh giá và cảm nhận của mình, xin cám ơn",
-      [
-        {
-          text: "Đi đánh giá",
-          onPress: () => Linking.openURL('https://play.google.com/store/apps/details?id=com.bsdaoquang.trolydieuduong')
-        },
-        {
-          text: "Để sau",
-          onPress: () => console.log("Để sau"),
-          style: "cancel"
-        },
-        { 
-          text: "Không nhắc lại", 
-          onPress: () => setShowAlert(false) }
-      ],
-      { cancelable: false }
-    );
+  function like(id){ //Like item with item.id
+    //set like or unlike item
+    FOMULAS[id - 1].like = !FOMULAS[id - 1].like //id - 1 to get index in FOMULAS
+    //change to reload data
+    setSelectedId(FOMULAS[id - 1].like)
   }
-
-  // if (showAlert === true){
-  //   showAlertReview()
-  // }
-
-  // function like(id){ //Like item with item.id
-  //   //set like or unlike item
-  //   FOMULAS[id - 1].like = !FOMULAS[id - 1].like //id - 1 to get index in FOMULAS
-  //   //change to reload data
-  //   setSelectedId(FOMULAS[id - 1].like)
-  // }
 
   //show ads on click item, and then move to screen formulars
   // then +1 to fomular to count user used formulars
@@ -98,9 +70,9 @@ const showAlertReview = () => { //function này thực hiện luôn, không cầ
                   </View>
                 </TouchableOpacity>
 
-                // <TouchableOpacity style={{flex:1}} onPress = {() => like(item.id)}>
-                //   <Ionicons name={item.like === true?"md-star":"md-star-outline"} size={30} color="#00bfa5" style={{marginTop: 5}}/>
-                // </TouchableOpacity>
+                <TouchableOpacity style={{flex:1}} onPress = {() => like(item.id)}>
+                  <Ionicons name={item.like == true?"md-star":"md-star-outline"} size={30} color="#00bfa5" style={{marginTop: 5}}/>
+                </TouchableOpacity>
               </View>
             )}
             keyExtractor={item => item.id}

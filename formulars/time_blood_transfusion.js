@@ -277,7 +277,7 @@ export default function TimeBloodTransfusion(){
                       value = {endMinute}
                     />
                     {
-                      endMinute === '' ?
+                      endMinute == '' ?
                         <Text style={styles.errorText}>Lỗi</Text>
                       : null
                     }
