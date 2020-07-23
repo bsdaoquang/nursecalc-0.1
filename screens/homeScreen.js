@@ -57,34 +57,33 @@ export default function MyList({navigation}) {
 //kiểm tra biến show
   const alerCheked = async () => {
     const value = await AsyncStorage.getItem('TASK');
-    if (value == 'yes') {
+    if (value == null) {// nếu value = null thì sẽ hiện yêu cầu đánh giá, ngược lại thì không, dù có cài lại
       alertReviewApp()
     }
   };
 
   alerCheked()
 
-  function like(id){ //Like item with item.id
-    //set like or unlike item
-    FOMULAS[id - 1].like = !FOMULAS[id - 1].like //id - 1 to get index in FOMULAS
-    //change to reload data
-    setSelectedId(FOMULAS[id - 1].like)
-  }
+  //Phần nút like công thức, tạm thời bỏ
+  // function like(id){ //Like item with item.id
+  //   //set like or unlike item
+  //   FOMULAS[id - 1].like = !FOMULAS[id - 1].like //id - 1 to get index in FOMULAS
+  //   //change to reload data
+  //   setSelectedId(FOMULAS[id - 1].like)
+  // }
 
   //show ads on click item, and then move to screen formulars
   // then +1 to fomular to count user used formulars
   //get count form firebase
   function moveScreen(title, id){
-    //get count
-    var countClick = Fomulars[0][title]['count']
 
-    //update and set count title to the firebase
+    var countClick = Fomulars[0][title]['count'];
+
     fireBase.database().ref('countClick').child(title).set({
-      count: countClick + 1
-    })
-
+        count: countClick + 1
+      });
     //move screen with title screen  //
-    //showAdInter()
+    showAdInter()
     navigation.navigate(title)
   }
   return (
@@ -106,9 +105,12 @@ export default function MyList({navigation}) {
                   </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={{flex:1}} onPress = {() => like(item.id)}>
-                  <Ionicons name={item.like === true?"md-star":"md-star-outline"} size={30} color="#00bfa5" style={{marginTop: 5}}/>
-                </TouchableOpacity>
+                {/* this is like button
+                // <TouchableOpacity style={{flex:1}} onPress = {() => like(item.id)}>
+                //   <Ionicons name={item.like === true?"md-star":"md-star-outline"} size={30} color="#00bfa5" style={{marginTop: 5}}/>
+                // </TouchableOpacity>
+                */}
+
               </View>
             )}
             keyExtractor={item => item.id}

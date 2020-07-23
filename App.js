@@ -18,6 +18,7 @@ import DoseCalc from './formulars/dose_calc'
 import CountDrops from './formulars/count_drops'
 import DesiredDose from './formulars/desired_dose'
 import DripReateCalc from './formulars/drip_rate_calc'
+import OxyVolCalc from './formulars/oxy_vol_cal';
 
 //Admob ads
 import IntersititialAdmob from './components/intersititialAdmob'
@@ -78,6 +79,7 @@ function StackNavigation({navigation}) {
           )
         }}
         />
+        <Stack.Screen name='Tính thể tích oxy' component={OxyVolCalc}/>
         <Stack.Screen name='Tính thời gian truyền dịch' component={TimeFusion}/>
         <Stack.Screen name='Tính thời gian truyền máu' component={TimeBloodTransfusion}/>
         <Stack.Screen name='Tính BMI & BSA' component={BMICalc}/>
