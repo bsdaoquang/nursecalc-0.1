@@ -27,6 +27,16 @@ const onValueChange = fireBase.database()
 export default function MyList({navigation}) {
 
   const [selectedId, setSelectedId] = useState();
+<<<<<<< HEAD
+
+  function like(id){ //Like item with item.id
+    //set like or unlike item
+    FOMULAS[id - 1].like = !FOMULAS[id - 1].like //id - 1 to get index in FOMULAS
+    //change to reload data
+    setSelectedId(FOMULAS[id - 1].like)
+  }
+
+=======
   //thử nghiệm lưu giá trị
   const alertShow = async () => {
     await AsyncStorage.setItem('TASK', 'yes');
@@ -72,6 +82,7 @@ export default function MyList({navigation}) {
   //   setSelectedId(FOMULAS[id - 1].like)
   // }
 
+>>>>>>> 2c1073a521f9c25384e90327e208b736125f96ae
   //show ads on click item, and then move to screen formulars
   // then +1 to fomular to count user used formulars
   //get count form firebase
@@ -105,12 +116,18 @@ export default function MyList({navigation}) {
                   </View>
                 </TouchableOpacity>
 
+<<<<<<< HEAD
+                <TouchableOpacity style={{flex:1}} onPress = {() => like(item.id)}>
+                  <Ionicons name={item.like == true?"md-star":"md-star-outline"} size={30} color="#00bfa5" style={{marginTop: 5}}/>
+                </TouchableOpacity>
+=======
                 {/* this is like button
                 // <TouchableOpacity style={{flex:1}} onPress = {() => like(item.id)}>
                 //   <Ionicons name={item.like === true?"md-star":"md-star-outline"} size={30} color="#00bfa5" style={{marginTop: 5}}/>
                 // </TouchableOpacity>
                 */}
 
+>>>>>>> 2c1073a521f9c25384e90327e208b736125f96ae
               </View>
             )}
             keyExtractor={item => item.id}

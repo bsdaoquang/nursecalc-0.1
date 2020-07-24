@@ -9,7 +9,3 @@ export const FOMULAS = [
   {id: '7', title: 'Tính liều khả dụng', desc: 'Chia nhỏ liều thuốc ở Nhi khoa', like: false},
   {id: '8', title: 'Tính tốc độ dịch truyền', desc: 'Tốc độ cần để truyền hết 1 lượng dịch', like: false},
 ];
-
-export const LIKE = [
-
-];
