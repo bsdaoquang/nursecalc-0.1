@@ -1,2 +1,2 @@
-# nursecalc-0.1
+# nursecalc
 calculator nurse formulars
