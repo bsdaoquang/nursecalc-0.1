@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
   },
   inner:{
     flex: 1,
-    marginBottom: 70,
+    marginTop: 70,
     paddingHorizontal: 10
   },
   /*style for header*/
@@ -247,7 +247,7 @@ export const styles = StyleSheet.create({
     fontSize: 17
   },
   bottomBanner:{
-    bottom: 0,
+    top: 0,
     position: "absolute"
   },
   btnLink:{

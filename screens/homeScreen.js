@@ -126,7 +126,7 @@ export default function MyList({navigation}) {
         </View>
       </View>
 
-      <View>
+      <View style={styles.bottomBanner}>
         <AdMob />
       </View>
     </View>
