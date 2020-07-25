@@ -7,6 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as Linking from 'expo-linking'
+import * as WebBrowser from 'expo-web-browser';
 import HomeScreen from './screens/homeScreen'
 
 //Fomulars screen
@@ -57,6 +58,14 @@ const addFormula = () => {
   Linking.openURL('mailto:bsdaoquang@gmai.com?subject=Trợ lý Điều Dưỡng - Yêu cầu thêm công cụ tiện ích&body=Viết công thức bạn muốn ở đây')
 }
 
+const openICD10Browser = () => {
+  WebBrowser.openBrowserAsync('http://icd.kcb.vn/ICD/');
+}
+
+const openICD9Browser = () => {
+  WebBrowser.openBrowserAsync('http://123.31.27.68/ICD/ICD9.htm');
+}
+
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator()
@@ -88,6 +97,8 @@ function StackNavigation({navigation}) {
         <Stack.Screen name='Máy đếm giọt dịch truyền' component={CountDrops}/>
         <Stack.Screen name='Tính liều khả dụng' component={DesiredDose}/>
         <Stack.Screen name='Tính tốc độ dịch truyền' component={DripReateCalc}/>
+        <Stack.Screen name='Tra cứu mã ICD-10' component={openICD10Browser}/>
+        <Stack.Screen name='Tra cứu mã ICD-9 CM' component={openICD9Browser}/>
       </Stack.Navigator>
   );
 }

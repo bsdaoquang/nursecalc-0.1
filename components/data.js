@@ -1,4 +1,6 @@
 export const FOMULAS = [
+  {id: '10',title: 'Tra cứu mã ICD-10', desc: 'Bảng phân loại Quốc tế bệnh tật, tử vong - Bộ Y Tế', like: false},
+  {id: '11',title: 'Tra cứu mã ICD-9 CM', desc: 'Bảng phân loại Quốc tế phẫu thuật thủ thuật ICD-9 CM Vol 3 - Bộ Y Tế', like: false},
   {id: '9',title: 'Tính thể tích oxy', desc: 'Tính lượng oxy đã sử dụng cho bệnh nhân', like: false},
   {id: '1',title: 'Tính BMI & BSA', desc: 'Tính chỉ số khối cơ thể (BMI) & diện tích bề mặt (BSA)', like: false},
   {id: '2',title: 'Tính thời gian truyền máu', desc: 'Thời gian truyền hết 1 lượng máu', like: false},

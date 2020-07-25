@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, TouchableOpacity, Alert, ScrollView, AsyncStorage} from 'react-native';
 import Constants from 'expo-constants';
-import {styles} from '../styles_global/styles'
-import { FontAwesome, Ionicons } from '@expo/vector-icons'
-import AdMob from '../screens/admob_Screen'
-import {showAdInter} from '../components/intersititialAdmob'
-import {FOMULAS, LIKE} from '../components/data'
-import * as Linking from 'expo-linking'
-import {fireBase} from '../components/firebaseConfig'
+import {styles} from '../styles_global/styles';
+import { FontAwesome, Ionicons } from '@expo/vector-icons';
+import AdMob from '../screens/admob_Screen';
+import {showAdInter} from '../components/intersititialAdmob';
+import {FOMULAS} from '../components/data';
+import * as Linking from 'expo-linking';
+import {fireBase} from '../components/firebaseConfig';
 
 function Item({ title }) {
   return (
@@ -16,13 +16,6 @@ function Item({ title }) {
     </View>
   );
 }
-
-var Fomulars = [];
-const onValueChange = fireBase.database()
-      .ref().child('countClick')
-      .on('value', snapshot => {
-          Fomulars.push( snapshot.val());
-      });
 
 export default function MyList({navigation}) {
 
@@ -60,13 +53,7 @@ export default function MyList({navigation}) {
   alerCheked()
 
   function moveScreen(title, id){
-
-    var countClick = Fomulars[0][title]['count'];
-
-    fireBase.database().ref('countClick').child(title).set({
-        count: countClick + 1
-      });
-    //move screen with title screen  //
+    
     showAdInter()
     navigation.navigate(title)
   }
