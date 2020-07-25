@@ -330,7 +330,7 @@ export default function TimeFusion(){
       </TouchableWithoutFeedback>
     </ScrollView>
 
-    <View>
+    <View style={styles.bottomBanner}>
       <AdMob />
     </View>
     </View>

@@ -137,7 +137,7 @@ export default function DesiredDose(){
       </TouchableWithoutFeedback>
       </ScrollView>
 
-      <View>
+      <View style={styles.bottomBanner}>
         <AdMob />
       </View>
 

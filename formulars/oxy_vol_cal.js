@@ -11,6 +11,7 @@ export default function OxyVolCalc(){
     const [day, setDay] = useState(0)
     const [hour, setHour] = useState(0)
     const [min, setMin] = useState(0)
+
     var sumMin, sumVol
 
     if (min > 59 || min === null || min < 0) {
@@ -29,33 +30,6 @@ export default function OxyVolCalc(){
       sumMin = (day*24*60) + (hour*60) + min*1
       sumVol = sumMin * luuLuong
     }
-
-    //datetime picker setting
-    const [date, setDate] = useState(new Date(1598051730000));
-    const [mode, setMode] = useState('date');
-    const [show, setShow] = useState(false);
-
-    const onChange = (event, selectedDate) => {
-      const currentDate = selectedDate || date;
-      setShow(Platform.OS === 'ios');
-      setDate(currentDate);
-    };
-
-    const showMode = currentMode => {
-      setShow(true);
-      setMode(currentMode);
-    };
-
-    const showDatepicker = () => {
-      showMode('date');
-    };
-
-    const showTimepicker = () => {
-      showMode('time');
-    };
-
-    console.log(date)
-    //end datetime picker
 
   return(
     <View style={styles.container}>
@@ -87,12 +61,6 @@ export default function OxyVolCalc(){
                   onChangeText = {luuLuong => setLuuLuong(luuLuong)}
                   value = {luuLuong}
                 />
-                {
-                  luuLuong == null || luuLuong > 15 || luuLuong < 0?
-                    <Text style={styles.errorText}>Kiểm tra lại</Text>
-                  : null
-                }
-
               </View>
 
               <View style={styles.unitContainInput}>
@@ -106,7 +74,7 @@ export default function OxyVolCalc(){
           {/*This is form container*/}
           <View style={styles.formContain}>
             {/*This is input contain*/}
-            <Text style={styles.titleInputText}>Thời gian sử dụng</Text>
+            <Text style={styles.titleInputText}>Thời gian thở oxy</Text>
 
             <View style={styles.inputContain}>
               <View style={{flexDirection: 'row', flex: 3}}>
@@ -157,25 +125,6 @@ export default function OxyVolCalc(){
             </View>
           </View>
           {/*End result contain*/}
-
-          {/*datetimepicker*/}
-           <View>
-            <Button onPress={showDatepicker} title="Show date picker!" />
-          </View>
-          <View>
-            <Button onPress={showTimepicker} title="Show time picker!" />
-          </View>
-          {show && (
-            <DateTimePicker
-              testID="dateTimePicker"
-              value={date}
-              mode={mode}
-              is24Hour={true}
-              display="default"
-              onChange={onChange}
-            />
-          )} 
-          {/*end datetimepicker*/}
 
         </View>
       </TouchableWithoutFeedback>

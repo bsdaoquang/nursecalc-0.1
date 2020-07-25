@@ -166,7 +166,7 @@ export default function DripReateCalc({navigation}){
       </TouchableWithoutFeedback>
       </ScrollView>
 
-      <View>
+      <View style={styles.bottomBanner}>
         <AdMob />
       </View>
 

@@ -332,7 +332,7 @@ export default function TimeBloodTransfusion(){
       </TouchableWithoutFeedback>
     </ScrollView>
 
-      <View>
+      <View style={styles.bottomBanner}>
         <AdMob />
       </View>
 

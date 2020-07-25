@@ -186,7 +186,7 @@ export default function DoseCalc({navigation}){
       </TouchableWithoutFeedback>
       </ScrollView>
 
-      <View>
+      <View style={styles.bottomBanner}>
         <AdMob />
       </View>
 

@@ -84,7 +84,7 @@ export default function CountDrops(){
           </View>
 
 			</View>
-			<View>
+			<View style={styles.bottomBanner}>
 				<AdMob />
 			</View>
 		</View>
