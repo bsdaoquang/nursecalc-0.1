@@ -34,7 +34,7 @@ export default function TimeFusion(){
   if (endMinute > 59 || endMinute < 0) {
     setEndMinute('')
   }
-  if (volume > 500 || volume < 0) {
+  if (volume < 0) {
     setVolume('')
   }
   if (rate > 300 || rate < 0) {
