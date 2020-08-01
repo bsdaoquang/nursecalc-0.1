@@ -31,6 +31,8 @@ import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import About from './components/about'
 import Contact from './components/contact'
 import LikeScreen from './components/likeScreen'
+import ICD10 from './components/icd10'
+import ICD9 from './components/icd9'
 
 const onShare = async () => {
     try {
@@ -97,8 +99,8 @@ function StackNavigation({navigation}) {
         <Stack.Screen name='Máy đếm giọt dịch truyền' component={CountDrops}/>
         <Stack.Screen name='Tính liều khả dụng' component={DesiredDose}/>
         <Stack.Screen name='Tính tốc độ dịch truyền' component={DripReateCalc}/>
-        <Stack.Screen name='Tra cứu mã ICD-10' component={openICD10Browser}/>
-        <Stack.Screen name='Tra cứu mã ICD-9 CM' component={openICD9Browser}/>
+        <Stack.Screen name='Tra cứu mã ICD-10' component={ICD10}/>
+        <Stack.Screen name='Tra cứu mã ICD-9 CM' component={ICD9}/>
       </Stack.Navigator>
   );
 }
