@@ -53,8 +53,8 @@ export default function MyList({navigation}) {
   alerCheked()
 
   function moveScreen(title, id){
-    
-    showAdInter()
+
+    //showAdInter() tạm thời bỏ quảng cáo này
     navigation.navigate(title)
   }
   return (

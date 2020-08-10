@@ -18,16 +18,16 @@ export default function InfusionPump({navigation}){
 
   var tocDoTruyen = 0
 
-  if (weight > 150 || weight < 0) {
+  if (weight*1 > 150 || weight*1 < 0) {
     setWeight('')
   }
-  if (dich < 0){
+  if (dich*1 < 0){
     setDich('')
   }
-  if (thuoc < 0){
+  if (thuoc*1 < 0){
     setThuoc('')
   }
-  if (lieuDung < 0){
+  if (lieuDung*1 < 0){
     setLieuDung('')
   }
 
@@ -43,6 +43,8 @@ export default function InfusionPump({navigation}){
 				//2. tốc độ truyền ml/phút = lieudung*cannang / nongDoThuoc
 
 				var tocDomLphut = ((lieuDung*weight)/nongDoThuoc).toFixed(2)
+
+        var timePump = (dich/tocDomLphut).toFixed(0)
 
 				//tốc độ truyền bơm tiêm điện ml/giờ
 				tocDoTruyen = (tocDomLphut*60).toFixed(1)
@@ -186,18 +188,10 @@ export default function InfusionPump({navigation}){
             tocDoTruyen > 0 && dich <= 50?
 
               <View style={styles.resultContain}>
-
-                <View style={styles.resultTitle}>
-                  <Text style={styles.resultTitleText}>Tốc độ bơm tiêm điện</Text>
-                  <Text style={styles.resultTitleDesc}></Text>
-                </View>
-
                 <View style={styles.resultContent}>
+                  <Text style={styles.unit}>Tốc độ: </Text>
                   <Text style={styles.result}>{tocDoTruyen}</Text>
-                  <View style={styles.unitContain}>
-                    <Text style={styles.unit}>mL/h</Text>
-                    <Text style={styles.superUnit}></Text>
-                  </View>
+                  <Text style={styles.unit}>mL/h ({Math.floor(timePump/60)} : {timePump%60})</Text>
                 </View>
               </View>
 
@@ -241,7 +235,7 @@ export default function InfusionPump({navigation}){
       </TouchableWithoutFeedback>
       </ScrollView>
 
-      <View>
+      <View style={styles.bottomBanner}>
         <AdMob />
       </View>
 
