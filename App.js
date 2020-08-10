@@ -1,7 +1,7 @@
 // In App.js in a new project
 
 import * as React from 'react';
-import { View, Text, Button, Share } from 'react-native';
+import { View, Text, Button, Share, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer'
@@ -25,7 +25,7 @@ import OxyVolCalc from './formulars/oxy_vol_cal';
 import IntersititialAdmob from './components/intersititialAdmob'
 
 //icons
-import { FontAwesome, Ionicons } from '@expo/vector-icons'
+import { FontAwesome, FontAwesome5, Ionicons } from '@expo/vector-icons'
 
 //Drawer navigation screens
 import About from './components/about'
@@ -38,9 +38,9 @@ const onShare = async () => {
     try {
       const result = await Share.share({
         title: 'Trợ Lý Điều Dưỡng',
-        message:
-          'Công cụ tiện ích hữu hiệu nhất dành cho Điều Dưỡng',
-        url: 'https://play.google.com/store/apps/details?id=com.bsdaoquang.trolydieuduong'
+        message:`'Trợ Lý Điều Dưỡng' \n\n 'Công cụ miễn phí hữu hiệu nhất dành cho Điều Dưỡng' \n\n 'Tính nhanh các công thức thường dùng trong lâm sàng'
+          \n\n
+          'Link tải: https://play.google.com/store/apps/details?id=com.bsdaoquang.trolydieuduong'`,
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
@@ -77,7 +77,7 @@ function StackNavigation({navigation}) {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen}
           options={{
-          title: 'Trợ Lý Điều Dưỡng',
+          title: 'Trang chủ',
           headerStyle: {
             backgroundColor: '#00bfa5',
           },
@@ -87,7 +87,15 @@ function StackNavigation({navigation}) {
           },
           headerLeft:() => (
             <Ionicons name="ios-menu" size={28} color='white' style={{marginLeft: 15, marginTop: 5}} onPress={() => navigation.openDrawer()}/>
-          )
+          ),
+          headerRight: () => (
+            <View style={{flexDirection: 'row'}} >
+              <TouchableOpacity onPress={() => Linking.openURL('https://unghotoi.com/1590916101u1xls')}>
+                <Text style={{color: 'white', fontSize: 18, margin: 6}}>Ủng hộ</Text>
+              </TouchableOpacity>
+              <Ionicons name="md-share" size={24} color='white' style={{marginHorizontal: 15, marginTop: 5}} onPress={onShare}/>
+            </View>
+          ),
         }}
         />
         <Stack.Screen name='Tính thể tích oxy' component={OxyVolCalc}/>

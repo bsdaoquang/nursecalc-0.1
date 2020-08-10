@@ -4,6 +4,8 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
+import AdMobPublish from '../screens/admob_publisher';
+
 
 export default function BMICalc(){
 
@@ -188,75 +190,32 @@ export default function BMICalc(){
           </View>
           {/*end from contain*/}
 
-          {/*This is result contain*/}
-          <View style={styles.resultContain}>
+          {
+            bmi > 0 ?
+            <View style={styles.resultContain}>
+              <View style={styles.resultContent}>
+                <Text style={styles.resultTitleText}>BMI: </Text>
+                <Text style={styles.result}>{bmi}</Text>
+                <Text style={styles.rateContent}>Kg/m2 ({rate})</Text>
+              </View>
 
-            <View style={styles.resultTitle}>
-              <Text style={styles.resultTitleText}>BMI</Text>
-              <Text style={styles.resultTitleDesc}>(Chỉ số khối cơ thể)</Text>
+              <View style={styles.resultContent}>
+                <Text style={styles.resultTitleText}>BSA: </Text>
+                <Text style={styles.result}>{bsa}</Text>
+                <Text style={styles.rateContent}>m2</Text>
+              </View>
+
+              <View style={styles.resultContent}>
+                <Text style={styles.resultTitleText}>{weightTarget}</Text>
+                <Text style={styles.rateContent}>Kg (Để được BMI {bmiTarget})</Text>
+              </View>
+
             </View>
+            : null
+          }
 
-            <View style={styles.resultContent}>
-              <Text style={styles.result}>{bmi}</Text>
-              <View style={styles.unitContain}>
-                <Text style={styles.unit}>{unit}</Text>
-                <Text style={styles.superUnit}>{superUnit}</Text>
-              </View>
-            </View>
-            <Text style={styles.rateContent}>BMI: {rate}</Text>
-          </View>
-          {/*End result contain*/}
+          <AdMobPublish />
 
-          {/*This is result contain*/}
-          <View style={styles.resultContain}>
-
-            <TouchableOpacity onPress = {showContent}>
-              <View style={styles.resultTitle}>
-                <Text style={styles.resultTitleText}>BSA</Text>
-                <Text style={styles.resultTitleDesc}>(Diện tích bề mặt cơ thể)</Text>
-                <FontAwesome name='angle-down' size={24} color="white" style={styles.icons}/>
-              </View>
-            </TouchableOpacity>
-
-            {
-              show ?
-                <View style={styles.resultContent}>
-                  <Text style={styles.result}>{bsa}</Text>
-                  <View style={styles.unitContain}>
-                    <Text style={styles.unit}>m</Text>
-                    <Text style={styles.superUnit}>2</Text>
-                  </View>
-                </View>
-              : null
-            }
-
-          </View>
-          {/*End result contain*/}
-
-          {/*This is result contain*/}
-          <View style={styles.resultContain}>
-
-            <TouchableOpacity onPress = {showWeightContent}>
-              <View style={styles.resultTitle}>
-                <Text style={styles.resultTitleText}>BMI {bmiTarget}</Text>
-                <Text style={styles.resultTitleDesc}>(Chỉ số khối cơ thể)</Text>
-                <FontAwesome name='angle-down' size={24} color="white" style={styles.icons}/>
-              </View>
-            </TouchableOpacity>
-
-            {
-              showWeight ?
-                <View style={styles.resultContent}>
-                  <Text style={styles.result}>{weightTarget}</Text>
-                  <View style={styles.unitContain}>
-                    <Text style={styles.unit}>kg</Text>
-                    <Text style={styles.superUnit}></Text>
-                  </View>
-                </View>
-              : null
-            }
-          </View>
-          {/*End result contain*/}
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
