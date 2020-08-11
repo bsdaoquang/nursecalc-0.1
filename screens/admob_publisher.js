@@ -12,8 +12,8 @@ export default function AdMobPublish(){
     <View style={{marginVertical: 15, alignItems: 'center'}}>
       <PublisherBanner
         bannerSize="mediumRectangle"
-        adUnitID="ca-app-pub-3940256099942544/6300978111" //quảng cáo test
-        //adUnitID="ca-app-pub-6209888091137615/1563055691" // quảng cáo thật
+        //adUnitID="ca-app-pub-3940256099942544/6300978111" //quảng cáo test
+        adUnitID="ca-app-pub-6209888091137615/1563055691" // quảng cáo thật
         onDidFailToReceiveAdWithError={(e) => bannerError(e)}
         onAdMobDispatchAppEvent={(e) => bannerError(e)} />
     </View>

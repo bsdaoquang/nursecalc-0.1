@@ -4,6 +4,8 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
+import AdMobPublish from '../screens/admob_publisher';
+
 
 export default function TimeFusion(){
 
@@ -325,7 +327,7 @@ export default function TimeFusion(){
               null
           }
           {/*end result contain*/}
-
+          <AdMobPublish />
         </View>
       </TouchableWithoutFeedback>
     </ScrollView>

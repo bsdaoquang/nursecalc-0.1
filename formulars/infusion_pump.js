@@ -6,6 +6,7 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
+import AdMobPublish from '../screens/admob_publisher';
 
 
 export default function InfusionPump({navigation}){
@@ -61,8 +62,7 @@ export default function InfusionPump({navigation}){
         <View style={styles.inner}>
           {/*This is header*/}
           <View style={styles.headerContain}>
-            <Text style={styles.headerTitle}>Tốc độ bơm tiêm điện</Text>
-            <Text style={styles.headerSubTitle}></Text>
+            <Text style={styles.headerSubTitle}>Tính tốc độ truyền bơm tiêm điện</Text>
           </View>
           {/*End header*/}
 
@@ -231,7 +231,10 @@ export default function InfusionPump({navigation}){
           style={styles.btnLink}>
             <Text style={styles.link}>Tính liều thuốc đang sử dụng?</Text>
           </TouchableOpacity>
+
+          <AdMobPublish />
         </View>
+
       </TouchableWithoutFeedback>
       </ScrollView>
 

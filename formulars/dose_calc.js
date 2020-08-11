@@ -6,6 +6,7 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
+import AdMobPublish from '../screens/admob_publisher';
 
 export default function DoseCalc({navigation}){
 
@@ -43,7 +44,6 @@ export default function DoseCalc({navigation}){
         <View style={styles.inner}>
           {/*This is header*/}
           <View style={styles.headerContain}>
-            <Text style={styles.headerTitle}>Tính liều thuốc</Text>
             <Text style={styles.headerSubTitle}>Liều thuốc đang truyền bơm tiêm điện</Text>
           </View>
           {/*End header*/}
@@ -181,7 +181,7 @@ export default function DoseCalc({navigation}){
           style={styles.btnLink}>
             <Text style={styles.link}>Tính tốc độ truyền bơm tiêm điện?</Text>
           </TouchableOpacity>
-
+          <AdMobPublish />
         </View>
       </TouchableWithoutFeedback>
       </ScrollView>

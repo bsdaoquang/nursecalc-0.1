@@ -6,7 +6,7 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
-
+import AdMobPublish from '../screens/admob_publisher';
 
 export default function DripReateCalc({navigation}){
 
@@ -40,7 +40,6 @@ export default function DripReateCalc({navigation}){
         <View style={styles.inner}>
           {/*This is header*/}
           <View style={styles.headerContain}>
-            <Text style={styles.headerTitle}>Tính tốc độ truyền dịch</Text>
             <Text style={styles.headerSubTitle}>Tốc độ truyền dịch để truyền hết 1 lượng dịch</Text>
           </View>
           {/*End header*/}
@@ -161,7 +160,7 @@ export default function DripReateCalc({navigation}){
               : null
             }
           </View>
-
+          <AdMobPublish />
         </View>
       </TouchableWithoutFeedback>
       </ScrollView>

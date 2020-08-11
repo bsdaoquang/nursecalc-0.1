@@ -4,6 +4,8 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
+import AdMobPublish from '../screens/admob_publisher';
+
 
 export default function TimeBloodTransfusion(){
 
@@ -295,9 +297,6 @@ export default function TimeBloodTransfusion(){
             hour == null || minute == null ? null
             :
               <View style={styles.resultContain}>
-                <View style={styles.resultTitle}>
-                  <Text style={styles.resultTitleText}>Thời gian truyền máu</Text>
-                </View>
                 <Text style={styles.rateContent}>Phản ứng sinh vật: {timePUSV} phút</Text>
 
                 <View style={styles.resultContent}>
@@ -327,7 +326,7 @@ export default function TimeBloodTransfusion(){
               null
           }
           {/*end result contain*/}
-
+          <AdMobPublish />
         </View>
       </TouchableWithoutFeedback>
     </ScrollView>
