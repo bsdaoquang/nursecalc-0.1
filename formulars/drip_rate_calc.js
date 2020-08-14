@@ -6,7 +6,6 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
-import AdMobPublish from '../screens/admob_publisher';
 
 export default function DripReateCalc({navigation}){
 
@@ -160,7 +159,6 @@ export default function DripReateCalc({navigation}){
               : null
             }
           </View>
-          <AdMobPublish />
         </View>
       </TouchableWithoutFeedback>
       </ScrollView>

@@ -3,7 +3,6 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
         TouchableWithoutFeedback, TouchableOpacity, Keyboard, ScrollView, Button, Linking} from 'react-native';
 import {styles} from '../styles_global/styles';
 import AdMob from '../screens/admob_Screen';
-import AdMobPublish from '../screens/admob_publisher';
 
 export default function OxyVolCalc(){
 
@@ -125,8 +124,6 @@ export default function OxyVolCalc(){
             </View>
           </View>
           {/*End result contain*/}
-
-          <AdMobPublish />
 
         </View>
       </TouchableWithoutFeedback>

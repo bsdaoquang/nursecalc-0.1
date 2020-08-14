@@ -6,8 +6,6 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
-import AdMobPublish from '../screens/admob_publisher';
-
 
 export default function DesiredDose(){
 
@@ -133,7 +131,6 @@ export default function DesiredDose(){
               <Text style={styles.infoText}>{'Thuốc cần rút = (Liều mong muốn/liều có sẵn) x lượng thuốc'}</Text>
             </View>
           </View>
-          <AdMobPublish />
         </View>
 
       </TouchableWithoutFeedback>

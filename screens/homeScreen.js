@@ -7,7 +7,6 @@ import AdMob from '../screens/admob_Screen';
 import {showAdInter} from '../components/intersititialAdmob';
 import {FOMULAS} from '../components/data';
 import * as Linking from 'expo-linking';
-import {fireBase} from '../components/firebaseConfig';
 
 function Item({ title }) {
   return (
@@ -21,40 +20,8 @@ export default function MyList({navigation}) {
 
   const [selectedId, setSelectedId] = useState();
 
-  //Thông báo yêu cầu đánh giá ứng dụng
-  const alertReviewApp = () =>
-  Alert.alert(
-    "Đánh giá",
-    "Nhằm nâng cao chất lượng phục vụ, Bạn vui lòng đánh giá ứng dụng nhé!",
-    [
-      {
-        text: "Không hiện lại",
-        onPress: () => alertShow()//chuyển biến showAlert thành 'no'
-      },
-      {
-        text: "Để sau",
-        onPress: () => console.log("Để sau"),
-        style: "cancel"
-      },
-      { text: "Đánh giá", onPress: () => Linking.openURL('https://play.google.com/store/apps/details?id=com.bsdaoquang.trolydieuduong')}
-    ],
-    { cancelable: false }
-  );
-  //hết thông báo
-
-//kiểm tra biến show
-  const alerCheked = async () => {
-    const value = await AsyncStorage.getItem('TASK');
-    if (value == null) {// nếu value = null thì sẽ hiện yêu cầu đánh giá, ngược lại thì không, dù có cài lại
-      alertReviewApp()
-    }
-  };
-
-  alerCheked()
-
   function moveScreen(title, id){
-
-    //showAdInter() tạm thời bỏ quảng cáo này
+    showAdInter()
     navigation.navigate(title)
   }
   return (

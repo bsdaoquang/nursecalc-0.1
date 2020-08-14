@@ -30,7 +30,6 @@ import { FontAwesome, FontAwesome5, Ionicons } from '@expo/vector-icons'
 //Drawer navigation screens
 import About from './components/about'
 import Contact from './components/contact'
-import LikeScreen from './components/likeScreen'
 import ICD10 from './components/icd10'
 import ICD9 from './components/icd9'
 

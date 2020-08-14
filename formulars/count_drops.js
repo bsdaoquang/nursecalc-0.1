@@ -3,8 +3,6 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native'
 import {styles} from '../styles_global/styles'
 import AdMob from '../screens/admob_Screen'
 import { FontAwesome } from '@expo/vector-icons'
-import AdMobPublish from '../screens/admob_publisher';
-
 
 export default function CountDrops(){
 
@@ -83,8 +81,6 @@ export default function CountDrops(){
             <Text style={styles.titleInfo}>Thông tin</Text>
             <Text style={styles.contentInfo}>1 giọt rơi xuống, bấm +1, tốc độ truyền = (thời gian giọt sau - thời gian giọt trước đó)/60</Text>
           </View>
-
-          <AdMobPublish />
 			</View>
 
 			<View style={styles.bottomBanner}>

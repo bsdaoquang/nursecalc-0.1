@@ -13,8 +13,7 @@ export default function About({navigation}){
 			<Text style={styles.textInfo}>Phần mềm Trợ Lý Điều Dưỡng là phần mềm tiện ích dành cho Điều dưỡng.
 			Phần mềm được viết bởi BS. Đào Quang. Update CH Play ngày 02/07/2020 phiên bản đầu tiên và được update thường xuyên những công cụ hoặc tiện ích mới nhất
 			</Text>
-			<Text style={styles.textInfo}>Phần mềm được viết bằng tiếng Việt dễ dàng sử dụng thông tin
-			</Text>
+			<Text style={styles.textInfo}>Phần mềm được viết bằng tiếng Việt dễ dàng sử dụng</Text>
 		</SafeAreaView>
 	)
 }

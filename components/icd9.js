@@ -1,7 +1,5 @@
-import * as React from 'react';
+import React from 'react';
 import { WebView } from 'react-native-webview';
-import { View } from 'react-native'
-import AdMob from '../screens/admob_Screen'
 
 export default function ICD9(){
   return(

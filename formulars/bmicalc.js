@@ -4,8 +4,6 @@ import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView,
 import {styles} from '../styles_global/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import AdMob from '../screens/admob_Screen'
-import AdMobPublish from '../screens/admob_publisher';
-
 
 export default function BMICalc(){
 
@@ -80,9 +78,9 @@ export default function BMICalc(){
     }
 
   return(
-    <View>
+    <View style={styles.container}>
     <ScrollView>
-    <KeyboardAvoidingView style={styles.container}>
+    <KeyboardAvoidingView>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.inner}>
 
@@ -213,8 +211,6 @@ export default function BMICalc(){
             </View>
             : null
           }
-
-          <AdMobPublish />
 
         </View>
       </TouchableWithoutFeedback>
