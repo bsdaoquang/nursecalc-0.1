@@ -79,143 +79,143 @@ export default function BMICalc(){
 
   return(
     <View style={styles.container}>
-    <ScrollView>
-    <KeyboardAvoidingView>
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.inner}>
+      <ScrollView>
+        <KeyboardAvoidingView>
+          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            <View style={styles.inner}>
 
-          {/*This is header*/}
-          <View style={styles.headerContain}>
-            <Text style={styles.headerTitle}>Tính BMI & BSA</Text>
-            <Text style={styles.headerSubTitle}>Chỉ số khối cơ thể (BMI) & Diện tích bề mặt (BSA)</Text>
-          </View>
-          {/*End header*/}
-
-          {/*This is form container*/}
-          <View style={styles.formContain}>
-            {/*This is input contain*/}
-            <View style={styles.inputContain}>
-              <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>Cân nặng</Text>
+              {/*This is header*/}
+              <View style={styles.headerContain}>
+                <Text style={styles.headerTitle}>Tính BMI & BSA</Text>
+                <Text style={styles.headerSubTitle}>Chỉ số khối cơ thể (BMI) & Diện tích bề mặt (BSA)</Text>
               </View>
+              {/*End header*/}
 
-              <View style={styles.inputContent}>
-                <TextInput
-                  style={styles.input}
-                  placeholder = '0'
-                  keyboardType = 'number-pad'
-                  onChangeText = {weight => setWeight(weight)}
-                  value = {weight}
-                />
-                {
-                  weight == '' ?
-                    <Text style={styles.errorText}>Lỗi</Text>
-                  : null
-                }
+              {/*This is form container*/}
+              <View style={styles.formContain}>
+                {/*This is input contain*/}
+                <View style={styles.inputContain}>
+                  <View style={styles.titleInput}>
+                    <Text style={styles.titleInputText}>Cân nặng</Text>
+                  </View>
 
+                  <View style={styles.inputContent}>
+                    <TextInput
+                      style={styles.input}
+                      placeholder = '0'
+                      keyboardType = 'number-pad'
+                      onChangeText = {weight => setWeight(weight)}
+                      value = {weight}
+                    />
+                    {
+                      weight == '' ?
+                        <Text style={styles.errorText}>Lỗi</Text>
+                      : null
+                    }
+
+                  </View>
+
+                  <View style={styles.unitContainInput}>
+                    <Text style={styles.unitTitle}>Kg</Text>
+                  </View>
+                </View>
+                {/*end input contain*/}
               </View>
+              {/*end from contain*/}
 
-              <View style={styles.unitContainInput}>
-                <Text style={styles.unitTitle}>Kg</Text>
+
+              {/*This is form container*/}
+              <View style={styles.formContain}>
+                {/*This is input contain*/}
+                <View style={styles.inputContain}>
+                  <View style={styles.titleInput}>
+                    <Text style={styles.titleInputText}>Chiều cao</Text>
+                  </View>
+
+                  <View style={styles.inputContent}>
+                    <TextInput
+                      style={styles.input}
+                      placeholder = '0'
+                      keyboardType = 'number-pad'
+                      onChangeText = {height => setHeight(height)}
+                      value = {height}
+                    />
+                    {
+                      height == '' ?
+                        <Text style={styles.errorText}>Lỗi</Text>
+                      : null
+                    }
+                  </View>
+
+                  <View style={styles.unitContainInput}>
+                    <Text style={styles.unitTitle}>Cm</Text>
+                  </View>
+                </View>
+                {/*end input contain*/}
               </View>
+              {/*end from contain*/}
+
+              {/*This is form container*/}
+              <View style={styles.formContain}>
+                {/*This is input contain*/}
+                <View style={styles.inputContain}>
+                  <View style={styles.titleInput}>
+                    <Text style={styles.titleInputText}>BMI mong muốn</Text>
+                    <Text style={styles.titleInputDesc}>Tính cân nặng để đạt BMI mục tiêu</Text>
+                  </View>
+
+                  <View style={styles.inputContent}>
+                    <TextInput
+                      style={styles.input}
+                      placeholder = '20 - 25'
+                      keyboardType = 'number-pad'
+                      onChangeText = {bmiTarget => setBmiTarget(bmiTarget)}
+                      value = {bmiTarget}
+                    />
+                    {
+                      bmiTarget == '' ?
+                        <Text style={styles.errorText}>Lỗi</Text>
+                      : null
+                    }
+                  </View>
+
+                  <View style={styles.unitContainInput}>
+                    <Text style={styles.unitTitle}></Text>
+                  </View>
+
+                </View>
+                {/*end input contain*/}
+              </View>
+              {/*end from contain*/}
+
+              {
+                bmi > 0 ?
+                <View style={styles.resultContain}>
+                  <View style={styles.resultContent}>
+                    <Text style={styles.resultTitleText}>BMI: </Text>
+                    <Text style={styles.result}>{bmi}</Text>
+                    <Text style={styles.rateContent}>Kg/m2 ({rate})</Text>
+                  </View>
+
+                  <View style={styles.resultContent}>
+                    <Text style={styles.resultTitleText}>BSA: </Text>
+                    <Text style={styles.result}>{bsa}</Text>
+                    <Text style={styles.rateContent}>m2</Text>
+                  </View>
+
+                  <View style={styles.resultContent}>
+                    <Text style={styles.resultTitleText}>{weightTarget}</Text>
+                    <Text style={styles.rateContent}>Kg (Để được BMI {bmiTarget})</Text>
+                  </View>
+
+                </View>
+                : null
+              }
+
             </View>
-            {/*end input contain*/}
-          </View>
-          {/*end from contain*/}
-
-
-          {/*This is form container*/}
-          <View style={styles.formContain}>
-            {/*This is input contain*/}
-            <View style={styles.inputContain}>
-              <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>Chiều cao</Text>
-              </View>
-
-              <View style={styles.inputContent}>
-                <TextInput
-                  style={styles.input}
-                  placeholder = '0'
-                  keyboardType = 'number-pad'
-                  onChangeText = {height => setHeight(height)}
-                  value = {height}
-                />
-                {
-                  height == '' ?
-                    <Text style={styles.errorText}>Lỗi</Text>
-                  : null
-                }
-              </View>
-
-              <View style={styles.unitContainInput}>
-                <Text style={styles.unitTitle}>Cm</Text>
-              </View>
-            </View>
-            {/*end input contain*/}
-          </View>
-          {/*end from contain*/}
-
-          {/*This is form container*/}
-          <View style={styles.formContain}>
-            {/*This is input contain*/}
-            <View style={styles.inputContain}>
-              <View style={styles.titleInput}>
-                <Text style={styles.titleInputText}>BMI mong muốn</Text>
-                <Text style={styles.titleInputDesc}>Tính cân nặng để đạt BMI mục tiêu</Text>
-              </View>
-
-              <View style={styles.inputContent}>
-                <TextInput
-                  style={styles.input}
-                  placeholder = '20 - 25'
-                  keyboardType = 'number-pad'
-                  onChangeText = {bmiTarget => setBmiTarget(bmiTarget)}
-                  value = {bmiTarget}
-                />
-                {
-                  bmiTarget == '' ?
-                    <Text style={styles.errorText}>Lỗi</Text>
-                  : null
-                }
-              </View>
-
-              <View style={styles.unitContainInput}>
-                <Text style={styles.unitTitle}></Text>
-              </View>
-
-            </View>
-            {/*end input contain*/}
-          </View>
-          {/*end from contain*/}
-
-          {
-            bmi > 0 ?
-            <View style={styles.resultContain}>
-              <View style={styles.resultContent}>
-                <Text style={styles.resultTitleText}>BMI: </Text>
-                <Text style={styles.result}>{bmi}</Text>
-                <Text style={styles.rateContent}>Kg/m2 ({rate})</Text>
-              </View>
-
-              <View style={styles.resultContent}>
-                <Text style={styles.resultTitleText}>BSA: </Text>
-                <Text style={styles.result}>{bsa}</Text>
-                <Text style={styles.rateContent}>m2</Text>
-              </View>
-
-              <View style={styles.resultContent}>
-                <Text style={styles.resultTitleText}>{weightTarget}</Text>
-                <Text style={styles.rateContent}>Kg (Để được BMI {bmiTarget})</Text>
-              </View>
-
-            </View>
-            : null
-          }
-
-        </View>
-      </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
-    </ScrollView>
+          </TouchableWithoutFeedback>
+        </KeyboardAvoidingView>
+      </ScrollView>
       <View style={styles.bottomBanner}>
         <AdMob />
       </View>

@@ -21,7 +21,7 @@ export default function MyList({navigation}) {
   const [selectedId, setSelectedId] = useState();
 
   function moveScreen(title, id){
-    showAdInter()
+    //showAdInter()
     navigation.navigate(title)
   }
   return (

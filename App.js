@@ -1,13 +1,12 @@
 // In App.js in a new project
 
-import * as React from 'react';
-import { View, Text, Button, Share, TouchableOpacity } from 'react-native';
+import React , {useEffect} from 'react';
+import { View, Text, Button, Share, TouchableOpacity, Alert, BackHandler} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as Linking from 'expo-linking'
-import * as WebBrowser from 'expo-web-browser';
 import HomeScreen from './screens/homeScreen'
 
 //Fomulars screen
@@ -22,16 +21,30 @@ import DripReateCalc from './formulars/drip_rate_calc'
 import OxyVolCalc from './formulars/oxy_vol_cal';
 
 //Admob ads
-import IntersititialAdmob from './components/intersititialAdmob'
-
+import {showAdInter} from './components/intersititialAdmob';
 //icons
 import { FontAwesome, FontAwesome5, Ionicons } from '@expo/vector-icons'
 
 //Drawer navigation screens
 import About from './components/about'
 import Contact from './components/contact'
-import ICD10 from './components/icd10'
-import ICD9 from './components/icd9'
+
+const thongBao = () =>
+    Alert.alert(
+      "Máy Tính Y Học",
+      "Để thuận tiện cho việc update và cải thiện chất lượng người dùng, hạn chế quảng cáo, bạn chuyển sang phần mềm MÁY TÍNH Y HỌC để sử dụng nhé!!",
+      [
+        {
+          text: "Tải về ngay",
+          onPress: () => Linking.openURL('https://play.google.com/store/apps/details?id=com.bsdaoquang.maytinhyhoc'),
+          style: "cancel"
+        },
+        { text: "Hủy" }
+      ],
+      { cancelable: false }
+    );
+
+thongBao()
 
 const onShare = async () => {
     try {
@@ -59,19 +72,23 @@ const addFormula = () => {
   Linking.openURL('mailto:bsdaoquang@gmai.com?subject=Trợ lý Điều Dưỡng - Yêu cầu thêm công cụ tiện ích&body=Viết công thức bạn muốn ở đây')
 }
 
-const openICD10Browser = () => {
-  WebBrowser.openBrowserAsync('http://icd.kcb.vn/ICD/');
-}
-
-const openICD9Browser = () => {
-  WebBrowser.openBrowserAsync('http://123.31.27.68/ICD/ICD9.htm');
-}
-
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator()
 
 function StackNavigation({navigation}) {
+
+    //Phần này dùng hiện quảng cáo khi người dùng bấm thoát màn hình
+    useEffect(() => {
+      const backAction = () => {
+        showAdInter()
+      };
+
+      const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction);
+
+      return () => backHandler.remove();
+    }, []);
+
   return (
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen}
@@ -106,43 +123,9 @@ function StackNavigation({navigation}) {
         <Stack.Screen name='Máy đếm giọt dịch truyền' component={CountDrops}/>
         <Stack.Screen name='Tính liều khả dụng' component={DesiredDose}/>
         <Stack.Screen name='Tính tốc độ dịch truyền' component={DripReateCalc}/>
-        <Stack.Screen name='Tra cứu mã ICD-10' component={ICD10}/>
-        <Stack.Screen name='Tra cứu mã ICD-9 CM' component={ICD9}/>
       </Stack.Navigator>
   );
 }
-
-//Tạm thời chưa sử dụng đến
-// function TabNavigation({navigation}){
-//   return(
-//     <Tab.Navigator
-//         screenOptions={({ route }) => ({
-//           tabBarIcon: ({ focused, color, size }) => {
-//             let iconName;
-//
-//             if (route.name === 'Thích') {
-//               iconName = focused
-//                 ? 'md-star'
-//                 : 'md-star-outline';
-//             } else if (route.name === 'Tất cả') {
-//               iconName = focused ? 'ios-list-box' : 'ios-list';
-//             }
-//
-//             //can return any component that you like here!
-//             return <Ionicons name={iconName} size={size} color={color} />;
-//           },
-//         })}
-//         tabBarOptions={{
-//           activeTintColor: '#00bfa5',
-//           inactiveTintColor: 'gray',
-//         }}
-//       >
-//       <Tab.Screen name='Thích' component={LikeScreen}/>
-//       <Tab.Screen name='Tất cả' component={StackNavigation}/>
-//     </Tab.Navigator>
-//   )
-// }
-
 export default function App(){
   return(
       <NavigationContainer>

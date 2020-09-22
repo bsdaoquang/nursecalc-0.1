@@ -290,7 +290,6 @@ export const styles = StyleSheet.create({
   },
   errorText:{
     color: '#ff7961',
-
     fontSize: 14,
     paddingVertical: 5,
     textAlign: 'right',

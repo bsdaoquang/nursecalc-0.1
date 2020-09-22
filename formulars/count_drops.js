@@ -15,24 +15,16 @@ export default function CountDrops(){
 
 	const countDrop = () => {
 		var  a = count + 1
-		setCount(a)
-
 		var date = new Date()
-
 		newTime = date.getTime()
 
 		if (lastTime != null) {
-
 			time = newTime - lastTime
-
 			var rated = (60000/time).toFixed(0)
-
 			setRate(rated)
 		}
-
 		setLastTime(newTime)
 	}
-
 	const repeat = () => {
 		setCount(0)
 		setRate(0)
