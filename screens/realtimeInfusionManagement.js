@@ -13,6 +13,8 @@ export default function RIMScreen({navigation}){
 	*/
 
 	const [keyDatabase, setKeyDatabase] = useState()
+	const [name, setName] = useState()
+	const [userKey, setUserKey] = useState()
 
 	//Lưu vào trong bộ nhớ máy
 	const storeData = async (value) => {
@@ -26,10 +28,17 @@ export default function RIMScreen({navigation}){
 	//Hàm lấy ra giá trị đã lưu
 	const getData = async () => {
 		try {
-			const value = await AsyncStorage.getItem('@keyDatabase')
-			if(value !== null) {
+			const keyDatabase = await AsyncStorage.getItem('@keyDatabase')
+			if(keyDatabase !== null) {
 		      // value previously stored
-		      	setKeyDatabase(value)
+		      	setKeyDatabase(keyDatabase)
+		  	}
+
+		  	//get name
+		  	const name = await AsyncStorage.getItem('@getName')
+			if(name !== null) {
+		      // value previously stored
+		      	setName(name)
 		  	}
 		} catch(e) {
 		    console.log(e)
@@ -37,11 +46,22 @@ export default function RIMScreen({navigation}){
 	}
 
 	getData()
+	var key
+	//Lấy id của tên này trong firebase để lưu và lấy dữ liệu
+	firebaseApp.database().ref().child('user').orderByChild('userName').equalTo('Đào Quang').once('value', snap => {
+		if (snap.val() !== null) {
+			snap.forEach(item => {
+				key = item.key	
+			})
+		}
+	})
+
+	setUserKey(key)
 
 	return(
 		<SafeAreaView>
 			<View style={styles.container}>
-				
+				<Text>Xin chào {name}</Text>
 			</View>
 		</SafeAreaView>
 	)
