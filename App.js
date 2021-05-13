@@ -9,6 +9,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import HomeScreen from './screens/homeScreen'
 import RIMScreen from './screens/realtimeInfusionManagement'
+import IMScreen from './screens/infusionManagement'
+import WellComeScreen from './screens/wellCome'
 
 //Fomulars screen
 import BMICalc from './formulars/bmicalc'
@@ -90,25 +92,19 @@ function StackNavigation({navigation}) {
 
   return (
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={RIMScreen}
+        <Stack.Screen name="Home" component={WellComeScreen}
           options={{
-          title: 'Home',
+          title: 'Quản lý dịch truyền thời gian thực',
           headerStyle: {
             backgroundColor: '#00bfa5',
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
-            fontWeight: 'bold',
+            fontWeight: 'normal',
+            fontSize: 18
           },
           headerLeft:() => (
             <Ionicons name="ios-menu" size={28} color='white' style={{marginLeft: 15, marginTop: 5}} onPress={() => navigation.openDrawer()}/>
-          ),
-          headerRight: () => (
-            <View style={{flexDirection: 'row'}} >
-              <TouchableOpacity onPress={() => Linking.openURL('https://unghotoi.com/1590916101u1xls')}>
-                <Text style={{color: 'white', fontSize: 18, margin: 6}}>Scan</Text>
-              </TouchableOpacity>
-            </View>
           ),
         }}
         />
