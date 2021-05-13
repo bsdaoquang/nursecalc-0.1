@@ -1,7 +1,6 @@
 import React from 'react'
 import {Text, View, StyleSheet, SafeAreaView, Image } from 'react-native'
 import {Ionicons, FontAwesome5} from '@expo/vector-icons'
-import * as Linking from 'expo-linking'
 
 export default function Contact(){
 	return(

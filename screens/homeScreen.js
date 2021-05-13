@@ -6,7 +6,6 @@ import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import AdMob from '../screens/admob_Screen';
 import {showAdInter} from '../components/intersititialAdmob';
 import {FOMULAS} from '../components/data';
-import * as Linking from 'expo-linking';
 
 function Item({ title }) {
   return (
@@ -20,7 +19,7 @@ export default function MyList({navigation}) {
 
   const [selectedId, setSelectedId] = useState();
 
-  function moveScreen(title, id){
+  function moveScreen(title){
     //showAdInter()
     navigation.navigate(title)
   }
@@ -35,7 +34,7 @@ export default function MyList({navigation}) {
             renderItem={({ item }) => (
               <View style={styles.listContainer}>
                 <TouchableOpacity
-                  onPress={() => moveScreen(item.title, item.id)}
+                  onPress={() => moveScreen(item.title)}
                   style={{flexDirection:'row', flex: 9}}>
                   <View style={styles.listContent}>
                     <Text style={styles.listTitle}>{item.title}</Text>

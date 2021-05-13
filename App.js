@@ -6,8 +6,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import * as Linking from 'expo-linking'
+
 import HomeScreen from './screens/homeScreen'
+import RIMScreen from './screens/realtimeInfusionManagement'
 
 //Fomulars screen
 import BMICalc from './formulars/bmicalc'
@@ -20,31 +21,29 @@ import DesiredDose from './formulars/desired_dose'
 import DripReateCalc from './formulars/drip_rate_calc'
 import OxyVolCalc from './formulars/oxy_vol_cal';
 
-//Admob ads
-import {showAdInter} from './components/intersititialAdmob';
 //icons
-import { FontAwesome, FontAwesome5, Ionicons } from '@expo/vector-icons'
+import {Ionicons } from '@expo/vector-icons'
 
 //Drawer navigation screens
 import About from './components/about'
 import Contact from './components/contact'
 
-const thongBao = () =>
-    Alert.alert(
-      "Máy Tính Y Học",
-      "Để thuận tiện cho việc update và cải thiện chất lượng người dùng, hạn chế quảng cáo, bạn chuyển sang phần mềm MÁY TÍNH Y HỌC để sử dụng nhé!!",
-      [
-        {
-          text: "Tải về ngay",
-          onPress: () => Linking.openURL('https://play.google.com/store/apps/details?id=com.bsdaoquang.maytinhyhoc'),
-          style: "cancel"
-        },
-        { text: "Hủy" }
-      ],
-      { cancelable: false }
-    );
+// const thongBao = () =>
+//     Alert.alert(
+//       "Máy Tính Y Học",
+//       "Để thuận tiện cho việc update và cải thiện chất lượng người dùng, hạn chế quảng cáo, bạn chuyển sang phần mềm MÁY TÍNH Y HỌC để sử dụng nhé!!",
+//       [
+//         {
+//           text: "Tải về ngay",
+//           onPress: () => Linking.openURL('https://play.google.com/store/apps/details?id=com.bsdaoquang.maytinhyhoc'),
+//           style: "cancel"
+//         },
+//         { text: "Hủy" }
+//       ],
+//       { cancelable: false }
+//     );
 
-thongBao()
+// thongBao()
 
 const onShare = async () => {
     try {
@@ -91,9 +90,9 @@ function StackNavigation({navigation}) {
 
   return (
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen}
+        <Stack.Screen name="Home" component={RIMScreen}
           options={{
-          title: 'Trang chủ',
+          title: 'Home',
           headerStyle: {
             backgroundColor: '#00bfa5',
           },
@@ -107,9 +106,30 @@ function StackNavigation({navigation}) {
           headerRight: () => (
             <View style={{flexDirection: 'row'}} >
               <TouchableOpacity onPress={() => Linking.openURL('https://unghotoi.com/1590916101u1xls')}>
-                <Text style={{color: 'white', fontSize: 18, margin: 6}}>Ủng hộ</Text>
+                <Text style={{color: 'white', fontSize: 18, margin: 6}}>Scan</Text>
               </TouchableOpacity>
-              <Ionicons name="md-share" size={24} color='white' style={{marginHorizontal: 15, marginTop: 5}} onPress={onShare}/>
+            </View>
+          ),
+        }}
+        />
+        <Stack.Screen name="Máy tính" component={HomeScreen}
+          options={{
+          title: 'Máy tính',
+          headerStyle: {
+            backgroundColor: '#00bfa5',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          headerLeft:() => (
+            <Ionicons name="ios-menu" size={28} color='white' style={{marginLeft: 15, marginTop: 5}} onPress={() => navigation.openDrawer()}/>
+          ),
+          headerRight: () => (
+            <View style={{flexDirection: 'row'}} >
+              <TouchableOpacity onPress={() => Linking.openURL('https://unghotoi.com/1590916101u1xls')}>
+                <Text style={{color: 'white', fontSize: 18, margin: 6}}>Scan</Text>
+              </TouchableOpacity>
             </View>
           ),
         }}
@@ -126,15 +146,38 @@ function StackNavigation({navigation}) {
       </Stack.Navigator>
   );
 }
+
+function TabNavigator({navigation}){
+  return(
+    <Tab.Navigator 
+    screenOptions={({ route }) => ({
+      tabBarIcon: ({ focused, color, size }) => {
+        let iconName;
+
+        if (route.name === 'Quản lý') {
+          iconName = focused ? 'home-sharp': 'home-outline';
+        }else if (route.name === 'Máy tính') {
+          iconName = focused ? 'md-search-sharp' : 'md-search-sharp';
+        }
+        return <Ionicons name={iconName} size={size} color={color} />;
+              },
+            })}
+      tabBarOptions={{
+      activeTintColor: '#e74c3c',
+      inactiveTintColor: 'gray',
+    }}
+    >
+    <Tab.Screen name='Quản lý' component={StackNavigation}/>
+    <Tab.Screen name='Máy tính' component={HomeScreen}/>
+    </Tab.Navigator>
+  )
+}
+
 export default function App(){
   return(
       <NavigationContainer>
         <Drawer.Navigator initialRouteName="Home">
-          <Drawer.Screen name='Trang chủ' component={StackNavigation}/>
-          <Drawer.Screen name='Giới thiệu' component={About}/>
-          <Drawer.Screen name='Liên hệ' component={Contact}/>
-          <Drawer.Screen name='Thêm công thức' component={addFormula}/>
-          <Drawer.Screen name='Chia sẻ' component={onShare}/>
+          <Drawer.Screen name='Home' component={TabNavigator}/>
         </Drawer.Navigator>
       </NavigationContainer>
     )
